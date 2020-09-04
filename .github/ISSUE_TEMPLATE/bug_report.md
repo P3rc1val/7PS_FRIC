@@ -7,40 +7,57 @@ assignees: ''
 
 ---
 
-#Software Change Request (SCR) Form
-##SCR# : ____________________     REQUIREMENT :_______________________
-##CHANGE REQUEST INITIATION: 
-Originator: _________________________________________ 
+# Software Change Request (SCR) Form
+## SCR# :        REQUIREMENT# :
+## CHANGE REQUEST INITIATION: 
+Originator: 
 Version Number:
-_________________
-##CONFIGURATION ITEM: 
-Software: ______ Documentation: ______
-##CHANGE TYPE: 
-New Requirement: -[ ] Requirement Change: -[ ] Design Change: -[ ] Other: -[ ]
-##REASON: 
-Legal: -[ ] Business: -[ ] Performance Tuning: -[ ] Defect: -[ ]
-##PRIORITY: 
-Emergency: -[ ] Urgent: -[ ] Routine: -[ ] 
-##CHANGE DESCRIPTION: (Detail functional and/or technical information. Use attachment if necessary.)
+## CONFIGURATION ITEM: 
+Software:    Documentation:  
+## CHANGE TYPE: 
+- [ ] New Requirement  
+- [ ] Requirement Change  
+- [ ] Design Change   
+- [ ]  Other
+
+## REASON: 
+- [ ] Legal  
+- [ ] Business: Performance Tuning  
+- [ ] Defect
+- [ ] Other: 
+
+## PRIORITY: 
+- [ ] Emergency
+- [ ] Urgent
+- [ ] Routine
+
+## CHANGE DESCRIPTION: (Detail functional and/or technical information. Use attachment if necessary.)
 
 
-##Attachments: Yes-[ ] / No-[ ]
+##  Attachments: 
+- [ ] Yes
+- [ ] No
 
-##TECHNICAL EVALUATION: 
+## TECHNICAL EVALUATION: 
 
-Type of Software Affected:
+Type of Software Affected: NA
 
-Modules/Screens/Tables/Files Affected:
+Modules/Screens/Tables/Files Affected: NA
 
-##Documentation  Affected:                  Section:              Page: 
-Requirements Specification      
-System Design Specification    
-System Test Plan                       
-User System Reference Manual 
-System Maintenance Manual
-Other (Specify) 
+Documentation  Affected:       |            Section          |      Page
+------------------------------------ | ---------------------- | --------------
+Requirements Specification          |         NA         |     NA
+System Design Specification         |         NA         |     NA
+System Test Plan                            |         NA         |     NA
+User System Reference Manual     |         NA         |     NA
+System Maintenance Manual        |         NA         |     NA
+Other (Specify)                              |         NA         |     NA
 
 Impact Analysis Needed: Yes / No (If yes, include impact on technical performance, resources, schedule, etc.)
-APPROVALS: Change Approved: ______ Change Not Approved: ______ Hold (Future Enhancement): ______ 
+APPROVALS: 
 
-Approved by:
+- [ ] Change Approved
+- [ ] Change Not Approved
+- [ ] Hold (Future Enhancement)
+
+Approved by: _________
