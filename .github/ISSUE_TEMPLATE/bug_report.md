@@ -1,38 +1,46 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
+name: Software Change Request Form
+about: Request for for change to project
+title: "[SCR]"
 labels: ''
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+#Software Change Request (SCR) Form
+##SCR# : ____________________     REQUIREMENT :_______________________
+##CHANGE REQUEST INITIATION: 
+Originator: _________________________________________ 
+Version Number:
+_________________
+##CONFIGURATION ITEM: 
+Software: ______ Documentation: ______
+##CHANGE TYPE: 
+New Requirement: -[ ] Requirement Change: -[ ] Design Change: -[ ] Other: -[ ]
+##REASON: 
+Legal: -[ ] Business: -[ ] Performance Tuning: -[ ] Defect: -[ ]
+##PRIORITY: 
+Emergency: -[ ] Urgent: -[ ] Routine: -[ ] 
+##CHANGE DESCRIPTION: (Detail functional and/or technical information. Use attachment if necessary.)
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+##Attachments: Yes-[ ] / No-[ ]
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+##TECHNICAL EVALUATION: 
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+Type of Software Affected:
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+Modules/Screens/Tables/Files Affected:
 
-**Additional context**
-Add any other context about the problem here.
+##Documentation  Affected:                  Section:              Page: 
+Requirements Specification      
+System Design Specification    
+System Test Plan                       
+User System Reference Manual 
+System Maintenance Manual
+Other (Specify) 
+
+Impact Analysis Needed: Yes / No (If yes, include impact on technical performance, resources, schedule, etc.)
+APPROVALS: Change Approved: ______ Change Not Approved: ______ Hold (Future Enhancement): ______ 
+
+Approved by:
