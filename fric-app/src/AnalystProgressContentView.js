@@ -1,54 +1,71 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 
-function System(props) {
+function AnalystProgressSummeryContentView(props) {
   return (
     <Container>
       <RectRow>
         <Rect>
-          <FricMenuStack>
-            <FricMenu>Fric Menu</FricMenu>
-          </FricMenuStack>
+          <FricMenu>Fric Menu</FricMenu>
           <Event>
-            <Event2>Event</Event2>
+            <Event1>Event</Event1>
           </Event>
-          <Rect5>
-            <Systems>Systems</Systems>
-          </Rect5>
+          <System>
+            <Systems1>Systems</Systems1>
+          </System>
           <Task>
-            <Tasks>Tasks</Tasks>
+            <Tasks1>Tasks</Tasks1>
           </Task>
           <Subtask>
-            <Subtask7>Subtask</Subtask7>
+            <Subtask1>Subtask</Subtask1>
           </Subtask>
           <Finding>
-            <Findings>Findings</Findings>
+            <Findings1>Findings</Findings1>
           </Finding>
           <Archive>
-            <Archive7>Archive</Archive7>
+            <Archive1>Archive</Archive1>
           </Archive>
           <ConfigurationStack>
             <Configuration></Configuration>
-            <Configuration7>Configuration</Configuration7>
+            <Configuration1>Configuration</Configuration1>
           </ConfigurationStack>
           <Setup>
-            <Setup7>Setup</Setup7>
+            <Setup1>Setup</Setup1>
           </Setup>
           <Help>
-            <Help7>Help</Help7>
+            <Help1>Help</Help1>
           </Help>
         </Rect>
-        <Rect4>
-          <ContextView>Context View</ContextView>
-        </Rect4>
-        <Rect2Column>
-          <Rect2>
-            <EventTree>Event Tree</EventTree>
-          </Rect2>
-          <Rect3>
-            <SearchBox>Search Box</SearchBox>
-          </Rect3>
-        </Rect2Column>
+        <Rect3>
+          <ProgressSummaryStack>
+            <ProgressSummary>Progress Summary</ProgressSummary>
+            <GroupStack>
+              <Group>
+                <System2>
+                  <Tasks7>Tasks</Tasks7>
+                </System2>
+              </Group>
+              <Rect6>
+                <OverviewTable>Overview Table</OverviewTable>
+              </Rect6>
+            </GroupStack>
+            <Group1>
+              <System5>
+                <Subtasks>Subtasks</Subtasks>
+              </System5>
+            </Group1>
+            <Group2>
+              <System6>
+                <Findings7>Findings</Findings7>
+              </System6>
+            </Group2>
+            <Group3>
+              <System7>
+                <Systems7>Systems</Systems7>
+              </System7>
+            </Group3>
+          </ProgressSummaryStack>
+        </Rect3>
       </RectRow>
     </Container>
   );
@@ -58,8 +75,10 @@ const Container = styled.div`
   display: flex;
   border-width: 1px;
   border-color: #000000;
-  flex-direction: column;
+  flex-direction: row;
   border-style: solid;
+  height: 100vh;
+  width: 100vw;
 `;
 
 const Rect = styled.div`
@@ -72,18 +91,11 @@ const Rect = styled.div`
 
 const FricMenu = styled.span`
   font-family: Roboto;
-  top: 10px;
-  left: 34px;
-  position: absolute;
   font-style: normal;
   font-weight: 400;
   color: #121212;
-`;
-
-const FricMenuStack = styled.div`
-  width: 95px;
-  height: 36px;
-  position: relative;
+  margin-top: 10px;
+  margin-left: 34px;
 `;
 
 const Event = styled.div`
@@ -93,11 +105,11 @@ const Event = styled.div`
   border-radius: 9px;
   flex-direction: column;
   display: flex;
-  margin-top: 16px;
+  margin-top: 25px;
   margin-left: 12px;
 `;
 
-const Event2 = styled.span`
+const Event1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -106,7 +118,7 @@ const Event2 = styled.span`
   margin-left: 19px;
 `;
 
-const Rect5 = styled.div`
+const System = styled.div`
   width: 78px;
   height: 59px;
   background-color: rgba(255, 255, 255, 1);
@@ -117,7 +129,7 @@ const Rect5 = styled.div`
   margin-left: 12px;
 `;
 
-const Systems = styled.span`
+const Systems1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -137,7 +149,7 @@ const Task = styled.div`
   margin-left: 12px;
 `;
 
-const Tasks = styled.span`
+const Tasks1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -157,7 +169,7 @@ const Subtask = styled.div`
   margin-left: 12px;
 `;
 
-const Subtask7 = styled.span`
+const Subtask1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -177,7 +189,7 @@ const Finding = styled.div`
   margin-left: 12px;
 `;
 
-const Findings = styled.span`
+const Findings1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -197,7 +209,7 @@ const Archive = styled.div`
   margin-left: 12px;
 `;
 
-const Archive7 = styled.span`
+const Archive1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -216,7 +228,7 @@ const Configuration = styled.div`
   border-radius: 9px;
 `;
 
-const Configuration7 = styled.span`
+const Configuration1 = styled.span`
   font-family: Roboto;
   top: 21px;
   left: 0px;
@@ -245,7 +257,7 @@ const Setup = styled.div`
   margin-left: 12px;
 `;
 
-const Setup7 = styled.span`
+const Setup1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -265,7 +277,7 @@ const Help = styled.div`
   margin-left: 12px;
 `;
 
-const Help7 = styled.span`
+const Help1 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
@@ -274,77 +286,181 @@ const Help7 = styled.span`
   margin-left: 22px;
 `;
 
-const Rect4 = styled.div`
-  width: 485px;
-  height: 719px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 26px;
-  margin-top: 23px;
-`;
-
-const ContextView = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  margin-top: 20px;
-  margin-left: 27px;
-`;
-
-const Rect2 = styled.div`
-  width: 684px;
-  height: 397px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-`;
-
-const EventTree = styled.span`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  margin-top: 23px;
-  margin-left: 26px;
-`;
-
 const Rect3 = styled.div`
-  width: 684px;
-  height: 291px;
+  width: 1219px;
+  height: 712px;
   background-color: #e6e6e6;
   border-radius: 2px;
   flex-direction: column;
   display: flex;
-  margin-top: 31px;
+  margin-left: 19px;
+  margin-top: 27px;
 `;
 
-const SearchBox = styled.span`
+const ProgressSummary = styled.span`
+  font-family: Roboto;
+  top: 9px;
+  left: 6px;
+  position: absolute;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+`;
+
+const Group = styled.div`
+  top: 0px;
+  left: 134px;
+  width: 78px;
+  height: 43px;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+`;
+
+const System2 = styled.div`
+  width: 78px;
+  height: 43px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  flex-direction: column;
+  display: flex;
+`;
+
+const Tasks7 = styled.span`
   font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   color: #121212;
-  margin-top: 25px;
-  margin-left: 34px;
+  margin-top: 13px;
+  margin-left: 20px;
 `;
 
-const Rect2Column = styled.div`
-  width: 684px;
+const Rect6 = styled.div`
+  top: 34px;
+  left: 0px;
+  width: 1185px;
+  height: 629px;
+  position: absolute;
+  background-color: rgba(155, 155, 155, 1);
   flex-direction: column;
   display: flex;
-  margin-left: 33px;
-  margin-top: 23px;
-  margin-bottom: 26px;
+`;
+
+const OverviewTable = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  margin-top: 17px;
+  margin-left: 19px;
+`;
+
+const GroupStack = styled.div`
+  top: 0px;
+  left: 0px;
+  width: 1185px;
+  height: 663px;
+  position: absolute;
+`;
+
+const Group1 = styled.div`
+  top: 0px;
+  left: 222px;
+  width: 78px;
+  height: 43px;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+`;
+
+const System5 = styled.div`
+  width: 78px;
+  height: 43px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  flex-direction: column;
+  display: flex;
+`;
+
+const Subtasks = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  margin-top: 13px;
+  margin-left: 11px;
+`;
+
+const Group2 = styled.div`
+  top: 0px;
+  left: 309px;
+  width: 78px;
+  height: 43px;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+`;
+
+const System6 = styled.div`
+  width: 78px;
+  height: 43px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  flex-direction: column;
+  display: flex;
+`;
+
+const Findings7 = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  margin-top: 13px;
+  margin-left: 13px;
+`;
+
+const Group3 = styled.div`
+  top: 0px;
+  left: 398px;
+  width: 78px;
+  height: 43px;
+  position: absolute;
+  flex-direction: column;
+  display: flex;
+`;
+
+const System7 = styled.div`
+  width: 78px;
+  height: 43px;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 9px;
+  flex-direction: column;
+  display: flex;
+`;
+
+const Systems7 = styled.span`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  color: #121212;
+  margin-top: 13px;
+  margin-left: 13px;
+`;
+
+const ProgressSummaryStack = styled.div`
+  width: 1185px;
+  height: 663px;
+  margin-top: 33px;
+  margin-left: 17px;
+  position: relative;
 `;
 
 const RectRow = styled.div`
   height: 768px;
   flex-direction: row;
   display: flex;
-  margin-right: 34px;
+  flex: 1 1 0%;
+  margin-right: 24px;
 `;
 
-export default System;
+export default AnalystProgressSummeryContentView;
