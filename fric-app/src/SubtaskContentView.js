@@ -3,27 +3,25 @@ import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Table from "react-bootstrap/Table";
 
-class TaskContentView extends Component {
+class SubtaskContentView extends Component {
   render() {
     return (
       <Container>
         <RectRow>
           <Rect3Column>
             <Rect3>
-              <h3>Task Overview Table</h3>
+              <h3>Subtask Overview Table</h3>
 
               <Rect6>
-                <TaskOverviewTable>
+                <SubtaskOverviewTable>
                   <Table striped bordered hover variant="light">
                     <thead>
                       <tr>
                         <th>Select</th>
                         <th>Title</th>
-                        <th>System</th>
+                        <th>Task</th>
                         <th>Analyst</th>
-                        <th>Priority</th>
                         <th>Progress</th>
-                        <th>No. of Subasks</th>
                         <th>No. of Findings</th>
                         <th>Due Date</th>
                       </tr>
@@ -31,9 +29,20 @@ class TaskContentView extends Component {
                     <tbody>
                       <tr>
                         <td>
-                          <input type="checkbox" name="ch2" />
+                          <input type="checkbox" name="ch1" />
                         </td>
                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <input type="checkbox" name="ch2" />
+                        </td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -53,7 +62,6 @@ class TaskContentView extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
                       </tr>
                       <tr>
                         <td>
@@ -66,34 +74,20 @@ class TaskContentView extends Component {
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <input type="checkbox" name="ch5" />
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
                       </tr>
                     </tbody>
                   </Table>
-                </TaskOverviewTable>
+                </SubtaskOverviewTable>
               </Rect6>
             </Rect3>
             <Rect5>
-              <h3>Task Options</h3>
+              <h3>Subtask Options</h3>
               <OptionsRow>
                 <button>
                   <Archive>Archive</Archive>
                 </button>
                 <button>
-                  <Demote>Demote</Demote>
+                  <Promote>Promote</Promote>
                 </button>
                 <button label="Save">
                   <Save>Save</Save>
@@ -106,13 +100,14 @@ class TaskContentView extends Component {
           </Rect3Column>
           <Rect4>
             <titles>
-              <h3>Task Detail View</h3>
+              <h3>Subtask Detail View</h3>
             </titles>
             <Rect7>
               <scrollContainers>
-                <TaskDetailView style={{ overflow: "scroll" }}>
-                  <label for="w3review">Title</label>
+                <SubtaskDetailView style={{ overflow: "scroll" }}>
+                  <h1>Subask Detailed View</h1>
                   <form action="/action_page.php">
+                    <label for="w3review">Title</label>
                     <textarea
                       id="w3review"
                       name="w3review"
@@ -120,8 +115,8 @@ class TaskContentView extends Component {
                       cols="50"
                     ></textarea>
                   </form>
-                  <label for="w3review">Description</label>
                   <form action="/action_page.php">
+                    <label for="w3review">Description</label>
                     <textarea
                       id="w3review"
                       name="w3review"
@@ -129,18 +124,6 @@ class TaskContentView extends Component {
                       cols="50"
                     ></textarea>
                   </form>
-
-                  <label>System</label>
-
-                  <select id="myList">
-                    <option value="1">Select</option>
-                  </select>
-
-                  <label>Priority</label>
-
-                  <select id="myList">
-                    <option value="1">Select</option>
-                  </select>
 
                   <label>Progress</label>
 
@@ -177,7 +160,18 @@ class TaskContentView extends Component {
                     <option value="html">Lorem Ipsum</option>
                   </select>
 
-                  <label>Related Task(s)</label>
+                  <label>Task(s)</label>
+
+                  <select name="skills" multiple="" class="ui fluid dropdown">
+                    <option value="">Lorem Ipsum</option>
+                    <option value="angular">Lorem Ipsum</option>
+                    <option value="css">Lorem Ipsum</option>
+                    <option value="design">Lorem Ipsum</option>
+                    <option value="ember">Lorem Ipsum</option>
+                    <option value="html">Lorem Ipsum</option>
+                  </select>
+
+                  <label>Subtask(s)</label>
 
                   <select name="skills" multiple="" class="ui fluid dropdown">
                     <option value="">Lorem Ipsum</option>
@@ -198,7 +192,7 @@ class TaskContentView extends Component {
                     ></input>
                     <input type="submit"></input>
                   </form>
-                </TaskDetailView>
+                </SubtaskDetailView>
               </scrollContainers>
             </Rect7>
           </Rect4>
@@ -207,7 +201,7 @@ class TaskContentView extends Component {
     );
   }
 }
-const TaskOverviewTable = styled.span`
+const SubtaskOverviewTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
@@ -220,7 +214,7 @@ const Archive = styled.span`
   width: 78px;
   height: 59px;
 `;
-const Demote = styled.span`
+const Promote = styled.span`
   font-style: normal;
   font-weight: 400;
   color: #121212;
@@ -244,7 +238,7 @@ const Cancel = styled.span`
   height: 59px;
 `;
 
-const TaskDetailView = styled.span`
+const SubtaskDetailView = styled.span`
   display: flex;
   flex-direction: column;
 
@@ -370,4 +364,4 @@ const RectRow = styled.div`
   margin-right: 33px;
 `;
 
-export default TaskContentView;
+export default SubtaskContentView;
