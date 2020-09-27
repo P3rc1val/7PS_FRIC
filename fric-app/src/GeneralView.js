@@ -1,45 +1,78 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
+import Table from "react-bootstrap/Table";
+import ReactDOM from "react-dom";
 class GeneralView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "React",
+    };
+  }
   render() {
     return (
       <RectRow>
         <ContextViewContainer>
           <ContextView>
-            <table>
-              <tr>
-                <th>Select</th>
-                <th>Event name</th>
-                <th>No. of Systems</th>
-                <th>No. of Findings</th>
-                <th>Progress</th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch1" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch2" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch3" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch4" />
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch5" />
-                </td>
-              </tr>
-            </table>
+            <Table striped bordered hover variant="light">
+              <thead>
+                <tr>
+                  <th>Select</th>
+                  <th>Event name</th>
+                  <th>No. of Systems</th>
+                  <th>No. of Findings</th>
+                  <th>Progress</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="ch1" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <input type="checkbox" name="ch2" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="ch3" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="ch4" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="checkbox" name="ch5" />
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </Table>
           </ContextView>
         </ContextViewContainer>
         <Rect2Column>
@@ -108,12 +141,10 @@ const ContextViewContainer = styled.div`
 `;
 
 const ContextView = styled.span`
-  font-family: Roboto;
   font-style: normal;
   font-weight: 400;
   color: #121212;
-  margin-top: 20px;
-  margin-left: 27px;
+  margin: 20px;
 `;
 
 const EventTreeContainer = styled.div`
@@ -167,6 +198,7 @@ const RectRow = styled.div`
   flex-direction: row;
   display: flex;
   margin-right: 34px;
+  float: right;
 `;
 
 export default GeneralView;
