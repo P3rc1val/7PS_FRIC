@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import GeneralView from "./GeneralView.js";
-import EventContentView from "./EventContentView.js";
-import SystemContentView from "./SystemContentOverview.js";
-import TaskContentView from "./TaskContentOverview.js";
-import SubtaskContentView from "./SubtaskContentView.js";
-import FindingContentView from "./FindingContentView.js";
+import GeneralView from "../ContentViews/GeneralView.js";
+import EventContentView from "../ContentViews/EventContentView.js";
+import SystemContentView from "../ContentViews/SystemContentOverview.js";
+import TaskContentView from "../ContentViews/TaskContentOverview.js";
+import SubtaskContentView from "../ContentViews/SubtaskContentView.js";
+import FindingContentView from "../ContentViews/FindingContentView.js";
+import ArchiveContentView from "../ContentViews/ArchiveContentView.js";
 import { render } from "react-dom";
 
 class FricMenu extends Component {
@@ -19,6 +20,7 @@ class FricMenu extends Component {
       showTaskView: false,
       showSubtaskView: false,
       showFindingView: false,
+      showArchiveView: false,
     };
     this.hideView = this.hideView.bind(this);
   }
@@ -33,6 +35,7 @@ class FricMenu extends Component {
           showSubtaskView: false,
           showFindingView: false,
           showGeneralView: false,
+          showArchiveView: false,
         });
         break;
       case "System":
@@ -43,6 +46,7 @@ class FricMenu extends Component {
           showSubtaskView: false,
           showFindingView: false,
           showGeneralView: false,
+          showArchiveView: false,
         });
         break;
       case "Task":
@@ -53,6 +57,7 @@ class FricMenu extends Component {
           showSubtaskView: false,
           showFindingView: false,
           showGeneralView: false,
+          showArchiveView: false,
         });
         break;
       case "Subtask":
@@ -63,6 +68,7 @@ class FricMenu extends Component {
           showSubtaskView: true,
           showFindingView: false,
           showGeneralView: false,
+          showArchiveView: false,
         });
         break;
       case "Finding":
@@ -73,9 +79,19 @@ class FricMenu extends Component {
           showSubtaskView: false,
           showFindingView: true,
           showGeneralView: false,
+          showArchiveView: false,
         });
         break;
       case "Archive":
+        this.setState({
+          showEventView: false,
+          showSystemView: false,
+          showTaskView: false,
+          showSubtaskView: false,
+          showFindingView: false,
+          showGeneralView: false,
+          showArchiveView: true,
+        });
         break;
       case "Config":
         break;
@@ -91,6 +107,7 @@ class FricMenu extends Component {
           showTaskView: false,
           showSubtaskView: false,
           showFindingView: false,
+          showArchiveView: false,
         });
     }
   }
@@ -102,6 +119,7 @@ class FricMenu extends Component {
       showTaskView,
       showSubtaskView,
       showFindingView,
+      showArchiveView,
     } = this.state;
     return (
       <window>
@@ -118,6 +136,8 @@ class FricMenu extends Component {
             {showSubtaskView && <SubtaskContentView />}
 
             {showFindingView && <FindingContentView />}
+
+            {showArchiveView && <ArchiveContentView />}
           </overviewContainer>
           <Rect>
             <h2>
@@ -138,7 +158,7 @@ class FricMenu extends Component {
             <button onClick={() => this.hideView(showFindingView, "Finding")}>
               <Findings>Findings</Findings>
             </button>
-            <button onClick={() => this.hideView(showGeneralView, "Archive")}>
+            <button onClick={() => this.hideView(showArchiveView, "Archive")}>
               <Archive>Archive</Archive>
             </button>
             <button onClick={() => this.hideView(showGeneralView, "Config")}>

@@ -1,22 +1,22 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
-import SystemTable from "./Tables/SystemTable.js";
-import SystemOptions from "./OptionMenus/SystemOptions.js";
-import SystemDetails from "./DetailViews/SystemDetails.js";
+import FindingTable from "../Tables/FindingTable.js";
+import FindingOptions from "../OptionMenus/FindingOptions.js";
+import FindingDetails from "../DetailViews/FindingDetails.js";
+import ReportOptions from "../OptionMenus/ReportOptions.js";
 
-class SystemContentView extends Component {
+class FindingContentView extends Component {
   render() {
     return (
       <Container>
         <RectRow>
           <Rect3Column>
-            <SystemTable />
-            <SystemOptions />
+            <FindingTable />
+            <FindingOptions />
+            <ReportOptions />
           </Rect3Column>
-
-          <SystemDetails />
+          <FindingDetails />
         </RectRow>
       </Container>
     );
@@ -34,7 +34,7 @@ const Container = styled.div`
 `;
 
 const Rect3Column = styled.div`
-  width: 446px;
+  width: 850px;
   flex-direction: column;
   display: flex;
   margin-left: 19px;
@@ -49,4 +49,4 @@ const RectRow = styled.div`
   margin-right: 33px;
 `;
 
-export default SystemContentView;
+export default FindingContentView;

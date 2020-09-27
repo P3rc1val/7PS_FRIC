@@ -4,7 +4,7 @@ import Table from "react-bootstrap/Table";
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
 
-const findingTable = () => {
+const FindingTable = () => {
   return (
     <Rect3>
       <h3>Finding Overview Table</h3>
@@ -120,4 +120,4 @@ const FindingOverviewTable = styled.span`
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 `;
-export default findingTable;
+export default FindingTable;

@@ -1,19 +1,14 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import { Router, Link, Route, BrowserRouter } from "react-router-dom";
-import FricMenu from "./FricMenu.js";
-import GeneralView from "./GeneralView.js";
-import EventContentView from "./EventContentView.js";
-import SystemContentView from "./SystemContentOverview.js";
-import TaskContentView from "./TaskContentOverview.js";
-import SubtaskContentView from "./SubtaskContentView.js";
-import FindingContentView from "./FindingContentView.js";
 import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
+//import LoginView from "./Login/LoginView";
+import FricMenu from "./OptionMenus/FricMenu.js";
 //import { render } from "@testing-library/react";
 
 function System(props) {
+  // var loginState = false;
+  // if (loginState) {
   ReactDOM.render(
     <mainwindow>
       <menuOptions>
@@ -23,7 +18,13 @@ function System(props) {
     </mainwindow>,
     document.body
   );
-
+  // } else {
+  //   ReactDOM.render(
+  //     <div>
+  //       <LoginView />
+  //     </div>
+  //   );
+  // }
   const mainwindow = styled.div`
     width: 80%;
   `;

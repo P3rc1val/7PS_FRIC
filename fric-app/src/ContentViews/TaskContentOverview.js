@@ -1,21 +1,22 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Table from "react-bootstrap/Table";
-import SubtaskTable from "./Tables/SubtaskTable.js";
-import SubtaskOptions from "./OptionMenus/SubtaskOptions.js";
-import SubtaskDetails from "./DetailViews/SubtaskDetails.js";
 
-class SubtaskContentView extends Component {
+import TaskTable from "../Tables/TaskTable.js";
+import TaskOptions from "../OptionMenus/TaskOptions.js";
+import TaskDetails from "../DetailViews/TaskDetail.js";
+
+class TaskContentView extends Component {
   render() {
     return (
       <Container>
         <RectRow>
           <Rect3Column>
-            <SubtaskTable />
-            <SubtaskOptions />
+            <TaskTable />
+
+            <TaskOptions />
           </Rect3Column>
-          <SubtaskDetails />
+          <TaskDetails />
         </RectRow>
       </Container>
     );
@@ -48,4 +49,4 @@ const RectRow = styled.div`
   margin-right: 33px;
 `;
 
-export default SubtaskContentView;
+export default TaskContentView;
