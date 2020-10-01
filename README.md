@@ -1,34 +1,62 @@
-This component was created with [BuilderX](https://cloud.builderx.io/).
+# 7PS Fric App
+## How to install 
+The following dependencies are required before using the FRIC App:
+>JavaScript  
+>NodeJS   
+>Npm   
+>ReactJS  
+>MongoDB  
+>Axios  
+>Bootstrap  
+>jest-dom  
+>React Testing Library  
+>user-event  
+>body-parser  
+>core-js  
+>Express  
+>google-map-react  
+>material-ui  
+>material-ui-slider  
+>pure-react-carousel  
+>react-bootstrap  
+>react-dom  
+>react-list  
+>react-native  
+>react-native-vector-icons  
+>react-router-dom  
+>react-scripts  
+>react-table  
+>tyled-components  
 
-## BuilderX uses third party libraries for some of the react components such as
+### Installing Dependencies
+1. Go to https://nodejs.org/en/download/current/
+and download and install the proper installer for your machine.
 
-```
-@material-ui/core@4.2.1
-google-map-react@1.1.4
-material-ui-slider@3.0.8
-pure-react-carousel@1.21.1
-react-list@0.8.11
-react-router-dom@5.0.1
-styled-components@4.3.2
-react-native-vector-icons
-```
+2. Download and install Mongodb from the following site: 
+https://www.mongodb.com/try/download/community?tck=docs_server
 
-You can add these packages by running `yarn add [packageName]` or `npm install [packageName]`
+3. Then, open your cmd or terminal and enter the following commands:
+>$ npm install mongodb 
+> 
+>$ npm install express --save 
+> 
+>$ npm install body-parser --save
+>
+>$ npm install axios  
+>
+>$ npm install bootstrap
+>
+>$ npm install express
 
-## Please add the extracted component folder in your project and import the component folder.
 
-Eg import Component from `[folder path]`
+4. Then, open your cmd or terminal and open the directory where you want to install the FRIC App. Then, Enter the following command 
+>$ git pull https://github.com/P3rc1val/7PS_FRIC.git
 
-**Note: You might need to load custom fonts that has been used in the component. Font files are available in the `assets/fonts` folder.**
+## Run the program
+To run the navigate to the directory where the FRIC App was downloaded using a cmd or terminal window. Then open the fric-app directory and enter the following command
+> $ npm start  
 
-- Create style.css at the root of you project
-- Add each font like this
 
-```
-@font-face {
-  font-family: <fontName>;
-  src: url(<relative-path-to-font-file>) format(<file-format>);
-}
-```
 
-- import style.css in your index.js file
+  
+
