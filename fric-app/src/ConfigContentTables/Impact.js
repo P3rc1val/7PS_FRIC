@@ -14,9 +14,12 @@ const Impact = () => {
           <Table striped bordered hover variant="light" size="md" responsive>
             <thead>
               <tr>
+
+
               <th scope="col">Select</th>
               <th scope="col">Impact Level</th>
                 
+
               </tr>
             </thead>
             <tbody>
@@ -24,6 +27,30 @@ const Impact = () => {
                 <td>
                 <input type="checkbox" name="ch1" />
                 </td>
+
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch1" />
+                </td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch1" />
+                </td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
+=======
                 <td>VH</td>
                 
               </tr>
@@ -54,6 +81,7 @@ const Impact = () => {
                 </td>
                 <td>VL</td>
                 
+
               </tr>
               
             </tbody>

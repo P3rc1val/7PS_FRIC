@@ -30,42 +30,6 @@ const EventTable = () => {
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch2" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch3" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch4" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch5" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
             </tbody>
           </Table>
         </EventOverviewTable>

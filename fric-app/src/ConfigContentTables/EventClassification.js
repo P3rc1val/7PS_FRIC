@@ -7,24 +7,15 @@ import ReactDOM from "react-dom";
 const EventClassification = () => {
   return (
     <Rect3>
-      <h3>Finding Overview Table</h3>
+      <h3>Event Classification Table</h3>
 
       <Rect6>
-        <FindingOverviewTable>
+        <EventClassTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
               <tr>
                 <th>Select</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>System</th>
-                <th>Task</th>
-                <th>Finding</th>
-                <th>Analyst</th>
-                <th>Status</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Risk</th>
+                <th>Event Classification</th>
               </tr>
             </thead>
             <tbody>
@@ -32,65 +23,35 @@ const EventClassification = () => {
                 <td>
                   <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Top Secret</td>
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch2" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Secret</td>
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch3" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Confidential</td>
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch4" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Classified</td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch4" />
+                </td>
+                <td>Unclassified</td>
               </tr>
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </EventClassTable>
       </Rect6>
     </Rect3>
   );
@@ -115,7 +76,7 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const EventClassTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

@@ -23,14 +23,14 @@ class ConfigContentView extends Component {
 
 const Container = styled.div`
   display: flex;
-
+  width: 70%;
   flex-direction: column;
 
   float: right;
 `;
 
 const Rect3Column = styled.div`
-  width: 750px;
+  width: 70%;
   flex-direction: column;
   display: flex;
   margin-left: 19px;
@@ -39,7 +39,7 @@ const Rect3Column = styled.div`
 `;
 
 const RectRow = styled.div`
-  height: 768px;
+  height: 70%;
   flex-direction: row;
   display: flex;
   margin-right: 33px;

@@ -235,7 +235,9 @@ const Rect = styled.div`
   flex-direction: column;
   justify-content: space-between;
   display: flex;
-  position: absolute;
+   {
+    /*position: absolute;*/
+  }
   padding-right: ;
 `;
 
