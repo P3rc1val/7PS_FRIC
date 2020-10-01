@@ -7,24 +7,27 @@ import ReactDOM from "react-dom";
 const Impact = () => {
   return (
     <Rect3>
-      <h3>Finding Overview Table</h3>
+      <h3>Impact Table</h3>
 
       <Rect6>
-        <FindingOverviewTable>
-          <Table striped bordered hover variant="light" size="sm" responsive>
+        <ImpactTable>
+          <Table striped bordered hover variant="light" size="md" responsive>
             <thead>
               <tr>
-                <th>Select</th>
-                <th>Confidentiality</th>
-                <th>Integrity</th>
-                <th>Availability</th>
+
+
+              <th scope="col">Select</th>
+              <th scope="col">Impact Level</th>
+                
+
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch1" />
+                <input type="checkbox" name="ch1" />
                 </td>
+
                 <td>Low</td>
                 <td>Medium</td>
                 <td>High</td>
@@ -47,10 +50,43 @@ const Impact = () => {
                 <td>Medium</td>
                 <td>High</td>
                 <td>Information</td>
+=======
+                <td>VH</td>
+                
               </tr>
+              <tr>
+                <td>
+                <input type="checkbox" name="ch2" />
+                </td>
+                <td>H</td>
+              </tr>
+
+              <tr>
+                <td>
+                <input type="checkbox" name="ch3" />
+                </td>
+                <td>M</td>
+                </tr>
+
+              <tr>
+                <td>
+                <input type="checkbox" name="ch4" />
+                </td>
+                <td>L</td>
+              </tr>  
+
+              <tr>
+                <td>
+                <input type="checkbox" name="ch5" />
+                </td>
+                <td>VL</td>
+                
+
+              </tr>
+              
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </ImpactTable>
       </Rect6>
     </Rect3>
   );
@@ -75,7 +111,8 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const ImpactTable = styled.span`
+
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
