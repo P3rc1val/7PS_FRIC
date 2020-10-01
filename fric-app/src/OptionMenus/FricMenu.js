@@ -7,6 +7,8 @@ import TaskContentView from "../ContentViews/TaskContentOverview.js";
 import SubtaskContentView from "../ContentViews/SubtaskContentView.js";
 import FindingContentView from "../ContentViews/FindingContentView.js";
 import ArchiveContentView from "../ContentViews/ArchiveContentView.js";
+import SetupContentView from "../ContentViews/SetupContentView.js";
+import ConfigContentView from "../ContentViews/ConfigContentView.js";
 import { render } from "react-dom";
 
 class FricMenu extends Component {
@@ -21,6 +23,8 @@ class FricMenu extends Component {
       showSubtaskView: false,
       showFindingView: false,
       showArchiveView: false,
+      showConfigView: false,
+      showSetupView: false,
     };
     this.hideView = this.hideView.bind(this);
   }
@@ -36,6 +40,8 @@ class FricMenu extends Component {
           showFindingView: false,
           showGeneralView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "System":
@@ -47,6 +53,8 @@ class FricMenu extends Component {
           showFindingView: false,
           showGeneralView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "Task":
@@ -58,6 +66,8 @@ class FricMenu extends Component {
           showFindingView: false,
           showGeneralView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "Subtask":
@@ -69,6 +79,8 @@ class FricMenu extends Component {
           showFindingView: false,
           showGeneralView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "Finding":
@@ -80,6 +92,8 @@ class FricMenu extends Component {
           showFindingView: true,
           showGeneralView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "Archive":
@@ -91,11 +105,35 @@ class FricMenu extends Component {
           showFindingView: false,
           showGeneralView: false,
           showArchiveView: true,
+          showSetupView: false,
+          showConfigView: false,
         });
         break;
       case "Config":
+        this.setState({
+          showEventView: false,
+          showSystemView: false,
+          showTaskView: false,
+          showSubtaskView: false,
+          showFindingView: false,
+          showGeneralView: false,
+          showArchiveView: false,
+          showSetupView: false,
+          showConfigView: true,
+        });
         break;
       case "Setup":
+        this.setState({
+          showEventView: false,
+          showSystemView: false,
+          showTaskView: false,
+          showSubtaskView: false,
+          showFindingView: false,
+          showGeneralView: false,
+          showArchiveView: false,
+          showSetupView: true,
+          showConfigView: false,
+        });
         break;
       case "General":
         break;
@@ -108,6 +146,8 @@ class FricMenu extends Component {
           showSubtaskView: false,
           showFindingView: false,
           showArchiveView: false,
+          showSetupView: false,
+          showConfigView: false,
         });
     }
   }
@@ -120,6 +160,8 @@ class FricMenu extends Component {
       showSubtaskView,
       showFindingView,
       showArchiveView,
+      showConfigView,
+      showSetupView,
     } = this.state;
     return (
       <window>
@@ -138,6 +180,10 @@ class FricMenu extends Component {
             {showFindingView && <FindingContentView />}
 
             {showArchiveView && <ArchiveContentView />}
+
+            {showConfigView && <ConfigContentView />}
+
+            {showSetupView && <SetupContentView />}
           </overviewContainer>
           <Rect>
             <h2>
@@ -161,10 +207,10 @@ class FricMenu extends Component {
             <button onClick={() => this.hideView(showArchiveView, "Archive")}>
               <Archive>Archive</Archive>
             </button>
-            <button onClick={() => this.hideView(showGeneralView, "Config")}>
-              <Configuration>Config.</Configuration>
+            <button onClick={() => this.hideView(showConfigView, "Config")}>
+              <Configuration>Config</Configuration>
             </button>
-            <button onClick={() => this.hideView(showGeneralView, "Setup")}>
+            <button onClick={() => this.hideView(showSetupView, "Setup")}>
               <Setup>Setup</Setup>
             </button>
             <button>
@@ -226,8 +272,7 @@ const Archive = styled.div`
 `;
 
 const Configuration = styled.div`
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px;
 `;
 
 const Setup = styled.div`

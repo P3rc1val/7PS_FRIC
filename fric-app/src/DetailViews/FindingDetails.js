@@ -10,56 +10,63 @@ const FindingDetails = () => {
       <Rect7>
         <scrollContainers>
           <FindingDetailView style={{ overflow: "scroll" }}>
-            <label for="Findinfo">Finding Information:</label>
+            <form>
+              <label for="Findinfo">Finding Information:</label>
 
-            <textarea id="Findinfo" name="Findinfo">
-              0
-            </textarea>
-            <label for="FindImpact">Finding Impact:</label>
+              <textarea
+                id="w3review"
+                name="w3review"
+                rows="4"
+                cols="50"
+              ></textarea>
+            </form>
+            <form>
+              <label for="FindImpact">Finding Impact:</label>
 
-            <textarea id="FindImpact" name="FindImpact">
-              0
-            </textarea>
+              <textarea id="FindImpact" name="FindImpact">
+                0
+              </textarea>
 
-            <label for="analyst">Analyst Information:</label>
-            <textarea id="analyst" name="Analyst">
-              Mario Medina
-            </textarea>
+              <label for="analyst">Analyst Information:</label>
+              <textarea id="analyst" name="Analyst">
+                Mario Medina
+              </textarea>
 
-            <label for="Mitig">Mitigation:</label>
-            <textarea id="Mitig" name="Mitigation">
-              Your script should filter metacharacters from useer input
-            </textarea>
+              <label for="Mitig">Mitigation:</label>
+              <textarea id="Mitig" name="Mitigation">
+                Your script should filter metacharacters from useer input
+              </textarea>
 
-            <label for="Threat">Threat:</label>
-            <textarea id="Threat" name="Threat">
-              Confirmed
-            </textarea>
+              <label for="Threat">Threat:</label>
+              <textarea id="Threat" name="Threat">
+                Confirmed
+              </textarea>
 
-            <label for="Counter">Countermeasure:</label>
-            <textarea id="Counter" name="Countermeasure">
-              nput analysis to prevent metacharacters
-            </textarea>
+              <label for="Counter">Countermeasure:</label>
+              <textarea id="Counter" name="Countermeasure">
+                nput analysis to prevent metacharacters
+              </textarea>
 
-            <label for="Impact">Impact:</label>
-            <textarea id="Impact" name="Impact">
-              VL
-            </textarea>
+              <label for="Impact">Impact:</label>
+              <textarea id="Impact" name="Impact">
+                VL
+              </textarea>
 
-            <label for="Sever">Severity:</label>
-            <textarea id="Sever" name="Severity">
-              I
-            </textarea>
+              <label for="Sever">Severity:</label>
+              <textarea id="Sever" name="Severity">
+                I
+              </textarea>
 
-            <label for="Risk">Risk:</label>
-            <textarea id="Risk" name="Risk">
-              Information
-            </textarea>
+              <label for="Risk">Risk:</label>
+              <textarea id="Risk" name="Risk">
+                Information
+              </textarea>
 
-            <label for="FinSysImp">Finding System Level Impact:</label>
-            <textarea id="FinSysImp" name="FindingSystemLevelImpact">
-              Low
-            </textarea>
+              <label for="FinSysImp">Finding System Level Impact:</label>
+              <textarea id="FinSysImp" name="FindingSystemLevelImpact">
+                Low
+              </textarea>
+            </form>
           </FindingDetailView>
         </scrollContainers>
       </Rect7>
@@ -69,47 +76,49 @@ const FindingDetails = () => {
       <Rect8>
         <Overview2Stack>
           <FindingInformation style={{ overflow: "scroll" }}>
-            <label for="ID">ID:</label>
-            <input type="text" placeholder="" id="ID"></input>
+            <form>
+              <label for="ID">ID:</label>
+              <input type="text" placeholder="" id="ID"></input>
 
-            <label for="HostName">Host Name:</label>
-            <input type="text" placeholder="" id="HostName"></input>
-            <label for="ip">IP Port:</label>
-            <input type="text" placeholder="" id="ip"></input>
-            <label for="desc">Description:</label>
-            <input type="text" placeholder="" id="desc"></input>
-            <label for="LongDesc">Long Description:</label>
-            <input type="text" placeholder="" id="LongDesc"></input>
-            <br></br>
+              <label for="HostName">Host Name:</label>
+              <input type="text" placeholder="" id="HostName"></input>
+              <label for="ip">IP Port:</label>
+              <input type="text" placeholder="" id="ip"></input>
+              <label for="desc">Description:</label>
+              <input type="text" placeholder="" id="desc"></input>
+              <label for="LongDesc">Long Description:</label>
+              <input type="text" placeholder="" id="LongDesc"></input>
+              <br></br>
 
-            <label for="Status">Status:</label>
-            <select name="Status" id="stat">
-              <option value="Open">Open</option>
-              <option value="Closed">Closed</option>
-            </select>
-            <label for="type">Type:</label>
-            <select name="type" id="type">
-              <option value="CredComplex">Credential Complexity</option>
-              <option value="Manufacturer">
-                Manufacturer Default Credentials
-              </option>
-              <option value="LackAuth">Lack of Authentication</option>
-              <option value="PTP">Plain Text Protocols</option>
-              <option value="PTWL">Plain Text Web-Login</option>
-              <option value="Encrypt">Encryption</option>
-              <option value="AuthBypass">Authentication Bypass</option>
-              <option value="Port">Port Secuirty</option>
-              <option value="Access">Access Control</option>
-              <option value="LeastPriv">Least Privilege</option>
-              <option value="PrivEscal">Privilage Escalation</option>
-              <option value="unpatched">Missing Patches</option>
-              <option value="Physical">Physical Security</option>
-            </select>
-            <label for="classificication">Classification:</label>
-            <select name="Classification" id="classification">
-              <option value="required"></option>
-            </select>
-            <br></br>
+              <label for="Status">Status:</label>
+              <select name="Status" id="stat">
+                <option value="Open">Open</option>
+                <option value="Closed">Closed</option>
+              </select>
+              <label for="type">Type:</label>
+              <select name="type" id="type">
+                <option value="CredComplex">Credential Complexity</option>
+                <option value="Manufacturer">
+                  Manufacturer Default Credentials
+                </option>
+                <option value="LackAuth">Lack of Authentication</option>
+                <option value="PTP">Plain Text Protocols</option>
+                <option value="PTWL">Plain Text Web-Login</option>
+                <option value="Encrypt">Encryption</option>
+                <option value="AuthBypass">Authentication Bypass</option>
+                <option value="Port">Port Secuirty</option>
+                <option value="Access">Access Control</option>
+                <option value="LeastPriv">Least Privilege</option>
+                <option value="PrivEscal">Privilage Escalation</option>
+                <option value="unpatched">Missing Patches</option>
+                <option value="Physical">Physical Security</option>
+              </select>
+              <label for="classificication">Classification:</label>
+              <select name="Classification" id="classification">
+                <option value="required"></option>
+              </select>
+              <br></br>
+            </form>
 
             <form action="/action_page.php">
               <label for="evid">Evidence:</label>
