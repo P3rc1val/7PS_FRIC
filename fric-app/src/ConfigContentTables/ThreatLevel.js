@@ -7,90 +7,58 @@ import ReactDOM from "react-dom";
 const ThreatLevel = () => {
   return (
     <Rect3>
-      <h3>Finding Overview Table</h3>
+      <h3>Threat Level Table</h3>
 
       <Rect6>
-        <FindingOverviewTable>
+        <ThreatLevelTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
-              <tr>
-                <th>Select</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>System</th>
-                <th>Task</th>
-                <th>Finding</th>
-                <th>Analyst</th>
-                <th>Status</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Risk</th>
+            <tr>
+              <th scope="col">Select</th>
+              <th scope="col">Relevance</th>
+                
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch1" />
+                <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Confirmed</td>
+                
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch2" />
+                <input type="checkbox" name="ch2" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Expected</td>
               </tr>
+
               <tr>
                 <td>
-                  <input type="checkbox" name="ch3" />
+                <input type="checkbox" name="ch3" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
-              </tr>
-              <tr>
+                <td>Anticipated</td>
+                </tr>
+
+                <tr>
                 <td>
-                  <input type="checkbox" name="ch4" />
+                <input type="checkbox" name="ch4" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
-              </tr>
+                <td>Predicted</td>
+                </tr>
+
+                <tr>
+                <td>
+                <input type="checkbox" name="ch5" />
+                </td>
+                <td>Possible</td>
+                </tr>
+
+                
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </ThreatLevelTable>
       </Rect6>
     </Rect3>
   );
@@ -115,7 +83,7 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const ThreatLevelTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

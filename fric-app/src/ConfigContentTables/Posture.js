@@ -7,24 +7,16 @@ import ReactDOM from "react-dom";
 const Posture = () => {
   return (
     <Rect3>
-      <h3>Finding Overview Table</h3>
-
+      <h3>Posture Table</h3>
       <Rect6>
-        <FindingOverviewTable>
+        <PostureTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
-              <tr>
+            <tr>
                 <th>Select</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>System</th>
-                <th>Task</th>
-                <th>Finding</th>
-                <th>Analyst</th>
-                <th>Status</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Risk</th>
+                <th>Posture</th>
+               
+                
               </tr>
             </thead>
             <tbody>
@@ -32,65 +24,39 @@ const Posture = () => {
                 <td>
                   <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Insider</td>
+                
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch2" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Insider-Nearsider</td>
+                
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch3" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Outsider</td>
+              
               </tr>
-              <tr>
+                <tr>
                 <td>
                   <input type="checkbox" name="ch4" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Nearsider</td>
+                </tr>
+                <tr>
+                <td>
+                  <input type="checkbox" name="ch5" />
+                </td>
+                <td>Nearsider-Outsider</td>
+                
               </tr>
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </PostureTable>
       </Rect6>
     </Rect3>
   );
@@ -115,7 +81,7 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const PostureTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

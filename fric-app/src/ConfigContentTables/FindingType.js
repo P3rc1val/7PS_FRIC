@@ -6,25 +6,18 @@ import ReactDOM from "react-dom";
 
 const FindingType = () => {
   return (
+    
     <Rect3>
-      <h3>Finding Overview Table</h3>
+      <h3>Finding Table</h3>
 
       <Rect6>
-        <FindingOverviewTable>
+        <FindingTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
               <tr>
                 <th>Select</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>System</th>
-                <th>Task</th>
-                <th>Finding</th>
-                <th>Analyst</th>
-                <th>Status</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Risk</th>
+                <th>Finding Type</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -32,65 +25,118 @@ const FindingType = () => {
                 <td>
                   <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Credentials</td>
+
               </tr>
+
               <tr>
                 <td>
                   <input type="checkbox" name="ch2" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Complexity</td>
+                
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch3" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Manufaacturer Default</td>
+                
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch4" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Creds</td>
               </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch5" />
+                </td>
+                <td>Lack of Authentication</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch6" />
+                </td>
+                <td>Plain Text Protocols</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch7" />
+                </td>
+                <td>Plain Text Web Login</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch8" />
+                </td>
+                <td>Encryption</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch9" />
+                </td>
+                <td>Authentication Bypass</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch10" />
+                </td>
+                <td>Port Security</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch11" />
+                </td>
+                <td>Access Control</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch12" />
+                </td>
+                <td>Least Privilege</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch13" />
+                </td>
+                <td>Privilege Escalation</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch14" />
+                </td>
+                <td>Missing Patches</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch15" />
+                </td>
+                <td>Physical Security</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" name="ch16" />
+                </td>
+                <td>Information Disclosure</td>
+              </tr>
+
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </FindingTable>
       </Rect6>
     </Rect3>
   );
@@ -115,7 +161,7 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const FindingTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
