@@ -32,36 +32,41 @@ MongoClient.connect(url, { useUnifiedTopology: true })
   });
 
   app.post('/createEvent', function(req, res) {
-    db.collection('Events').insertOne(req.body, (err, result) {
+    db.collection('Events').insertOne(req.body, (err)=> {
       if (err) throw err;
       console.log("1 Event inserted");
     });
+    res.json({"message":"Success"})
   })
 
   app.post('/createSystem', function(req, res) {
-    db.collection('Events').insertOne(req.body, (err, result) {
+    db.collection('Events').insertOne(req.body, (err)=> {
       if (err) throw err;
-      console.log("1 System inserted");
+      console.log("1 Event inserted");
     });
+    res.json({"message":"Success"})
   })
 
   app.post('/createTask', function(req, res) {
-    db.collection('Events').insertOne(req.body, (err, result) {
+    db.collection('Events').insertOne(req.body, (err)=> {
       if (err) throw err;
-      console.log("1 Task inserted");
+      console.log("1 Event inserted");
     });
+    res.json({"message":"Success"})
   })
 
   app.post('/createSubtask', function(req, res) {
-    db.collection('Events').insertOne(req.body, (err, result) {
+    db.collection('Events').insertOne(req.body, (err)=> {
       if (err) throw err;
-      console.log("1 Subtask inserted");
+      console.log("1 Event inserted");
     });
+    res.json({"message":"Success"})
   })
 
-  app.post('/createFindings', function(req, res) {
-    db.collection('Events').insertOne(req.body, (err, result) {
+  app.post('/createFinding', function(req, res) {
+    db.collection('Events').insertOne(req.body, (err)=> {
       if (err) throw err;
-      console.log("1 Finding inserted");
+      console.log("1 Event inserted");
     });
+    res.json({"message":"Success"})
   })
