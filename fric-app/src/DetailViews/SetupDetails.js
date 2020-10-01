@@ -19,15 +19,17 @@ const SetupDetails = () => {
               <br></br>
               <h3>Please select an option:</h3>
               <br></br>
-              <input
-                type="radio"
-                id="newevent"
-                name="select"
-                value="newevent"
-              ></input>
-              <label for="new event">
-                Create a new event (any existing event will be archived
-              </label>
+              <div>
+                <input
+                  type="radio"
+                  id="newevent"
+                  name="select"
+                  value="newevent"
+                ></input>
+                <label for="new event">
+                  Create a new event (any existing event will be archived
+                </label>
+              </div>
               <input type="radio" name="select" value=""></input>
               <br></br>
               <label for="first sync">
@@ -57,7 +59,7 @@ const SetupDetails = () => {
 };
 
 const Rect4 = styled.div`
-  width: 436px;
+  width: 100%px;
   height: 711px;
   background-color: #e6e6e6;
   border-radius: 2px;
@@ -84,7 +86,7 @@ const SetupDetailView = styled.span`
   overflow: hidden;
 `;
 const Rect7 = styled.div`
-  width: 400px;
+  width: 100%px;
   height: 500px;
   background-color: rgba(155, 155, 155, 1);
   flex-direction: column;
@@ -93,5 +95,6 @@ const Rect7 = styled.div`
 
   margin-right: 5px;
 `;
+const radioboxes = styled.div``;
 
 export default SetupDetails;

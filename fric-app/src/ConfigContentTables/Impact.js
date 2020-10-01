@@ -15,16 +15,9 @@ const Impact = () => {
             <thead>
               <tr>
                 <th>Select</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>System</th>
-                <th>Task</th>
-                <th>Finding</th>
-                <th>Analyst</th>
-                <th>Status</th>
-                <th>Classification</th>
-                <th>Type</th>
-                <th>Risk</th>
+                <th>Confidentiality</th>
+                <th>Integrity</th>
+                <th>Availability</th>
               </tr>
             </thead>
             <tbody>
@@ -32,61 +25,28 @@ const Impact = () => {
                 <td>
                   <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch2" />
+                  <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch3" />
+                  <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" name="ch4" />
-                </td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <th></th>
-                <th></th>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
             </tbody>
           </Table>
