@@ -1,0 +1,51 @@
+body {
+  background-color: #5b5656;
+  height: 100vh;
+  font-family: Arial;
+  text-align: center;
+}
+
+rect4 {
+  width: 436px;
+  height: 100vh;
+  color: #f5eaea;
+  border-radius: 2px;
+  flex-direction: column;
+  display: flex;
+  margin-left: 28px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+
+  padding: 16px;
+}
+
+rect7 {
+  width: 100%;
+
+  flex-direction: column;
+  display: flex;
+  margin-top: 3px;
+  margin-right: 16px;
+  margin-bottom: 20px;
+}
+rect8 {
+  width: 100%;
+
+  flex-direction: row;
+  display: flex;
+  margin-top: 16px;
+
+  margin-bottom: 16px;
+}
+overview2Stack {
+  color: #f5eaea;
+  width: 342px;
+  height: 204px;
+  margin-top: 20px;
+  margin-left: 11px;
+  margin-bottom: 20px;
+  position: relative;
+}
+titles {
+  color: f5eaea;
+}

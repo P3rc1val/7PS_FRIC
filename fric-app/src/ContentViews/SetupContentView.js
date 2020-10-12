@@ -12,9 +12,7 @@ class SetupContentView extends Component {
     return (
       <Container>
         <RectRow>
-          <Rect3Column>
-            <LoginView />
-          </Rect3Column>
+          <Rect3Column></Rect3Column>
           <SetupDetails />
         </RectRow>
       </Container>

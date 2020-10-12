@@ -1,62 +1,69 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 
-const SetupDetails = () => {
-  return (
-    <div>
-      <h1>Setup Detail View</h1>
-      <Rect4>
-        <titles>
-          <h2>There is no existing event in your local system</h2>
-        </titles>
-        <Rect7>
-          <SetupDetailView>
-            <form action="/action_page.php">
-              <label for="sync option">Please enter your initials:</label>
-              <br></br>
-              <input type="text" name="new"></input>
-              <br></br>
-              <br></br>
-              <h3>Please select an option:</h3>
-              <br></br>
-              <div>
-                <input
-                  type="radio"
-                  id="newevent"
-                  name="select"
-                  value="newevent"
-                ></input>
-                <label for="new event">
-                  Create a new event (any existing event will be archived
-                </label>
-              </div>
-              <input type="radio" name="select" value=""></input>
-              <br></br>
-              <label for="first sync">
-                First time sync with lead analyst. Please enter the lead
-                analysts IP:
-              </label>
-              <br></br>
-              <input type="text" name="select"></input>
-              <input
-                type="radio"
-                name="radio-set"
-                id="radio-1"
-                value="Normal Radio"
-              ></input>
-              <input
-                type="text"
-                name="tb1"
-                value=""
-                placeholder="Option 2"
-              ></input>
-            </form>
-          </SetupDetailView>
-        </Rect7>
-      </Rect4>
-    </div>
-  );
-};
+class SetupDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectnewEvent: "",
+    };
+  }
+  async saveEvent(event) {
+    event.preventDefault();
+    await fetch("http://localhost:8080/createEvent", {
+      methof: "POST",
+      headers: { "Conternt-Type": "application/json" },
+      body: JSON.stringify(this.state),
+    });
+  }
+  render() {
+    return (
+      <div>
+        <h1>Setup Detail View</h1>
+        <Rect4>
+          <titles>
+            <h2>There is no existing event in your local system</h2>
+          </titles>
+          <Rect7>
+            <SetupDetailView>
+              <form action="/action_page.php">
+                <label for="sync option">Please enter your initials:</label>
+                <br></br>
+                <input type="text" name="new"></input>
+                <br></br>
+                <br></br>
+                <h3>Please select an option:</h3>
+                <br></br>
+                <div>
+                  <input
+                    type="radio"
+                    id="newevent"
+                    name="selectnewEvent"
+                    value={this.state.selectnewEvent}
+                    onChange={this.handleChange}
+                  ></input>
+                  <label for="new event">
+                    Create a new event any existing event will be archived
+                  </label>
+                </div>
+                <div>
+                  <input type="radio" name="select" value=""></input>
+
+                  <label for="first sync">
+                    First time sync with lead analyst. Please enter the lead
+                    analysts IP:
+                  </label>
+                </div>
+
+                <input type="text" name="select"></input>
+              </form>
+            </SetupDetailView>
+          </Rect7>
+        </Rect4>
+      </div>
+    );
+  }
+}
 
 const Rect4 = styled.div`
   width: 100%px;

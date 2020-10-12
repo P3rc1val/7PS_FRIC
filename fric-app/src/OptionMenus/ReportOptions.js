@@ -51,5 +51,6 @@ const ReportOptionsRow = styled.div`
   margin-top: 50px;
   margin-left: 31px;
   margin-right: 53px;
+  color: "white";
 `;
 export default FunctionName;

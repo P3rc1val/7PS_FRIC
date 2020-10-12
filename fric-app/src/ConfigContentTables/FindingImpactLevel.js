@@ -25,25 +25,28 @@ const FindingImpactLevel = () => {
                 <td>
                   <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch2" />
+                  <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
               <tr>
                 <td>
-                  <input type="checkbox" name="ch3" />
+                  <input type="checkbox" name="ch1" />
                 </td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>Low</td>
+                <td>Medium</td>
+                <td>High</td>
+                <td>Information</td>
               </tr>
             </tbody>
           </Table>
@@ -65,7 +68,7 @@ const Rect3 = styled.div`
 
 const Rect6 = styled.div`
   width: 100%;
-  height: 260px;
+  height: 100%;
   background-color: rgba(155, 155, 155, 1);
   flex-direction: column;
   display: flex;

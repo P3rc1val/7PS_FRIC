@@ -10,7 +10,7 @@ const FindingClassification = () => {
       <h3>Finding Classification</h3>
 
       <Rect6>
-        <FindingOverviewTable>
+        <FindingClassificationTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
               <tr>
@@ -33,7 +33,7 @@ const FindingClassification = () => {
               </tr>
             </tbody>
           </Table>
-        </FindingOverviewTable>
+        </FindingClassificationTable>
       </Rect6>
     </Rect3>
   );
@@ -58,7 +58,7 @@ const Rect6 = styled.div`
   margin-top: 1px;
   padding: 16;
 `;
-const FindingOverviewTable = styled.span`
+const FindingClassificationTable = styled.span`
   font-style: normal;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

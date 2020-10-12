@@ -10,7 +10,7 @@ import ArchiveContentView from "../ContentViews/ArchiveContentView.js";
 import SetupContentView from "../ContentViews/SetupContentView.js";
 import ConfigContentView from "../ContentViews/ConfigContentView.js";
 import { render } from "react-dom";
-
+import { Button } from "@material-ui/core";
 class FricMenu extends Component {
   constructor() {
     super();
@@ -187,35 +187,38 @@ class FricMenu extends Component {
           </overviewContainer>
           <Rect>
             <h2>
-              <FricMenuTitle>FRIC Menu</FricMenuTitle>
+              <FricMenuTitle>FRIC</FricMenuTitle>
             </h2>
-            <button onClick={() => this.hideView(showEventView, "Event")}>
+            <Button
+              color="primary"
+              onClick={() => this.hideView(showEventView, "Event")}
+            >
               <Event>Event</Event>
-            </button>
-            <button onClick={() => this.hideView(showSystemView, "System")}>
+            </Button>
+            <Button onClick={() => this.hideView(showSystemView, "System")}>
               <Systems>Systems</Systems>
-            </button>
-            <button onClick={() => this.hideView(showTaskView, "Task")}>
+            </Button>
+            <Button onClick={() => this.hideView(showTaskView, "Task")}>
               <Tasks>Tasks</Tasks>
-            </button>
-            <button onClick={() => this.hideView(showSubtaskView, "Subtask")}>
+            </Button>
+            <Button onClick={() => this.hideView(showSubtaskView, "Subtask")}>
               <Subtask>Subtask</Subtask>
-            </button>
-            <button onClick={() => this.hideView(showFindingView, "Finding")}>
+            </Button>
+            <Button onClick={() => this.hideView(showFindingView, "Finding")}>
               <Findings>Findings</Findings>
-            </button>
-            <button onClick={() => this.hideView(showArchiveView, "Archive")}>
+            </Button>
+            <Button onClick={() => this.hideView(showArchiveView, "Archive")}>
               <Archive>Archive</Archive>
-            </button>
-            <button onClick={() => this.hideView(showConfigView, "Config")}>
+            </Button>
+            <Button onClick={() => this.hideView(showConfigView, "Config")}>
               <Configuration>Config</Configuration>
-            </button>
-            <button onClick={() => this.hideView(showSetupView, "Setup")}>
+            </Button>
+            <Button onClick={() => this.hideView(showSetupView, "Setup")}>
               <Setup>Setup</Setup>
-            </button>
-            <button>
+            </Button>
+            <Button>
               <Help>Help</Help>
-            </button>
+            </Button>
           </Rect>
         </div>
       </window>
@@ -225,16 +228,17 @@ class FricMenu extends Component {
 const window = styled.div``;
 
 const overviewContainer = styled.div`
-  padding-left: 104px;
   float: right;
 `;
 const Rect = styled.div`
   width: 104px;
-  height: 100%;
-  background-color: #e6e6e6;
+  height: 100vh;
+  heigt: 100%;
+  background-color: #4d4646;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  display: flex;
+
    {
     /*position: absolute;*/
   }
@@ -242,47 +246,57 @@ const Rect = styled.div`
 `;
 
 const FricMenuTitle = styled.span`
+  padding-top: 50px;
   padding: 16px;
   font-style: normal;
   font-weight: 400;
-  color: #121212;
+  color: #7fcd91;
   justify-text: center;
 `;
 
 const Event = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Systems = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Tasks = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Subtask = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Findings = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Archive = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Configuration = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Setup = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 
 const Help = styled.div`
   margin: 15px;
+  color: #f5eaea;
 `;
 render(<FricMenu />, document.getElementById("root"));
 export default FricMenu;
