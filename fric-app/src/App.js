@@ -39,12 +39,6 @@ function System(props) {
     height: 100vh;
   `;
 
-  const overviewContainer = styled.div`
-    padding-left: 104px;
-    float: right;
-    height: 100vh;
-  `;
-
   return null;
 }
 export default System;

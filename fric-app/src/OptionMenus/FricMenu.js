@@ -11,6 +11,41 @@ import SetupContentView from "../ContentViews/SetupContentView.js";
 import ConfigContentView from "../ContentViews/ConfigContentView.js";
 import { render } from "react-dom";
 import { Button } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import EventIcon from "@material-ui/icons/Event";
+import ComputerIcon from "@material-ui/icons/Computer";
+import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
+import FormatListNumberedRtlIcon from "@material-ui/icons/FormatListNumberedRtl";
+import AccountTreeIcon from "@material-ui/icons/AccountTree";
+import FolderSpecialIcon from "@material-ui/icons/FolderSpecial";
+import ArchiveIcon from "@material-ui/icons/Archive";
+import PermDataSettingIcon from "@material-ui/icons/PermDataSetting";
+import TuneIcon from "@material-ui/icons/Tune";
+import HelpIcon from "@material-ui/icons/Help";
+import { Typography } from "@material-ui/core";
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#7fcd91",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#8fcd91",
+    },
+  },
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      // Name of the rule
+      label: {
+        // Some CSS
+        align: "left",
+      },
+    },
+  },
+});
 class FricMenu extends Component {
   constructor() {
     super();
@@ -185,41 +220,81 @@ class FricMenu extends Component {
 
             {showSetupView && <SetupContentView />}
           </overviewContainer>
-          <Rect>
-            <h2>
-              <FricMenuTitle>FRIC</FricMenuTitle>
-            </h2>
-            <Button
-              color="primary"
-              onClick={() => this.hideView(showEventView, "Event")}
-            >
-              <Event>Event</Event>
-            </Button>
-            <Button onClick={() => this.hideView(showSystemView, "System")}>
-              <Systems>Systems</Systems>
-            </Button>
-            <Button onClick={() => this.hideView(showTaskView, "Task")}>
-              <Tasks>Tasks</Tasks>
-            </Button>
-            <Button onClick={() => this.hideView(showSubtaskView, "Subtask")}>
-              <Subtask>Subtask</Subtask>
-            </Button>
-            <Button onClick={() => this.hideView(showFindingView, "Finding")}>
-              <Findings>Findings</Findings>
-            </Button>
-            <Button onClick={() => this.hideView(showArchiveView, "Archive")}>
-              <Archive>Archive</Archive>
-            </Button>
-            <Button onClick={() => this.hideView(showConfigView, "Config")}>
-              <Configuration>Config</Configuration>
-            </Button>
-            <Button onClick={() => this.hideView(showSetupView, "Setup")}>
-              <Setup>Setup</Setup>
-            </Button>
-            <Button>
-              <Help>Help</Help>
-            </Button>
-          </Rect>
+          <ThemeProvider theme={theme}>
+            <Rect>
+              <h2>
+                <FricMenuTitle>FRIC</FricMenuTitle>
+              </h2>
+              <Button
+                startIcon={<AccountTreeIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showEventView, "Event")}
+              >
+                <Event>Event</Event>
+              </Button>
+              <Button
+                startIcon={<ComputerIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showSystemView, "System")}
+              >
+                <Systems>Systems</Systems>
+              </Button>
+              <Button
+                align
+                startIcon={<FormatListNumberedIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showTaskView, "Task")}
+              >
+                <Tasks>Tasks</Tasks>
+              </Button>
+              <Button
+                startIcon={<FormatListNumberedRtlIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showSubtaskView, "Subtask")}
+              >
+                <Subtask>Subtask</Subtask>
+              </Button>
+              <Button
+                startIcon={<FolderSpecialIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showFindingView, "Finding")}
+              >
+                <Findings>Findings</Findings>
+              </Button>
+              <Button
+                startIcon={<ArchiveIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showArchiveView, "Archive")}
+              >
+                <Archive>Archive</Archive>
+              </Button>
+              <Button
+                startIcon={<PermDataSettingIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showConfigView, "Config")}
+              >
+                <Configuration>Config</Configuration>
+              </Button>
+              <Button
+                startIcon={<TuneIcon />}
+                variant="text"
+                color="primary"
+                onClick={() => this.hideView(showSetupView, "Setup")}
+              >
+                <Setup>Setup</Setup>
+              </Button>
+              <Button startIcon={<HelpIcon />} variant="text" color="primary">
+                <Help>Help</Help>
+              </Button>
+            </Rect>
+          </ThemeProvider>
         </div>
       </window>
     );
@@ -231,22 +306,19 @@ const overviewContainer = styled.div`
   float: right;
 `;
 const Rect = styled.div`
-  width: 104px;
+  width: 8%;
   height: 100vh;
-  heigt: 100%;
+
   background-color: #4d4646;
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-
-   {
-    /*position: absolute;*/
-  }
-  padding-right: ;
+  padding-bottom: 20px;
+  position: absolute;
 `;
 
 const FricMenuTitle = styled.span`
-  padding-top: 50px;
   padding: 16px;
   font-style: normal;
   font-weight: 400;
@@ -255,47 +327,38 @@ const FricMenuTitle = styled.span`
 `;
 
 const Event = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Systems = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Tasks = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Subtask = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Findings = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Archive = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Configuration = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Setup = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 
 const Help = styled.div`
-  margin: 15px;
   color: #f5eaea;
 `;
 render(<FricMenu />, document.getElementById("root"));
