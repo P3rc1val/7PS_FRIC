@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-
+import "../App.css";
 const FindingOptions = () => {
   return (
-    <Rect5>
+    <rect5>
       <h3>Finding Options</h3>
-      <OptionsRow>
+      <optionsRow>
         <button>
           <Delete>Delete</Delete>
         </button>
@@ -15,32 +15,10 @@ const FindingOptions = () => {
         <button>
           <Cancel>Cancel</Cancel>
         </button>
-      </OptionsRow>
-    </Rect5>
+      </optionsRow>
+    </rect5>
   );
 };
-
-const Rect5 = styled.div`
-  width: 100%;
-  height: 193px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-top: 30px;
-  margin-left: -1px;
-  padding: 16px;
-`;
-
-const OptionsRow = styled.div`
-  height: 59px;
-  flex-direction: row;
-  justify-content: space-between;
-  display: flex;
-  margin-top: 50px;
-  margin-left: 31px;
-  margin-right: 53px;
-`;
 
 const Delete = styled.span`
   font-family: Roboto;
