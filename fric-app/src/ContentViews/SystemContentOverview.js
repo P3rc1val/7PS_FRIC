@@ -5,47 +5,21 @@ import Table from "react-bootstrap/Table";
 import SystemTable from "../Tables/SystemTable.js";
 import SystemOptions from "../OptionMenus/SystemOptions.js";
 import SystemDetails from "../DetailViews/SystemDetails.js";
-
+import "../App.css";
 class SystemContentView extends Component {
   render() {
     return (
-      <Container>
-        <RectRow>
-          <Rect3Column>
+      <container>
+        <rectRow>
+          <rect3Column>
             <SystemTable />
             <SystemOptions />
-          </Rect3Column>
+          </rect3Column>
           <SystemDetails />
-        </RectRow>
-      </Container>
+        </rectRow>
+      </container>
     );
   }
 }
-
-//---------------------------------------------------------------------------
-
-const Container = styled.div`
-  display: flex;
-
-  flex-direction: column;
-
-  float: right;
-`;
-
-const Rect3Column = styled.div`
-  width: 446px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 19px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-`;
-
-const RectRow = styled.div`
-  height: 768px;
-  flex-direction: row;
-  display: flex;
-  margin-right: 33px;
-`;
 
 export default SystemContentView;

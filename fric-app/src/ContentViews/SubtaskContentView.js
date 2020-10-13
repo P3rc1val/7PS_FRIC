@@ -5,47 +5,23 @@ import Table from "react-bootstrap/Table";
 import SubtaskTable from "../Tables/SubtaskTable.js";
 import SubtaskOptions from "../OptionMenus/SubtaskOptions.js";
 import SubtaskDetails from "../DetailViews/SubtaskDetails.js";
-
+import "../App.css";
 class SubtaskContentView extends Component {
   render() {
     return (
-      <Container>
-        <RectRow>
-          <Rect3Column>
+      <container>
+        <rectRow>
+          <rect3Column>
             <SubtaskTable />
             <SubtaskOptions />
-          </Rect3Column>
+          </rect3Column>
           <SubtaskDetails />
-        </RectRow>
-      </Container>
+        </rectRow>
+      </container>
     );
   }
 }
 
 //---------------------------------------------------------------------------
-
-const Container = styled.div`
-  display: flex;
-
-  flex-direction: column;
-
-  float: right;
-`;
-
-const Rect3Column = styled.div`
-  width: 750px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 19px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-`;
-
-const RectRow = styled.div`
-  height: 768px;
-  flex-direction: row;
-  display: flex;
-  margin-right: 33px;
-`;
 
 export default SubtaskContentView;

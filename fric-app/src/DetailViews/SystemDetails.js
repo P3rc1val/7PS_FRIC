@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../App.css";
 const SystemDetails = () => {
   return (
     <Rect4>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-
+import "../App.css";
 class SetupDetails extends Component {
   constructor(props) {
     super(props);

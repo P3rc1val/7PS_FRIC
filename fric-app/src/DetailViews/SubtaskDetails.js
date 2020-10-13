@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-
+import "../App.css";
 const SubtaskDetails = () => {
   return (
-    <ect4>
+    <rect4>
       <titles>
         <h3>Subtask Detail View</h3>
       </titles>
-      <Rect7>
+      <rect7>
         <scrollContainers>
-          <SubtaskDetailView style={{ overflow: "scroll" }}>
-            <h1>Subask Detailed View</h1>
+          <detailView style={{ overflow: "scroll" }}>
             <form action="/action_page.php">
               <label for="w3review">Title</label>
               <textarea
@@ -92,13 +91,11 @@ const SubtaskDetails = () => {
               <input type="file" id="myfile" name="myfile" multiple></input>
               <input type="submit"></input>
             </form>
-          </SubtaskDetailView>
+          </detailView>
         </scrollContainers>
-      </Rect7>
-    </ect4>
+      </rect7>
+    </rect4>
   );
 };
-
-
 
 export default SubtaskDetails;
