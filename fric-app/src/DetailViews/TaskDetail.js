@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
+import "../App.css"
 
 const TaskDetails = () => {
   return (
-    <Rect4>
+    <rect4>
       <titles>
         <h3>Task Detail View</h3>
       </titles>
-      <Rect7>
+      <rect7>
         <scrollContainers>
-          <TaskDetailView style={{ overflow: "scroll" }}>
+          <detailView style={{ overflow: "scroll" }}>
             <label for="w3review">Title</label>
             <form action="/action_page.php">
               <textarea
@@ -92,49 +93,14 @@ const TaskDetails = () => {
               <input type="file" id="myfile" name="myfile" multiple></input>
               <input type="submit"></input>
             </form>
-          </TaskDetailView>
+          </detailView>
         </scrollContainers>
-      </Rect7>
-    </Rect4>
+      </rect7>
+    </rect4>
   );
 };
 
-const Rect4 = styled.div`
-  width: 436px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
 
-const Rect7 = styled.div`
-  width: 400px;
-  height: 645px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 3px;
 
-  margin-right: 16px;
-`;
 
-const TaskDetailView = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
-  overflow-x: hidden;
-  margin: 12 px;
-  height: 610px;
-  overflow: hidden;
-`;
 export default TaskDetails;

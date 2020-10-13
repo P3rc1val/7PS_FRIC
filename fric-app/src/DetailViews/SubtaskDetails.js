@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 const SubtaskDetails = () => {
   return (
-    <Rect4>
+    <ect4>
       <titles>
         <h3>Subtask Detail View</h3>
       </titles>
@@ -95,46 +95,10 @@ const SubtaskDetails = () => {
           </SubtaskDetailView>
         </scrollContainers>
       </Rect7>
-    </Rect4>
+    </ect4>
   );
 };
 
-const Rect4 = styled.div`
-  width: 436px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
 
-const SubtaskDetailView = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
-  overflow-x: hidden;
-  margin: 12 px;
-  height: 610px;
-  overflow: hidden;
-`;
-const Rect7 = styled.div`
-  width: 400px;
-  height: 645px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 3px;
-
-  margin-right: 16px;
-`;
 
 export default SubtaskDetails;
