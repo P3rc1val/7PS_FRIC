@@ -30,11 +30,11 @@ class EventDetails extends Component {
   }
   render() {
     return (
-      <Rect4>
+      <rect4>
         <titles>
           <h3>Event Detail View</h3>
         </titles>
-        <Rect7>
+        <rect7>
           <scrollContainers>
             <EventDetailView style={{ overflow: "scroll" }}>
               <form>
@@ -146,12 +146,12 @@ class EventDetails extends Component {
               </form>
             </EventDetailView>
           </scrollContainers>
-        </Rect7>
+        </rect7>
         <titles>
           <h3>Event Team Information</h3>
         </titles>
-        <Rect8>
-          <Overview2Stack>
+        <rect8>
+          <overview2Stack>
             <EventTeamOverview>
               <leadanalyst>
                 <button type="button">Add Lead Analyst</button>
@@ -242,9 +242,9 @@ class EventDetails extends Component {
                 </form>
               </analyst>
             </EventTeamOverview>
-          </Overview2Stack>
-        </Rect8>
-      </Rect4>
+          </overview2Stack>
+        </rect8>
+      </rect4>
     );
   }
 }
@@ -275,48 +275,6 @@ const EventTeamOverview = styled.div`
   padding-right: px;
   height: 272px;
   width: 400px;
-`;
-
-const Rect4 = styled.div`
-  width: 736px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
-
-const Rect7 = styled.div`
-  width: 704px;
-  height: 318px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 3px;
-
-  margin-right: 16px;
-`;
-
-const Rect8 = styled.div`
-  width: 704px;
-  height: 295px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: row;
-  display: flex;
-  margin-top: 16px;
-
-  margin-bottom: 16px;
-`;
-
-const Overview2Stack = styled.div`
-  width: 342px;
-  height: 204px;
-  margin-top: 20px;
-  margin-left: 11px;
-  position: relative;
 `;
 
 export default EventDetails;
