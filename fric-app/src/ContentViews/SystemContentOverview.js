@@ -6,6 +6,7 @@ import SystemTable from "../Tables/SystemTable.js";
 import SystemOptions from "../OptionMenus/SystemOptions.js";
 import SystemDetails from "../DetailViews/SystemDetails.js";
 import "../App.css";
+
 class SystemContentView extends Component {
   render() {
     return (
@@ -13,7 +14,6 @@ class SystemContentView extends Component {
         <rectRow>
           <rect3Column>
             <SystemTable />
-            <SystemOptions />
           </rect3Column>
           <SystemDetails />
         </rectRow>

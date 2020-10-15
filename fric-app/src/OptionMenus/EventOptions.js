@@ -3,46 +3,23 @@ import styled, { css } from "styled-components";
 import Table from "react-bootstrap/Table";
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
 import "../App.css";
 const EventOptions = () => {
   return (
-    <rect5>
+    <Box component="span" m={1}>
       <h3>Event Options</h3>
-      <optionsRow>
-        <button>
-          <Delete>Delete</Delete>
-        </button>
-        <button>
-          <Save>Save</Save>
-        </button>
-        <button label="Cancel">
-          <Cancel>Cancel</Cancel>
-        </button>
-      </optionsRow>
-    </rect5>
+      <ButtonGroup aria-label="outlined default button group">
+        <Button>Archive</Button>
+        <Button type="submit" name="save">
+          Save
+        </Button>
+        <Button>Cancel</Button>
+      </ButtonGroup>
+    </Box>
   );
 };
 
-const Delete = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
-const Save = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
-
-const Cancel = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
 export default EventOptions;

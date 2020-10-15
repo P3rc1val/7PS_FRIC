@@ -13,8 +13,6 @@ class FindingContentView extends Component {
         <rectRow>
           <rect3Column>
             <FindingTable />
-            <FindingOptions />
-            <ReportOptions />
           </rect3Column>
           <FindingDetails />
         </rectRow>

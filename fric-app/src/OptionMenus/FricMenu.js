@@ -306,7 +306,7 @@ const overviewContainer = styled.div`
   float: right;
 `;
 const Rect = styled.div`
-  width: 8%;
+  width: 120px;
   height: 100vh;
 
   background-color: #4d4646;

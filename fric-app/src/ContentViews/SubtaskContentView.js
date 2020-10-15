@@ -13,7 +13,6 @@ class SubtaskContentView extends Component {
         <rectRow>
           <rect3Column>
             <SubtaskTable />
-            <SubtaskOptions />
           </rect3Column>
           <SubtaskDetails />
         </rectRow>

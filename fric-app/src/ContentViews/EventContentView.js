@@ -8,20 +8,34 @@ import EventOptions from "../OptionMenus/EventOptions.js";
 import EventTable from "../Tables/EventTable.js";
 import EventDetails from "../DetailViews/EventDetails.js";
 
-const EventContentView = () => {
-  return (
-    <container>
-      <rectRow>
-        <rect3Column>
-          <EventTable />
+class EventContentView extends Component {
+  // constructor(props) {
+  //   super(props);
 
-          <EventOptions />
-        </rect3Column>
-        <EventDetails />
-      </rectRow>
-    </container>
-  );
-};
+  //   this.fetchEvent = this.fetchEvent.bind(this);
+  // }
+  // async fetchEvent(events) {
+  //   events.preventDefault();
+  //   await fetch("http://localhost:8080/retrieveEvent", {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.parse(this.events),
+  //   });
+  //   console.log(events);
+  // }
+  render() {
+    return (
+      <container>
+        <rectRow>
+          <rect3Column>
+            <EventTable fetchEvent={this.fetchEvent} />
+          </rect3Column>
+          <EventDetails />
+        </rectRow>
+      </container>
+    );
+  }
+}
 
 //---------------------------------------------------------------------------
 

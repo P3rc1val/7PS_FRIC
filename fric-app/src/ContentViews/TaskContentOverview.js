@@ -13,8 +13,6 @@ class TaskContentView extends Component {
         <rectRow>
           <rect3Column>
             <TaskTable />
-
-            <TaskOptions />
           </rect3Column>
           <TaskDetails />
         </rectRow>
