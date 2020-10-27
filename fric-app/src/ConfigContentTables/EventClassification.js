@@ -3,13 +3,14 @@ import styled, { css } from "styled-components";
 import Table from "react-bootstrap/Table";
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
+import "../App.css";
 
 const EventClassification = () => {
   return (
-    <Rect3>
+    <rect3>
       <h3>Event Classification Table</h3>
 
-      <Rect6>
+      <rect6>
         <EventClassTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
@@ -52,30 +53,11 @@ const EventClassification = () => {
             </tbody>
           </Table>
         </EventClassTable>
-      </Rect6>
-    </Rect3>
+      </rect6>
+    </rect3>
   );
 };
 
-const Rect3 = styled.div`
-  width: 100%;
-  height: 489px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  padding: 16px;
-`;
-
-const Rect6 = styled.div`
-  width: 100%;
-  height: 260px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 1px;
-  padding: 16;
-`;
 const EventClassTable = styled.span`
   font-style: normal;
   font-weight: 400;

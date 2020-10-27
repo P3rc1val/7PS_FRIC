@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
+import { titles } from "../App.css";
 
 const FindingDetails = () => {
   return (
-    <Rect4>
+    <rect4>
       <titles>
         <h3>Finding Detail View</h3>
       </titles>
-      <Rect7>
+      <rect7>
         <scrollContainers>
           <FindingDetailView style={{ overflow: "scroll" }}>
             <form>
@@ -69,12 +70,12 @@ const FindingDetails = () => {
             </form>
           </FindingDetailView>
         </scrollContainers>
-      </Rect7>
+      </rect7>
       <titles>
         <h3>Finding Information</h3>
       </titles>
-      <Rect8>
-        <Overview2Stack>
+      <rect8>
+        <overview2Stack>
           <FindingInformation style={{ overflow: "scroll" }}>
             <form>
               <label for="ID">ID:</label>
@@ -154,51 +155,11 @@ const FindingDetails = () => {
               </select>
             </div>
           </FindingInformation>
-        </Overview2Stack>
-      </Rect8>
-    </Rect4>
+        </overview2Stack>
+      </rect8>
+    </rect4>
   );
 };
-
-const Rect4 = styled.div`
-  width: 436px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
-
-const Rect7 = styled.div`
-  width: 100%;
-  height: 645px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 3px;
-
-  margin-right: 16px;
-`;
-const Rect8 = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: row;
-  display: flex;
-  margin-top: 16px;
-
-  margin-bottom: 16px;
-`;
-const Overview2Stack = styled.div`
-  width: 342px;
-  height: 204px;
-  margin-top: 20px;
-  margin-left: 11px;
-  position: relative;
-`;
 
 const FindingInformation = styled.div`
   display: flex;
@@ -208,7 +169,7 @@ const FindingInformation = styled.div`
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
 
-  height: 105%;
+  height: 50vh;
   width: 110%;
 `;
 
@@ -224,7 +185,7 @@ const FindingDetailView = styled.span`
   margin-right: 12px;
   overflow-x: hidden;
   margin: 12 px;
-  height: 300px;
+  height: 50vh;
   overflow: hidden;
 `;
 export default FindingDetails;

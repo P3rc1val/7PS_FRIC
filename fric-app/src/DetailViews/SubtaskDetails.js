@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-
+import "../App.css";
 const SubtaskDetails = () => {
   return (
-    <Rect4>
+    <rect4>
       <titles>
         <h3>Subtask Detail View</h3>
       </titles>
-      <Rect7>
+      <rect7>
         <scrollContainers>
-          <SubtaskDetailView style={{ overflow: "scroll" }}>
-            <h1>Subask Detailed View</h1>
+          <detailView style={{ overflow: "scroll" }}>
             <form action="/action_page.php">
               <label for="w3review">Title</label>
               <textarea
@@ -92,49 +91,11 @@ const SubtaskDetails = () => {
               <input type="file" id="myfile" name="myfile" multiple></input>
               <input type="submit"></input>
             </form>
-          </SubtaskDetailView>
+          </detailView>
         </scrollContainers>
-      </Rect7>
-    </Rect4>
+      </rect7>
+    </rect4>
   );
 };
-
-const Rect4 = styled.div`
-  width: 436px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
-
-const SubtaskDetailView = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
-  overflow-x: hidden;
-  margin: 12 px;
-  height: 610px;
-  overflow: hidden;
-`;
-const Rect7 = styled.div`
-  width: 400px;
-  height: 645px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 3px;
-
-  margin-right: 16px;
-`;
 
 export default SubtaskDetails;

@@ -1,71 +1,100 @@
+// import React, { Component } from "react";
+// import styled, { css } from "styled-components";
+// import Table from "react-bootstrap/Table";
+// import { render } from "@testing-library/react";
+// import ReactDOM from "react-dom";
+// import "../App.css";
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import Table from "react-bootstrap/Table";
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import Button from "@material-ui/core/Button";
+import Box from "@material-ui/core/Box";
+import "../App.css";
+import { ThemeProvider } from "@material-ui/styles";
+import Typography from "@material-ui/core/Typography";
+import { createMuiTheme } from "@material-ui/core/styles";
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#7fcd91",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#8fcd91",
+    },
+  },
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      // Name of the rule
+      label: {
+        // Some CSS
+        align: "left",
+      },
+    },
+  },
+});
 
 const SystemOptions = () => {
   return (
-    <Rect5>
-      <h3>System Options</h3>
-      <OptionsRow>
-        <button>
-          <Delete>Delete</Delete>
-        </button>
-        <button>
-          <Save>Save</Save>
-        </button>
-        <button label="Cancel">
-          <Cancel>Cancel</Cancel>
-        </button>
-      </OptionsRow>
-    </Rect5>
+    <ThemeProvider theme={theme}>
+      <Box component="span" m={1} color="primary">
+        <ButtonGroup aria-label="outlined default button group">
+          <Button>Delete</Button>
+          <Button type="submit" name="save">
+            Save
+          </Button>
+          <Button>Cancel</Button>
+        </ButtonGroup>
+      </Box>
+    </ThemeProvider>
   );
 };
 
-const OptionsRow = styled.div`
-  height: 59px;
-  flex-direction: row;
-  justify-content: space-between;
-  display: flex;
-  margin-top: 50px;
-  margin-left: 31px;
-  margin-right: 53px;
-`;
-
-const Delete = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
-const Save = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
-
-const Cancel = styled.span`
-  font-style: normal;
-  font-weight: 400;
-  color: #121212;
-  width: 78px;
-  height: 59px;
-`;
-
-const Rect5 = styled.div`
-  width: 100%;
-  height: 193px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-top: 30px;
-  margin-left: -1px;
-  padding: 16px;
-`;
-
 export default SystemOptions;
+
+// const SystemOptions = () => {
+//   return (
+//     <rect5>
+//       <h3>System Options</h3>
+//       <optionsRow>
+//         <button>
+//           <Delete>Delete</Delete>
+//         </button>
+//         <button>
+//           <Save>Save</Save>
+//         </button>
+//         <button label="Cancel">
+//           <Cancel>Cancel</Cancel>
+//         </button>
+//       </optionsRow>
+//     </rect5>
+//   );
+// };
+
+// const Delete = styled.span`
+//   font-style: normal;
+//   font-weight: 400;
+//   color: #121212;
+//   width: 78px;
+//   height: 59px;
+// `;
+// const Save = styled.span`
+//   font-style: normal;
+//   font-weight: 400;
+//   color: #121212;
+//   width: 78px;
+//   height: 59px;
+// `;
+
+// const Cancel = styled.span`
+//   font-style: normal;
+//   font-weight: 400;
+//   color: #121212;
+//   width: 78px;
+//   height: 59px;
+// `;

@@ -8,45 +8,35 @@ import EventOptions from "../OptionMenus/EventOptions.js";
 import EventTable from "../Tables/EventTable.js";
 import EventDetails from "../DetailViews/EventDetails.js";
 
-const EventContentView = () => {
-  return (
-    <Container>
-      <RectRow>
-        <Rect3Column>
-          <EventTable />
+class EventContentView extends Component {
+  // constructor(props) {
+  //   super(props);
 
-          <EventOptions />
-        </Rect3Column>
-        <EventDetails />
-      </RectRow>
-    </Container>
-  );
-};
+  //   this.fetchEvent = this.fetchEvent.bind(this);
+  // }
+  // async fetchEvent(events) {
+  //   events.preventDefault();
+  //   await fetch("http://localhost:8080/retrieveEvent", {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.parse(this.events),
+  //   });
+  //   console.log(events);
+  // }
+  render() {
+    return (
+      <container>
+        <rectRow>
+          <rect3Column>
+            <EventTable fetchEvent={this.fetchEvent} />
+          </rect3Column>
+          <EventDetails />
+        </rectRow>
+      </container>
+    );
+  }
+}
 
 //---------------------------------------------------------------------------
-
-const Container = styled.div`
-  display: flex;
-
-  flex-direction: column;
-
-  float: right;
-`;
-
-const Rect3Column = styled.div`
-  width: 446px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 19px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-`;
-
-const RectRow = styled.div`
-  height: 768px;
-  flex-direction: row;
-  display: flex;
-  margin-right: 33px;
-`;
 
 export default EventContentView;

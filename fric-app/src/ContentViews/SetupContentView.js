@@ -6,46 +6,20 @@ import Table from "react-bootstrap/Table";
 import SetupOptions from "../OptionMenus/SetupOptions.js";
 import SetupDetails from "../DetailViews/SetupDetails.js";
 import LoginView from "../Login/LoginView.js";
-
+import "../App.css";
 class SetupContentView extends Component {
   render() {
     return (
-      <Container>
-        <RectRow>
-          <Rect3Column>
-            <LoginView />
-          </Rect3Column>
+      <container>
+        <rectRow>
+          <rect3Column></rect3Column>
           <SetupDetails />
-        </RectRow>
-      </Container>
+        </rectRow>
+      </container>
     );
   }
 }
 
 //---------------------------------------------------------------------------
-
-const Container = styled.div`
-  display: flex;
-
-  flex-direction: column;
-
-  float: right;
-`;
-
-const Rect3Column = styled.div`
-  width: 750px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 19px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-`;
-
-const RectRow = styled.div`
-  height: 768px;
-  flex-direction: row;
-  display: flex;
-  margin-right: 33px;
-`;
 
 export default SetupContentView;

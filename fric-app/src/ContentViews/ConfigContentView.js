@@ -6,43 +6,18 @@ import SubtaskTable from "../Tables/SubtaskTable.js";
 import SubtaskOptions from "../OptionMenus/SubtaskOptions.js";
 import SubtaskDetails from "../DetailViews/SubtaskDetails.js";
 import TableTabs from "../TabComponent/TableTabs.js";
+import "../App.css";
 
 class ConfigContentView extends Component {
   render() {
     return (
-      <Container>
-        <RectRow>
+      <container>
+        <rectRow>
           <TableTabs />
-        </RectRow>
-      </Container>
+        </rectRow>
+      </container>
     );
   }
 }
-
-//---------------------------------------------------------------------------
-
-const Container = styled.div`
-  display: flex;
-  width: 70%;
-  flex-direction: column;
-
-  float: right;
-`;
-
-const Rect3Column = styled.div`
-  width: 70%;
-  flex-direction: column;
-  display: flex;
-  margin-left: 19px;
-  margin-top: 28px;
-  margin-bottom: 28px;
-`;
-
-const RectRow = styled.div`
-  height: 70%;
-  flex-direction: row;
-  display: flex;
-  margin-right: 33px;
-`;
 
 export default ConfigContentView;

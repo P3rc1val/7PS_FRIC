@@ -3,21 +3,20 @@ import styled, { css } from "styled-components";
 import Table from "react-bootstrap/Table";
 import { render } from "@testing-library/react";
 import ReactDOM from "react-dom";
+import "../App.css";
 
 const FindingType = () => {
   return (
-    
-    <Rect3>
+    <rect3>
       <h3>Finding Table</h3>
 
-      <Rect6>
+      <rect6>
         <FindingTable>
           <Table striped bordered hover variant="light" size="sm" responsive>
             <thead>
               <tr>
                 <th>Select</th>
                 <th>Finding Type</th>
-                
               </tr>
             </thead>
             <tbody>
@@ -26,7 +25,6 @@ const FindingType = () => {
                   <input type="checkbox" name="ch1" />
                 </td>
                 <td>Credentials</td>
-
               </tr>
 
               <tr>
@@ -34,14 +32,12 @@ const FindingType = () => {
                   <input type="checkbox" name="ch2" />
                 </td>
                 <td>Complexity</td>
-                
               </tr>
               <tr>
                 <td>
                   <input type="checkbox" name="ch3" />
                 </td>
                 <td>Manufaacturer Default</td>
-                
               </tr>
               <tr>
                 <td>
@@ -133,34 +129,14 @@ const FindingType = () => {
                 </td>
                 <td>Information Disclosure</td>
               </tr>
-
             </tbody>
           </Table>
         </FindingTable>
-      </Rect6>
-    </Rect3>
+      </rect6>
+    </rect3>
   );
 };
 
-const Rect3 = styled.div`
-  width: 100%;
-  height: 489px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  padding: 16px;
-`;
-
-const Rect6 = styled.div`
-  width: 100%;
-  height: 260px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 1px;
-  padding: 16;
-`;
 const FindingTable = styled.span`
   font-style: normal;
   font-weight: 400;
