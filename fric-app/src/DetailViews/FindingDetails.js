@@ -14,6 +14,7 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import Button from "@material-ui/core/Button";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -175,6 +176,8 @@ export function FindingDetails(props) {
             </FindingDetailView>
           </scrollContainers>
         </rect7>
+
+
         <rect8>
           <overview2Stack>
             <FindingInformation style={{ overflow: "scroll" }}>
@@ -432,12 +435,16 @@ export function FindingDetails(props) {
                 <br></br><br></br>
                 
               </form>
+
             </FindingInformation>
           </overview2Stack>
         </rect8>
       </rect4>
+
+
       </ThemeProvider>
   );
+
 };
 
 const FindingInformation = styled.div`

@@ -64,17 +64,12 @@ app.post("/createSystem", function (req, res) {
   res.json({ message: "Success" });
 });
 
-app.get("retrieveSystem", function (req, res) {
-  db.collection("Systems")
-    .find()
-    .toArray()
-    .then((results) => {
-      console.log(results);
-    })
-    .catch((error) => {
-      console.error(error.message);
-    });
-});
+app.get('/retrieveSystem', (req, res) => {
+  db.collection('Systems').find({}).toArray(function(err, result) {
+      if (err) console.error(err);
+      res.send(result);
+  });
+})
 
 app.post("/createTask", function (req, res) {
   db.collection("Tasks").insertOne(req.body, (err) => {
