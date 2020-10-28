@@ -212,8 +212,8 @@ export default TaskDetails;
     <ThemeProvider theme={theme}>
       <rect4>
         <rect7>
-          <eventDetailView>
-            <Typography variant="h4" color="secondary">
+          <taskDetailView>
+            <Typography variant="h5" color="secondary">
             Task Detailed View
             </Typography>
             <form
@@ -250,7 +250,7 @@ export default TaskDetails;
                   defaultValue=""
                   variant="filled"
                 />
-
+                
                 <TextField
                   size="small"
                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
@@ -374,7 +374,7 @@ export default TaskDetails;
                 </Button>
               </div>
             </form>
-          </eventDetailView>
+          </taskDetailView>
         </rect7>
       </rect4>
     </ThemeProvider>
