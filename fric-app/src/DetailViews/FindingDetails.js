@@ -1,163 +1,442 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import { titles } from "../App.css";
+import TextField from "@material-ui/core/TextField";
+import { createMuiTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
+import Typography from "@material-ui/core/Typography";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import Button from "@material-ui/core/Button";
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
-const FindingDetails = () => {
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#7fcd91",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#8fcd91",
+    },
+  },
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      // Name of the rule
+      label: {
+        // Some CSS
+        align: "left",
+      },
+    },
+  },
+});
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: "25ch",
+    },
+    palette: {
+      primary: {
+        // Purple and green play nicely together.
+        main: "#7fcd91",
+      },
+      secondary: {
+        // This is green.A700 as hex.
+        main: "#8fcd91",
+      },
+    },
+  },
+}));
+
+export function FindingDetails(props) {
+//const FindingDetails = () => {
+  const classes = useStyles();
+  const [eclass, setClass] = React.useState("");
+  const { handleChange } = props;
+  const { saveEvent } = props;
   return (
-    <rect4>
-      <titles>
-        <h3>Finding Detail View</h3>
-      </titles>
-      <rect7>
-        <scrollContainers>
-          <FindingDetailView style={{ overflow: "scroll" }}>
-            <form>
-              <label for="Findinfo">Finding Information:</label>
+    <ThemeProvider theme={theme}>
+      <rect4>
+        
+        <rect7>
+          <scrollContainers>
+            <FindingDetailView style={{ overflow: "scroll" }}>
+            <Typography variant="h5" color="secondary">
+            Finding Detailed View
+            </Typography>
+              <form
+                className={classes.root}
+                noValidate
+                autoComplete="off"
+                method="POST"
+                onSubmit={saveEvent}
+              >
+                
+              <TextField
+                    id="outlined-multiline-static"
+                    label="Finding Information"
+                    name="finformation"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Finding Impact"
+                    name="impact"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <br></br>
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Analyst Information"
+                    name="analystinfo"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Mitigation"
+                    name="mitigation"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Threat"
+                    name="threat"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Countermeasure"
+                    name="countermeasure"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Impact"
+                    name="impact"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Severity"
+                    name="severity"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Risk"
+                    name="risk"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                  <TextField
+                    id="outlined-multiline-static"
+                    label="Finding System Level Impact"
+                    name="levelimpact"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+              </form>
+            </FindingDetailView>
+          </scrollContainers>
+        </rect7>
+        <rect8>
+          <overview2Stack>
+            <FindingInformation style={{ overflow: "scroll" }}>
+            <Typography variant="h5" color="secondary">
+            Finding Information
+            </Typography>
+              <form
+                className={classes.root}
+                noValidate
+                autoComplete="off"
+                method="POST"
+                onSubmit={saveEvent}
+              >
+              <TextField
+                  size="small"
+                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
+                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+                  name="title"
+                  onChange={handleChange}
+                  id="filled-read-only-input"
+                  label="ID:"
+                  defaultValue=""
+                  variant="filled"
+                />
 
-              <textarea
-                id="w3review"
-                name="w3review"
-                rows="4"
-                cols="50"
-              ></textarea>
-            </form>
-            <form>
-              <label for="FindImpact">Finding Impact:</label>
+                <TextField
+                  size="small"
+                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
+                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+                  name="title"
+                  onChange={handleChange}
+                  id="filled-read-only-input"
+                  label="Host Name:"
+                  defaultValue=""
+                  variant="filled"
+                />
+                <TextField
+                  size="small"
+                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
+                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+                  name="title"
+                  onChange={handleChange}
+                  id="filled-read-only-input"
+                  label="IP Port:"
+                  defaultValue=""
+                  variant="filled"
+                />
+                <TextField
+                  size="small"
+                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
+                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+                  name="title"
+                  onChange={handleChange}
+                  id="filled-read-only-input"
+                  label="Description:"
+                  defaultValue=""
+                  variant="filled"
+                />
+                <TextField
+                    id="outlined-multiline-static"
+                    label="Long Description:"
+                    name="impact"
+                    multiline
+                    rows={4}
+                    defaultValue=""
+                    variant="filled"
+                  />
+                <FormControl className="">
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name="age"
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                      Placeholder
+                    </option>
+                    <option value="" >
+                      Placeholder
+                    </option>
+                  </NativeSelect>
+                  <FormHelperText>Status</FormHelperText>
+                </FormControl>
+                <FormControl className="">
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                                     
+                    </option>
+                    <option value="" >
+                      Credential Complexity
+                    </option>
+                    <option value="" >
+                      Manufacturer Default Credentials
+                    </option>
+                    <option value="" >
+                      Lack of Authentication
+                    </option>
+                    <option value="" >
+                      Plain Text Protocols
+                    </option>
+                    <option value="" >
+                      Plain Text Web-Logon
+                    </option>
+                    <option value="" >
+                      Encryption
+                    </option>
+                    <option value="" >
+                      Authentication Bypass
+                    </option>
+                    <option value="" >
+                      Port Security
+                    </option>
+                    <option value="" >
+                      Access Control
+                    </option><option value="" >
+                      Least Privilege
+                    </option><option value="" >
+                      Privilege Escalation
+                    </option>
+                    <option value="" >
+                      Missing Patches
+                    </option>
+                    <option value="" >
+                      Physical Security
+                    </option>
+                  </NativeSelect>
+                  <FormHelperText>Type</FormHelperText>
+                </FormControl>
+                
+                <FormControl className="">
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                      
+                    </option>
+                    <option value="" >
+                      Placeholder
+                    </option>
+                  </NativeSelect>
+                  <FormHelperText>Classification</FormHelperText>
+                </FormControl>
+                <Typography variant="h6" color="secondary">
+                Evidence:
+                </Typography>
+                
+                <Button
+                  variant="contained"
+                  color="primary"
+                  className={classes.button}
+                  startIcon={<AttachFileIcon />}
+                >
+                  Upload
+                </Button>
 
-              <textarea id="FindImpact" name="FindImpact">
-                0
-              </textarea>
-
-              <label for="analyst">Analyst Information:</label>
-              <textarea id="analyst" name="Analyst">
-                Mario Medina
-              </textarea>
-
-              <label for="Mitig">Mitigation:</label>
-              <textarea id="Mitig" name="Mitigation">
-                Your script should filter metacharacters from useer input
-              </textarea>
-
-              <label for="Threat">Threat:</label>
-              <textarea id="Threat" name="Threat">
-                Confirmed
-              </textarea>
-
-              <label for="Counter">Countermeasure:</label>
-              <textarea id="Counter" name="Countermeasure">
-                nput analysis to prevent metacharacters
-              </textarea>
-
-              <label for="Impact">Impact:</label>
-              <textarea id="Impact" name="Impact">
-                VL
-              </textarea>
-
-              <label for="Sever">Severity:</label>
-              <textarea id="Sever" name="Severity">
-                I
-              </textarea>
-
-              <label for="Risk">Risk:</label>
-              <textarea id="Risk" name="Risk">
-                Information
-              </textarea>
-
-              <label for="FinSysImp">Finding System Level Impact:</label>
-              <textarea id="FinSysImp" name="FindingSystemLevelImpact">
-                Low
-              </textarea>
-            </form>
-          </FindingDetailView>
-        </scrollContainers>
-      </rect7>
-      <titles>
-        <h3>Finding Information</h3>
-      </titles>
-      <rect8>
-        <overview2Stack>
-          <FindingInformation style={{ overflow: "scroll" }}>
-            <form>
-              <label for="ID">ID:</label>
-              <input type="text" placeholder="" id="ID"></input>
-
-              <label for="HostName">Host Name:</label>
-              <input type="text" placeholder="" id="HostName"></input>
-              <label for="ip">IP Port:</label>
-              <input type="text" placeholder="" id="ip"></input>
-              <label for="desc">Description:</label>
-              <input type="text" placeholder="" id="desc"></input>
-              <label for="LongDesc">Long Description:</label>
-              <input type="text" placeholder="" id="LongDesc"></input>
-              <br></br>
-
-              <label for="Status">Status:</label>
-              <select name="Status" id="stat">
-                <option value="Open">Open</option>
-                <option value="Closed">Closed</option>
-              </select>
-              <label for="type">Type:</label>
-              <select name="type" id="type">
-                <option value="CredComplex">Credential Complexity</option>
-                <option value="Manufacturer">
-                  Manufacturer Default Credentials
-                </option>
-                <option value="LackAuth">Lack of Authentication</option>
-                <option value="PTP">Plain Text Protocols</option>
-                <option value="PTWL">Plain Text Web-Login</option>
-                <option value="Encrypt">Encryption</option>
-                <option value="AuthBypass">Authentication Bypass</option>
-                <option value="Port">Port Secuirty</option>
-                <option value="Access">Access Control</option>
-                <option value="LeastPriv">Least Privilege</option>
-                <option value="PrivEscal">Privilage Escalation</option>
-                <option value="unpatched">Missing Patches</option>
-                <option value="Physical">Physical Security</option>
-              </select>
-              <label for="classificication">Classification:</label>
-              <select name="Classification" id="classification">
-                <option value="required"></option>
-              </select>
-              <br></br>
-            </form>
-
-            <form action="/action_page.php">
-              <label for="evid">Evidence:</label>
-              <input type="file" id="evid" name="vidence"></input>
-            </form>
-
-            <label for="System">System:</label>
-            <select name="System" id="sys">
-              <option value="system1">System 1</option>
-              <option value="system2">System 2</option>
-            </select>
-            <b>or</b>
-            <label for="Task">Task:</label>
-            <select name="Task" id="task">
-              <option value="task1">Task 1</option>
-              <option value="task2">Task 2</option>
-            </select>
-            <b>or</b>
-            <label for="Subtask">Subtask:</label>
-            <select name="Subtask" id="subTask">
-              <option value="subtask1">Subtask 1</option>
-              <option value="subtask2">Subtask 2</option>
-            </select>
-
-            <br></br>
-            <label for="RelatedFindings">Related Findings:</label>
-            <div>
-              <select name="RelatedFindings" id="relFind" multiple>
-                <option value="finding1">Finding 1</option>
-                <option value="finding2">Finding 2</option>
-                <option value="finding3">Finding 3</option>
-                <option value="finding4">Finding 4</option>
-              </select>
-            </div>
-          </FindingInformation>
-        </overview2Stack>
-      </rect8>
-    </rect4>
+                <br></br>
+                <br></br>
+                <FormControl className="">
+                <InputLabel id="system">System</InputLabel>
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                                       
+                    </option>
+                    <option value="" >
+                      System 1
+                    </option>
+                  </NativeSelect>
+                  
+                </FormControl>
+                <br></br><br></br>
+                <Typography variant="body1" color ="secondary">
+                  OR
+                </Typography>
+                
+                <FormControl className="">
+                <InputLabel id="task">Task</InputLabel>
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                                      
+                    </option>
+                    <option value="" >
+                      Task 1
+                    </option>
+                  </NativeSelect>
+                  
+                  
+                </FormControl>
+                <br></br><br></br>
+                <Typography variant="body1" color ="secondary">
+                  OR
+                  </Typography>
+                  
+                <FormControl className="">
+                <InputLabel id="subtask">Subtask   </InputLabel>
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" >
+                          
+                    </option>
+                    <option value="" >
+                      Subtask 1
+                    </option>
+                  </NativeSelect>
+                  
+                </FormControl>
+                <br></br>
+                <FormControl className="">
+                <InputLabel id="rfinding">Related Findings:</InputLabel>
+                  <NativeSelect
+                    className=""
+                    value=""
+                    name=""
+                    multiple
+                    onChange={handleChange}
+                    inputProps=""
+                  >
+                    <option value="" ></option>
+                    <option value="">
+                    Related Finding(s)             
+                    </option>
+                    <option value="">
+                    Finding 1           
+                    </option>
+                  </NativeSelect>
+                  
+                </FormControl>
+                <br></br><br></br>
+                
+              </form>
+            </FindingInformation>
+          </overview2Stack>
+        </rect8>
+      </rect4>
+      </ThemeProvider>
   );
 };
 
