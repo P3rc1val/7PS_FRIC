@@ -13,7 +13,7 @@ import { render } from "react-dom";
 import { Button } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import EventIcon from "@material-ui/icons/Event";
+//import EventIcon from "@material-ui/icons/Event";
 import ComputerIcon from "@material-ui/icons/Computer";
 import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import FormatListNumberedRtlIcon from "@material-ui/icons/FormatListNumberedRtl";
@@ -23,7 +23,7 @@ import ArchiveIcon from "@material-ui/icons/Archive";
 import PermDataSettingIcon from "@material-ui/icons/PermDataSetting";
 import TuneIcon from "@material-ui/icons/Tune";
 import HelpIcon from "@material-ui/icons/Help";
-import { Typography } from "@material-ui/core";
+//import { Typography } from "@material-ui/core";
 const theme = createMuiTheme({
   palette: {
     primary: {

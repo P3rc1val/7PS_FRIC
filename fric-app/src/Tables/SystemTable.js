@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -45,19 +45,23 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(systemName, numberTasks, numberFindings, progress) {
   return {
-    system,
-    noOfTasks,
-    noOfFindings,
+    systemName,
+    numberTasks,
+    numberFindings,
     progress,
   };
 }
-
+//--------------------------------------------------------------------------------------------------------------------------
 const rows = [
   createData("BobsFinding", 305, 3.7, 67),
   createData("MariosFinding", 305, 3.7, 67),
   createData("EricsFinding", 305, 3.7, 67),
+];
+
+const rows = [
+  this.props.systemData.map(m => createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -85,6 +89,7 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
+
 const headCells = [
   {
     id: "system",
@@ -293,7 +298,6 @@ export default function EnhancedTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -312,7 +316,6 @@ export default function EnhancedTable() {
   const handleClick = (event, system) => {
     const selectedIndex = selected.indexOf(system);
     let newSelected = [];
-
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, system);
     } else if (selectedIndex === 0) {
@@ -369,20 +372,20 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(rows, getComparator(order, orderBy))  
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                    const isItemSelected = isSelected(row.systemName);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, row.systemName)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={row.systemName}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -397,10 +400,10 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {row.systemName}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
+                        <TableCell align="right">{row.numberTasks}</TableCell>
+                        <TableCell align="right">{row.numberFindings}</TableCell>
                         <TableCell align="right">{row.progress}</TableCell>
                       </TableRow>
                     );
