@@ -41,6 +41,9 @@ class SystemDetails extends Component {
       confidentiality: "",
       integrity: "",
       availability: "",
+      numberTasks: "0",
+      progress: "0",
+      numberFindings: "0"
     };
     this.handleChange = this.handleChange.bind(this);
     this.createSystem = this.createSystem.bind(this);

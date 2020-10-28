@@ -23,12 +23,33 @@ class EventContentView extends Component {
   //   });
   //   console.log(events);
   // }
+
+  /*
+  constructior(props){
+    super(props);
+    this.state ={
+      data: []
+    }
+    this.updateData = this.updateData.bind(this);
+  }
+
+  updateData(){
+    fetch('http://localhost:8080/retrieveEvent')
+    .then(response => response.json())
+    .then(data => this.setState({
+        data: data
+    }))
+    .catch(error => console.error(error))
+}
+*/
   render() {
     return (
       <container>
         <rectRow>
           <rect3Column>
-            <EventTable fetchEvent={this.fetchEvent} />
+            <EventTable /*fetchEvent={this.fetchEvent}*/ 
+            //eventData = {this.state.data}
+            />
           </rect3Column>
           <EventDetails />
         </rectRow>
