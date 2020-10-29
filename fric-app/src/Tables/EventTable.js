@@ -22,6 +22,8 @@ import DeleteIcon from "@material-ui/icons/Archive";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import EventContentView from "../ContentViews/EventContentView";
+
 const theme = createMuiTheme({
   palette: {
     primary: {

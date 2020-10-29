@@ -70,7 +70,7 @@ export function SubtaskDetailViewForm(props) {
       <rect4>
         <rect7>
           <eventDetailView>
-            <Typography variant="h4" color="secondary">
+            <Typography variant="h5" color="secondary">
             Subtask Detailed View
             </Typography>
             <form

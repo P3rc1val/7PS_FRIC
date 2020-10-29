@@ -34,7 +34,7 @@ import { render } from "react-dom";
 import { Button } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import EventIcon from "@material-ui/icons/Event";
+//import EventIcon from "@material-ui/icons/Event";
 import ComputerIcon from "@material-ui/icons/Computer";
 import FormatListNumberedIcon from "@material-ui/icons/FormatListNumbered";
 import FormatListNumberedRtlIcon from "@material-ui/icons/FormatListNumberedRtl";
@@ -47,6 +47,7 @@ import HelpIcon from "@material-ui/icons/Help";
 
 
 const drawerWidth = 150;
+//import { Typography } from "@material-ui/core";
 const theme = createMuiTheme({
   palette: {
     primary: {
