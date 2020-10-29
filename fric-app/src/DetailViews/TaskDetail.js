@@ -19,7 +19,7 @@ class TaskDetails extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.createTask = this.createTask.bind(this);
   }
-
+  /*
   async createTask(task) {
     system.preventDefault();
     await fetch("http://localhost:8080/createTask", {
@@ -29,7 +29,7 @@ class TaskDetails extends Component {
     });
     console.log(this.state);
   }
-
+*/
   handleChange(task) {
     const target = task.target;
     const value = target.value;

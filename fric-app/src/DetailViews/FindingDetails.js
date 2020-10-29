@@ -21,7 +21,7 @@ class FindingDetails extends Component {
   }
 
   async createFinding(finding) {
-    system.preventDefault();
+    finding.preventDefault();
     await fetch("http://localhost:8080/createFinding", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
