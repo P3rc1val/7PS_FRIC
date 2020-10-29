@@ -36,6 +36,43 @@ const theme = createMuiTheme({
   },
 });
 
+class SystemDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:"",
+      task:"",
+      analyst:"",
+      progress:"",
+      numberFindings:"",
+      duedate:"",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.createSubtask = this.createSubtask.bind(this);
+  }
+
+  async createSubtask(subtask) {
+    subtask.preventDefault();
+    await fetch("http://localhost:8080/createSubtask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(this.state),
+    });
+    console.log(this.state);
+  }
+
+  handleChange(subtask) {
+    const target = subtask.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+}
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
