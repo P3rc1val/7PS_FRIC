@@ -36,6 +36,8 @@ const theme = createMuiTheme({
   },
 });
 
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -76,16 +78,17 @@ class TaskDetails extends Component {
       progress:"",
       duedate:"",
       associationTask:"",
-      analysts:"",
+      analyst:"",
       collaborators:"",
-
+      system:"",
+      numberSubtasks:"",
+      numberFindings:""
     }
     this.handleChange = this.handleChange.bind(this);
     this.createTask = this.createTask.bind(this);
   }
-  /*
   async createTask(task) {
-    system.preventDefault();
+    task.preventDefault();
     await fetch("http://localhost:8080/createTask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -93,7 +96,7 @@ class TaskDetails extends Component {
     });
     console.log(this.state);
   }
-*/
+
   handleChange(task) {
     const target = task.target;
     const value = target.value;

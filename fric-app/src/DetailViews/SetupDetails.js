@@ -1,6 +1,34 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "../App.css";
+import Typography from "@material-ui/core/Typography";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import SetupViewForm from "./SetupDetailForm.js";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: "#7fcd91",
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: "#8fcd91",
+    },
+  },
+  overrides: {
+    // Style sheet name ⚛️
+    MuiButton: {
+      // Name of the rule
+      label: {
+        // Some CSS
+        align: "left",
+      },
+    },
+  },
+});
+
 class SetupDetails extends Component {
   constructor(props) {
     super(props);
@@ -18,49 +46,25 @@ class SetupDetails extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Setup Detail View</h1>
-        <Rect4>
-          <titles>
-            <h2>There is no existing event in your local system</h2>
-          </titles>
-          <Rect7>
-            <SetupDetailView>
-              <form action="/action_page.php">
-                <label for="sync option">Please enter your initials:</label>
-                <br></br>
-                <input type="text" name="new"></input>
-                <br></br>
-                <br></br>
-                <h3>Please select an option:</h3>
-                <br></br>
-                <div>
-                  <input
-                    type="radio"
-                    id="newevent"
-                    name="selectnewEvent"
-                    value={this.state.selectnewEvent}
-                    onChange={this.handleChange}
-                  ></input>
-                  <label for="new event">
-                    Create a new event any existing event will be archived
-                  </label>
-                </div>
-                <div>
-                  <input type="radio" name="select" value=""></input>
-
-                  <label for="first sync">
-                    First time sync with lead analyst. Please enter the lead
-                    analysts IP:
-                  </label>
-                </div>
-
-                <input type="text" name="select"></input>
-              </form>
-            </SetupDetailView>
-          </Rect7>
-        </Rect4>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div>
+        <Typography variant="h3" color="secondary">
+                Setup Details
+              </Typography>
+          <Rect4>
+          <Typography variant="h4" color="secondary">
+                There is no existing event in your local system
+              </Typography>
+            <Rect7>
+            <SetupViewForm
+            createSystem={this.createSystem}
+            handleChange={this.handleChange}
+            state={this.state}
+            />
+            </Rect7>
+          </Rect4>
+        </div>
+      </ThemeProvider>
     );
   }
 }

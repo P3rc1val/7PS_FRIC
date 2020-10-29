@@ -22,6 +22,7 @@ import DeleteIcon from "@material-ui/icons/Archive";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -51,18 +52,10 @@ function createData(systemName, numberTasks, numberFindings, progress) {
     numberTasks,
     numberFindings,
     progress
-};
+  };
 }
-//--------------------------------------------------------------------------------------------------------------------------
-/*const rows = /*(props) =>[
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-  //createData(props.systemData[0].systemName, props.systemData[0].numberTasks, props.systemData[0].numberFindings, props.systemData[0].progress)
-];
-*/
 
-function fillTable(props) {
+function fillTableSystem(props) {
   const {systemData} = props;
   var data = [];
   systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
@@ -357,7 +350,6 @@ export default function EnhancedTable(props) {
   const isSelected = (system) => selected.indexOf(system) !== -1;
 
   const emptyRows =
-    //rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);------------------------------------------------------------
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
@@ -382,7 +374,7 @@ export default function EnhancedTable(props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(fillTable(props), getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((rows, index) => {
                     const isItemSelected = isSelected(rows.systemName);
@@ -429,7 +421,6 @@ export default function EnhancedTable(props) {
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            //count={rows.length}------------------------------------------------------------------------------------------------------------
             count={rows.length}
             rowsPerPage={rowsPerPage}
             page={page}
