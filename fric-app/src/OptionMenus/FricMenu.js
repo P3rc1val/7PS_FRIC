@@ -1,4 +1,25 @@
-import React, { Component } from "react";
+
+
+
+import React from 'react';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 import styled, { css } from "styled-components";
 import GeneralView from "../ContentViews/GeneralView.js";
 import EventContentView from "../ContentViews/EventContentView.js";
@@ -23,7 +44,9 @@ import ArchiveIcon from "@material-ui/icons/Archive";
 import PermDataSettingIcon from "@material-ui/icons/PermDataSetting";
 import TuneIcon from "@material-ui/icons/Tune";
 import HelpIcon from "@material-ui/icons/Help";
-import { Typography } from "@material-ui/core";
+
+
+const drawerWidth = 150;
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -33,6 +56,9 @@ const theme = createMuiTheme({
     secondary: {
       // This is green.A700 as hex.
       main: "#8fcd91",
+    },
+    background:{
+      main: "#4d4646"
     },
   },
   overrides: {
@@ -46,320 +72,157 @@ const theme = createMuiTheme({
     },
   },
 });
-class FricMenu extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: "React",
-      showGeneralView: true,
-      showEventView: false,
-      showSystemView: false,
-      showTaskView: false,
-      showSubtaskView: false,
-      showFindingView: false,
-      showArchiveView: false,
-      showConfigView: false,
-      showSetupView: false,
-    };
-    this.hideView = this.hideView.bind(this);
-  }
-  hideView(viewstate, name) {
-    console.log(name);
-    switch (name) {
-      case "Event":
-        this.setState({
-          showEventView: true,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "System":
-        this.setState({
-          showEventView: false,
-          showSystemView: true,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "Task":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: true,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "Subtask":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: true,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "Finding":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: true,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "Archive":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: true,
-          showSetupView: false,
-          showConfigView: false,
-        });
-        break;
-      case "Config":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: true,
-        });
-        break;
-      case "Setup":
-        this.setState({
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showGeneralView: false,
-          showArchiveView: false,
-          showSetupView: true,
-          showConfigView: false,
-        });
-        break;
-      case "General":
-        break;
-      default:
-        this.setState({
-          showGeneralView: true,
-          showEventView: false,
-          showSystemView: false,
-          showTaskView: false,
-          showSubtaskView: false,
-          showFindingView: false,
-          showArchiveView: false,
-          showSetupView: false,
-          showConfigView: false,
-        });
-    }
-  }
-  render() {
-    const {
-      showGeneralView,
-      showEventView,
-      showSystemView,
-      showTaskView,
-      showSubtaskView,
-      showFindingView,
-      showArchiveView,
-      showConfigView,
-      showSetupView,
-    } = this.state;
-    return (
-      <window>
-        <div>
-          <overviewContainer>
-            {showGeneralView && <GeneralView />}
 
-            {showEventView && <EventContentView />}
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+  },
+  appBarShift: {
+    marginLeft: drawerWidth,
+    width: `calc(100% - ${drawerWidth}px)`,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  menuButton: {
+    marginRight: 36,
+  },
+  hide: {
+    display: 'none',
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    whiteSpace: 'nowrap',
+    
+  },
+  drawerOpen: {
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerClose: {
+    transition: theme.transitions.create('width', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    width: theme.spacing(7) + 1,
+    [theme.breakpoints.up('sm')]: {
+      width: theme.spacing(9) + 1,
+    },
+  },
+  toolbar: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    ...theme.mixins.toolbar,
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
+  
+}));
 
-            {showSystemView && <SystemContentView />}
+export default function MiniDrawer(props) {
+  const classes = useStyles();
+  
+  const [open, setOpen] = React.useState(false);
 
-            {showTaskView && <TaskContentView />}
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
 
-            {showSubtaskView && <SubtaskContentView />}
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+  var name = 'None';
+  const viewButton = [{name:'Event', icon:<AccountTreeIcon color ="primary"/>}, 
+  {name:'System', icon:<ComputerIcon color ="primary"/>}, 
+  {name:'Task', icon:<FormatListNumberedIcon color ="primary"/>},
+  {name:'Subtask', icon:<FormatListNumberedRtlIcon color ="primary"/>},
+  {name:'Finding', icon:<FolderSpecialIcon color ="primary"/>},
+  {name:'Archive', icon:<ArchiveIcon color ="primary"/>},
+  {name:'Config', icon:<PermDataSettingIcon color ="primary"/>},
+  {name:'Setup', icon:<TuneIcon color ="primary"/>},
+  {name:'Help', icon:<HelpIcon color ="primary"/>}]
+    
+  const {hideView} = props;
 
-            {showFindingView && <FindingContentView />}
-
-            {showArchiveView && <ArchiveContentView />}
-
-            {showConfigView && <ConfigContentView />}
-
-            {showSetupView && <SetupContentView />}
-          </overviewContainer>
-          <ThemeProvider theme={theme}>
-            <Rect>
-              <h2>
-                <FricMenuTitle>FRIC</FricMenuTitle>
-              </h2>
-              <Button
-                startIcon={<AccountTreeIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showEventView, "Event")}
-              >
-                <Event>Event</Event>
-              </Button>
-              <Button
-                startIcon={<ComputerIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSystemView, "System")}
-              >
-                <Systems>Systems</Systems>
-              </Button>
-              <Button
-                align
-                startIcon={<FormatListNumberedIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showTaskView, "Task")}
-              >
-                <Tasks>Tasks</Tasks>
-              </Button>
-              <Button
-                startIcon={<FormatListNumberedRtlIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSubtaskView, "Subtask")}
-              >
-                <Subtask>Subtask</Subtask>
-              </Button>
-              <Button
-                startIcon={<FolderSpecialIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showFindingView, "Finding")}
-              >
-                <Findings>Findings</Findings>
-              </Button>
-              <Button
-                startIcon={<ArchiveIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showArchiveView, "Archive")}
-              >
-                <Archive>Archive</Archive>
-              </Button>
-              <Button
-                startIcon={<PermDataSettingIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showConfigView, "Config")}
-              >
-                <Configuration>Config</Configuration>
-              </Button>
-              <Button
-                startIcon={<TuneIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSetupView, "Setup")}
-              >
-                <Setup>Setup</Setup>
-              </Button>
-              <Button startIcon={<HelpIcon />} variant="text" color="primary">
-                <Help>Help</Help>
-              </Button>
-            </Rect>
-          </ThemeProvider>
+  return (
+    <div className={classes.root}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open,
+        })}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, {
+              [classes.hide]: open,
+            })}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            FRIC
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        variant="permanent"
+        className={clsx(classes.drawer, {
+          [classes.drawerOpen]: open,
+          [classes.drawerClose]: !open,
+        })}
+        classes={{
+          paper: clsx({
+            [classes.drawerOpen]: open,
+            [classes.drawerClose]: !open,
+          }),
+        }}
+      >
+        <div className={classes.toolbar}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+          </IconButton>
         </div>
-      </window>
-    );
-  }
+        <Divider />
+        <List>
+          {viewButton.map((text, index) => (
+            <ListItem button key={text.name} onClick={() => hideView( text.name)}>
+                <ListItemIcon color ="primary">{viewButton[index].icon}</ListItemIcon>
+
+                <ListItemText primary={text.name} />
+              </ListItem>
+          ))}
+        </List>
+      </Drawer>
+      <main className={classes.content}>
+      
+      </main>
+      </ThemeProvider>
+    </div>
+    
+  );
 }
-const window = styled.div``;
-
-const overviewContainer = styled.div`
-  float: right;
-`;
-const Rect = styled.div`
-  width: 120px;
-  height: 100vh;
-
-  background-color: #4d4646;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-bottom: 20px;
-  position: absolute;
-`;
-
-const FricMenuTitle = styled.span`
-  padding: 16px;
-  font-style: normal;
-  font-weight: 400;
-  color: #7fcd91;
-  justify-text: center;
-`;
-
-const Event = styled.div`
-  color: #f5eaea;
-`;
-
-const Systems = styled.div`
-  color: #f5eaea;
-`;
-
-const Tasks = styled.div`
-  color: #f5eaea;
-`;
-
-const Subtask = styled.div`
-  color: #f5eaea;
-`;
-
-const Findings = styled.div`
-  color: #f5eaea;
-`;
-
-const Archive = styled.div`
-  color: #f5eaea;
-`;
-
-const Configuration = styled.div`
-  color: #f5eaea;
-`;
-
-const Setup = styled.div`
-  color: #f5eaea;
-`;
-
-const Help = styled.div`
-  color: #f5eaea;
-`;
-render(<FricMenu />, document.getElementById("root"));
-export default FricMenu;

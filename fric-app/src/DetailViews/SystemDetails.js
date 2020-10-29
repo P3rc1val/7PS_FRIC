@@ -2,30 +2,7 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SystemDetailViewForm from "./SystemDetailViewForm.js";
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: "#7fcd91",
-    },
-    secondary: {
-      // This is green.A700 as hex.
-      main: "#8fcd91",
-    },
-  },
-  overrides: {
-    // Style sheet name ⚛️
-    MuiButton: {
-      // Name of the rule
-      label: {
-        // Some CSS
-        align: "left",
-      },
-    },
-  },
-});
+
 
 class SystemDetails extends Component {
   constructor(props) {
