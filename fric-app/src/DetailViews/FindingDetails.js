@@ -15,6 +15,48 @@ import Button from "@material-ui/core/Button";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 
+class FindingDetails extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      title:"",
+      description:"",
+      priority:"",
+      progress:"",
+      duedate:"",
+      associationTask:"",
+      analysts:"",
+      collaborators:"",
+
+    }
+    this.handleChange = this.handleChange.bind(this);
+    this.createFinding = this.createFinding.bind(this);
+  }
+
+  async createFinding(finding) {
+    finding.preventDefault();
+    await fetch("http://localhost:8080/createFinding", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(this.state),
+    });
+    console.log(this.state);
+  }
+
+  handleChange(finding) {
+    const target = finding.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  render(){
+    return (
+
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -65,6 +107,7 @@ export function FindingDetails(props) {
   const { saveEvent } = props;
   return (
     <ThemeProvider theme={theme}>
+
       <rect4>
         
         <rect7>
