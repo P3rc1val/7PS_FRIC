@@ -45,20 +45,29 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(title, system, analyst, priority, progress, numberSubtasks, numberFindings, duedate) {
   return {
+    title,
     system,
-    noOfTasks,
-    noOfFindings,
+    analyst,
+    priority,
     progress,
+    numberSubtasks,
+    numberFindings,
+    duedate
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableTask(props) {
+  const {taskData} = props;
+  var data = [];
+  taskData.map(m => data.push(createData(m.title, m.system, m.analyst, m.priority, m.progress, m.numberSubtasks, 
+    m.numberFindings, m.duedate))
+  )
+  return data;
+}
+
+const rows = [];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,24 +96,42 @@ function stableSort(array, comparator) {
 }
 const headCells = [
   {
+    id: "title",
+    numeric: false,
+    disablePadding: false,
+    label: "Title",
+  },
+  {
     id: "system",
     numeric: false,
     disablePadding: false,
     label: "System",
   },
   {
-    id: "noOfTasks",
+    id: "priority",
+    numeric: false,
+    disablePadding: false,
+    label: "Priority",
+  },
+  { id: "progress", numeric: true, disablePadding: false, label: "Progress" },
+  {
+    id: "numberSubtasks",
     numeric: true,
     disablePadding: false,
     label: "# Tasks",
   },
   {
-    id: "noOfFindings",
+    id: "numberFindings",
     numeric: true,
     disablePadding: false,
     label: "# Finding",
   },
-  { id: "progress", numeric: true, disablePadding: false, label: "Progress" },
+  {
+    id: "duedate",
+    numeric: false,
+    disablePadding: false,
+    label: "Due Date",
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -369,7 +396,7 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableTask(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.system);

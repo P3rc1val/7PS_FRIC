@@ -45,20 +45,26 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(title, task, analyst, progress, numberFindings, duedate) {
   return {
-    system,
-    noOfTasks,
-    noOfFindings,
-    progress,
+    title, 
+    task, 
+    analyst, 
+    progress, 
+    numberFindings, 
+    duedate
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableSubtask(props) {
+  const {subtaskData} = props;
+  var data = [];
+  subtaskData.map(m => data.push(createData(m.title, m.task, m.analyst, m.progress, m.numberFindings, m.duedate))
+  )
+  return data;
+}
+
+const rows = [];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,24 +93,36 @@ function stableSort(array, comparator) {
 }
 const headCells = [
   {
-    id: "system",
+    id: "title",
     numeric: false,
     disablePadding: false,
-    label: "System",
+    label: "Title",
   },
   {
-    id: "noOfTasks",
+    id: "task",
     numeric: true,
     disablePadding: false,
-    label: "# Tasks",
+    label: "Task",
   },
   {
-    id: "noOfFindings",
+    id: "analyst",
     numeric: true,
     disablePadding: false,
-    label: "# Finding",
+    label: "Analyst",
   },
   { id: "progress", numeric: true, disablePadding: false, label: "Progress" },
+  {
+    id: "numberFindings",
+    numeric: false,
+    disablePadding: false,
+    label: "# of Findings",
+  },
+  {
+    id: "duedate",
+    numeric: false,
+    disablePadding: false,
+    label: "Due Date",
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -369,7 +387,7 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableSubtask(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.system);
