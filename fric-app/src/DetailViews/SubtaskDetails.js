@@ -36,7 +36,7 @@ const theme = createMuiTheme({
   },
 });
 
-class SystemDetails extends Component {
+class SubtaskDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {

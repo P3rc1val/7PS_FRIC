@@ -82,7 +82,7 @@ class FindingDetails extends Component {
   }
 
   render(){
-    return (
+    return (null)}}
 
 
 const theme = createMuiTheme({
@@ -127,396 +127,396 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export function FindingDetails(props) {
-//const FindingDetails = () => {
-  const classes = useStyles();
-  const [eclass, setClass] = React.useState("");
-  const { handleChange } = props;
-  const { saveEvent } = props;
-  return (
-    <ThemeProvider theme={theme}>
+// export function FindingDetails(props) {
+// //const FindingDetails = () => {
+//   const classes = useStyles();
+//   const [eclass, setClass] = React.useState("");
+//   const { handleChange } = props;
+//   const { saveEvent } = props;
+//   return (
+//     <ThemeProvider theme={theme}>
 
-      <rect4>
+//       <rect4>
         
-        <rect7>
-          <scrollContainers>
-            <FindingDetailView style={{ overflow: "scroll" }}>
-            <Typography variant="h5" color="secondary">
-            Finding Detailed View
-            </Typography>
-              <form
-                className={classes.root}
-                noValidate
-                autoComplete="off"
-                method="POST"
-                onSubmit={saveEvent}
-              >
+//         <rect7>
+//           <scrollContainers>
+//             <FindingDetailView style={{ overflow: "scroll" }}>
+//             <Typography variant="h5" color="secondary">
+//             Finding Detailed View
+//             </Typography>
+//               <form
+//                 className={classes.root}
+//                 noValidate
+//                 autoComplete="off"
+//                 method="POST"
+//                 onSubmit={saveEvent}
+//               >
                 
-              <TextField
-                    id="outlined-multiline-static"
-                    label="Finding Information"
-                    name="finformation"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Finding Impact"
-                    name="impact"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <br></br>
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Analyst Information"
-                    name="analystinfo"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Mitigation"
-                    name="mitigation"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Threat"
-                    name="threat"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Countermeasure"
-                    name="countermeasure"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Impact"
-                    name="impact"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Severity"
-                    name="severity"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Risk"
-                    name="risk"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                  <TextField
-                    id="outlined-multiline-static"
-                    label="Finding System Level Impact"
-                    name="levelimpact"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-              </form>
-            </FindingDetailView>
-          </scrollContainers>
-        </rect7>
+//               <TextField
+//                     id="outlined-multiline-static"
+//                     label="Finding Information"
+//                     name="finformation"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Finding Impact"
+//                     name="impact"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <br></br>
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Analyst Information"
+//                     name="analystinfo"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Mitigation"
+//                     name="mitigation"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Threat"
+//                     name="threat"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Countermeasure"
+//                     name="countermeasure"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Impact"
+//                     name="impact"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Severity"
+//                     name="severity"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Risk"
+//                     name="risk"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                   <TextField
+//                     id="outlined-multiline-static"
+//                     label="Finding System Level Impact"
+//                     name="levelimpact"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//               </form>
+//             </FindingDetailView>
+//           </scrollContainers>
+//         </rect7>
 
 
-        <rect8>
-          <overview2Stack>
-            <FindingInformation style={{ overflow: "scroll" }}>
-            <Typography variant="h5" color="secondary">
-            Finding Information
-            </Typography>
-              <form
-                className={classes.root}
-                noValidate
-                autoComplete="off"
-                method="POST"
-                onSubmit={saveEvent}
-              >
-              <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="title"
-                  onChange={handleChange}
-                  id="filled-read-only-input"
-                  label="ID:"
-                  defaultValue=""
-                  variant="filled"
-                />
+//         <rect8>
+//           <overview2Stack>
+//             <FindingInformation style={{ overflow: "scroll" }}>
+//             <Typography variant="h5" color="secondary">
+//             Finding Information
+//             </Typography>
+//               <form
+//                 className={classes.root}
+//                 noValidate
+//                 autoComplete="off"
+//                 method="POST"
+//                 onSubmit={saveEvent}
+//               >
+//               <TextField
+//                   size="small"
+//                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
+//                   InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+//                   name="title"
+//                   onChange={handleChange}
+//                   id="filled-read-only-input"
+//                   label="ID:"
+//                   defaultValue=""
+//                   variant="filled"
+//                 />
 
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="title"
-                  onChange={handleChange}
-                  id="filled-read-only-input"
-                  label="Host Name:"
-                  defaultValue=""
-                  variant="filled"
-                />
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="title"
-                  onChange={handleChange}
-                  id="filled-read-only-input"
-                  label="IP Port:"
-                  defaultValue=""
-                  variant="filled"
-                />
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="title"
-                  onChange={handleChange}
-                  id="filled-read-only-input"
-                  label="Description:"
-                  defaultValue=""
-                  variant="filled"
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    label="Long Description:"
-                    name="impact"
-                    multiline
-                    rows={4}
-                    defaultValue=""
-                    variant="filled"
-                  />
-                <FormControl className="">
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name="age"
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
-                      Placeholder
-                    </option>
-                    <option value="" >
-                      Placeholder
-                    </option>
-                  </NativeSelect>
-                  <FormHelperText>Status</FormHelperText>
-                </FormControl>
-                <FormControl className="">
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
+//                 <TextField
+//                   size="small"
+//                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
+//                   InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+//                   name="title"
+//                   onChange={handleChange}
+//                   id="filled-read-only-input"
+//                   label="Host Name:"
+//                   defaultValue=""
+//                   variant="filled"
+//                 />
+//                 <TextField
+//                   size="small"
+//                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
+//                   InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+//                   name="title"
+//                   onChange={handleChange}
+//                   id="filled-read-only-input"
+//                   label="IP Port:"
+//                   defaultValue=""
+//                   variant="filled"
+//                 />
+//                 <TextField
+//                   size="small"
+//                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
+//                   InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+//                   name="title"
+//                   onChange={handleChange}
+//                   id="filled-read-only-input"
+//                   label="Description:"
+//                   defaultValue=""
+//                   variant="filled"
+//                 />
+//                 <TextField
+//                     id="outlined-multiline-static"
+//                     label="Long Description:"
+//                     name="impact"
+//                     multiline
+//                     rows={4}
+//                     defaultValue=""
+//                     variant="filled"
+//                   />
+//                 <FormControl className="">
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name="age"
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
+//                       Placeholder
+//                     </option>
+//                     <option value="" >
+//                       Placeholder
+//                     </option>
+//                   </NativeSelect>
+//                   <FormHelperText>Status</FormHelperText>
+//                 </FormControl>
+//                 <FormControl className="">
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
                                      
-                    </option>
-                    <option value="" >
-                      Credential Complexity
-                    </option>
-                    <option value="" >
-                      Manufacturer Default Credentials
-                    </option>
-                    <option value="" >
-                      Lack of Authentication
-                    </option>
-                    <option value="" >
-                      Plain Text Protocols
-                    </option>
-                    <option value="" >
-                      Plain Text Web-Logon
-                    </option>
-                    <option value="" >
-                      Encryption
-                    </option>
-                    <option value="" >
-                      Authentication Bypass
-                    </option>
-                    <option value="" >
-                      Port Security
-                    </option>
-                    <option value="" >
-                      Access Control
-                    </option><option value="" >
-                      Least Privilege
-                    </option><option value="" >
-                      Privilege Escalation
-                    </option>
-                    <option value="" >
-                      Missing Patches
-                    </option>
-                    <option value="" >
-                      Physical Security
-                    </option>
-                  </NativeSelect>
-                  <FormHelperText>Type</FormHelperText>
-                </FormControl>
+//                     </option>
+//                     <option value="" >
+//                       Credential Complexity
+//                     </option>
+//                     <option value="" >
+//                       Manufacturer Default Credentials
+//                     </option>
+//                     <option value="" >
+//                       Lack of Authentication
+//                     </option>
+//                     <option value="" >
+//                       Plain Text Protocols
+//                     </option>
+//                     <option value="" >
+//                       Plain Text Web-Logon
+//                     </option>
+//                     <option value="" >
+//                       Encryption
+//                     </option>
+//                     <option value="" >
+//                       Authentication Bypass
+//                     </option>
+//                     <option value="" >
+//                       Port Security
+//                     </option>
+//                     <option value="" >
+//                       Access Control
+//                     </option><option value="" >
+//                       Least Privilege
+//                     </option><option value="" >
+//                       Privilege Escalation
+//                     </option>
+//                     <option value="" >
+//                       Missing Patches
+//                     </option>
+//                     <option value="" >
+//                       Physical Security
+//                     </option>
+//                   </NativeSelect>
+//                   <FormHelperText>Type</FormHelperText>
+//                 </FormControl>
                 
-                <FormControl className="">
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
+//                 <FormControl className="">
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
                       
-                    </option>
-                    <option value="" >
-                      Placeholder
-                    </option>
-                  </NativeSelect>
-                  <FormHelperText>Classification</FormHelperText>
-                </FormControl>
-                <Typography variant="h6" color="secondary">
-                Evidence:
-                </Typography>
+//                     </option>
+//                     <option value="" >
+//                       Placeholder
+//                     </option>
+//                   </NativeSelect>
+//                   <FormHelperText>Classification</FormHelperText>
+//                 </FormControl>
+//                 <Typography variant="h6" color="secondary">
+//                 Evidence:
+//                 </Typography>
                 
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                  startIcon={<AttachFileIcon />}
-                >
-                  Upload
-                </Button>
+//                 <Button
+//                   variant="contained"
+//                   color="primary"
+//                   className={classes.button}
+//                   startIcon={<AttachFileIcon />}
+//                 >
+//                   Upload
+//                 </Button>
 
-                <br></br>
-                <br></br>
-                <FormControl className="">
-                <InputLabel id="system">System</InputLabel>
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
+//                 <br></br>
+//                 <br></br>
+//                 <FormControl className="">
+//                 <InputLabel id="system">System</InputLabel>
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
                                        
-                    </option>
-                    <option value="" >
-                      System 1
-                    </option>
-                  </NativeSelect>
+//                     </option>
+//                     <option value="" >
+//                       System 1
+//                     </option>
+//                   </NativeSelect>
                   
-                </FormControl>
-                <br></br><br></br>
-                <Typography variant="body1" color ="secondary">
-                  OR
-                </Typography>
+//                 </FormControl>
+//                 <br></br><br></br>
+//                 <Typography variant="body1" color ="secondary">
+//                   OR
+//                 </Typography>
                 
-                <FormControl className="">
-                <InputLabel id="task">Task</InputLabel>
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
+//                 <FormControl className="">
+//                 <InputLabel id="task">Task</InputLabel>
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
                                       
-                    </option>
-                    <option value="" >
-                      Task 1
-                    </option>
-                  </NativeSelect>
+//                     </option>
+//                     <option value="" >
+//                       Task 1
+//                     </option>
+//                   </NativeSelect>
                   
                   
-                </FormControl>
-                <br></br><br></br>
-                <Typography variant="body1" color ="secondary">
-                  OR
-                  </Typography>
+//                 </FormControl>
+//                 <br></br><br></br>
+//                 <Typography variant="body1" color ="secondary">
+//                   OR
+//                   </Typography>
                   
-                <FormControl className="">
-                <InputLabel id="subtask">Subtask   </InputLabel>
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" >
+//                 <FormControl className="">
+//                 <InputLabel id="subtask">Subtask   </InputLabel>
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" >
                           
-                    </option>
-                    <option value="" >
-                      Subtask 1
-                    </option>
-                  </NativeSelect>
+//                     </option>
+//                     <option value="" >
+//                       Subtask 1
+//                     </option>
+//                   </NativeSelect>
                   
-                </FormControl>
-                <br></br>
-                <FormControl className="">
-                <InputLabel id="rfinding">Related Findings:</InputLabel>
-                  <NativeSelect
-                    className=""
-                    value=""
-                    name=""
-                    multiple
-                    onChange={handleChange}
-                    inputProps=""
-                  >
-                    <option value="" ></option>
-                    <option value="">
-                    Related Finding(s)             
-                    </option>
-                    <option value="">
-                    Finding 1           
-                    </option>
-                  </NativeSelect>
+//                 </FormControl>
+//                 <br></br>
+//                 <FormControl className="">
+//                 <InputLabel id="rfinding">Related Findings:</InputLabel>
+//                   <NativeSelect
+//                     className=""
+//                     value=""
+//                     name=""
+//                     multiple
+//                     onChange={handleChange}
+//                     inputProps=""
+//                   >
+//                     <option value="" ></option>
+//                     <option value="">
+//                     Related Finding(s)             
+//                     </option>
+//                     <option value="">
+//                     Finding 1           
+//                     </option>
+//                   </NativeSelect>
                   
-                </FormControl>
-                <br></br><br></br>
+//                 </FormControl>
+//                 <br></br><br></br>
                 
-              </form>
+//               </form>
 
-            </FindingInformation>
-          </overview2Stack>
-        </rect8>
-      </rect4>
+//             </FindingInformation>
+//           </overview2Stack>
+//         </rect8>
+//       </rect4>
 
 
-      </ThemeProvider>
-  );
+//       </ThemeProvider>
+//   );
 
-};
+// };
 
 const FindingInformation = styled.div`
   display: flex;

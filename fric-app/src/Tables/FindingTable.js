@@ -337,7 +337,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("title");
@@ -421,7 +421,7 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
+                {stableSort(fillTableFindings(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.system);

@@ -312,7 +312,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("title");
@@ -320,7 +320,6 @@ export default function EnhancedTable() {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -329,19 +328,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.system);
+      const newSelecteds = rows.map((n) => n.title);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, title) => {
+    const selectedIndex = selected.indexOf(title);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, title);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -369,7 +368,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (title) => selected.indexOf(title) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -399,17 +398,17 @@ export default function EnhancedTable() {
                 {stableSort(fillTableTask(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                    const isItemSelected = isSelected(row.title);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, row.title)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={row.title}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -424,7 +423,7 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {row.title}
                         </TableCell>
                         <TableCell align="right">{row.noOfTasks}</TableCell>
                         <TableCell align="right">{row.noOfFindings}</TableCell>
