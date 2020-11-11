@@ -425,9 +425,15 @@ export default function EnhancedTable(props) {
                         >
                           {row.title}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
+                        <TableCell align="right">{row.title}</TableCell>
+                        <TableCell align="right">{row.system}</TableCell>
+                        <TableCell align="right">{row.analyst}</TableCell>
+                        <TableCell align="right">{row.priority}</TableCell>
                         <TableCell align="right">{row.progress}</TableCell>
+                        <TableCell align="right">{row.numberSubtasks}</TableCell>
+                        <TableCell align="right">{row.noFindings}</TableCell>
+                        <TableCell align="right">{row.duedate}</TableCell>
+                      
                       </TableRow>
                     );
                   })}
