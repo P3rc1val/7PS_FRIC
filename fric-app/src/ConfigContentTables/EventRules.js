@@ -51,11 +51,15 @@ function createData(eventRules) {
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableSystem(props) {
+  const {systemData} = props;
+  var data = [];
+  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  )
+  return data;
+}
+
+var rows = []
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -86,7 +90,7 @@ const headCells = [
   {
     id: "eventRules",
     numeric: false,
-    disablePadding: false,
+    disablePadding: true,
     label: "Event Rules",
   },
 ];
@@ -272,7 +276,7 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("title");
+  const [orderBy, setOrderBy] = React.useState("eventRules");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
@@ -286,19 +290,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.system);
+      const newSelecteds = rows.map((n) => n.eventRules);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, eventRules) => {
+    const selectedIndex = selected.indexOf(eventRules);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, eventRules);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -326,7 +330,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (eventRules) => selected.indexOf(eventRules) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -353,20 +357,20 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                    const isItemSelected = isSelected(row.eventRules);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, row.eventRules)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={row.eventRules}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -381,11 +385,8 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {row.eventRules}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
-                        <TableCell align="right">{row.progress}</TableCell>
                       </TableRow>
                     );
                   })}

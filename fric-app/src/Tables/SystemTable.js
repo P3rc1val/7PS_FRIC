@@ -55,6 +55,8 @@ function createData(systemName, numberTasks, numberFindings, progress) {
   };
 }
 
+//add start
+
 function fillTableSystem(props) {
   const {systemData} = props;
   var data = [];
@@ -64,6 +66,9 @@ function fillTableSystem(props) {
 }
 
 var rows = []
+
+//add end
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -294,7 +299,7 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("title");
+  const [orderBy, setOrderBy] = React.useState("numberTasks");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
@@ -307,19 +312,18 @@ export default function EnhancedTable(props) {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      //const newSelecteds = rows.map((n) => n.system)
-      const newSelecteds = rows.map((n) => n.systemName)//------------------------------------------------------------------------
+      const newSelecteds = rows.map((n) => n.systemName)
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, systemName) => {
+    const selectedIndex = selected.indexOf(systemName);
     let newSelected = [];
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, systemName);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -347,7 +351,7 @@ export default function EnhancedTable(props) {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (systemName) => selected.indexOf(systemName) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -374,7 +378,7 @@ export default function EnhancedTable(props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))//MODIFY
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((rows, index) => {
                     const isItemSelected = isSelected(rows.systemName);
