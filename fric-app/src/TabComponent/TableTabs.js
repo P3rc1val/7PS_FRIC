@@ -261,11 +261,13 @@ render() {
       <h1>Tables</h1>
       <Tabs>
         <div label="Finding Type">
+
           <FindingType
             findingTypeData = {this.state.data}
             getFindingType = {this.getFindingType}
             state = {this.state}
             />
+
         </div>
         <div label="Posture ">
           <Posture 

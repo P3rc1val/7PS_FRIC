@@ -13,202 +13,52 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
 import Box from "@material-ui/core/Box";
 import Select from '@material-ui/core/Select';
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: "#7fcd91",
-    },
-    secondary: {
-      // This is green.A700 as hex.
-      main: "#8fcd91",
-    },
-  },
-  overrides: {
-    // Style sheet name ⚛️
-    MuiButton: {
-      // Name of the rule
-      label: {
-        // Some CSS
-        align: "left",
-      },
-    },
-  },
-});
+import SubtaskDetailViewForm from "./SubtaskDetailViewForm.js"
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: "25ch",
-    },
-    palette: {
-      primary: {
-        // Purple and green play nicely together.
-        main: "#7fcd91",
-      },
-      secondary: {
-        // This is green.A700 as hex.
-        main: "#8fcd91",
-      },
-    },
-  },
-}));
+class SubtaskDetails extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:"",
+      task:"",
+      analyst:"",
+      progress:"",
+      numberFindings:"",
+      duedate:"",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.createSubtask = this.createSubtask.bind(this);
+  }
 
-export function SubtaskDetailViewForm(props) {
-  const classes = useStyles();
-  const [eclass, setClass] = React.useState("");
+  async createSubtask(subtask) {
+    subtask.preventDefault();
+    await fetch("http://localhost:8080/createSubtask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(this.state),
+    });
+    console.log(this.state);
+  }
 
-  //   const handleChange = (event) => {
-  //     setClass(event.target.value);
-  //   };
-  const { handleChange } = props;
-  const { saveEvent } = props;
+  handleChange(subtask) {
+    const target = subtask.target;
+    const value = target.value;
+    const name = target.name;
 
-  return (
-    <ThemeProvider theme={theme}>
-      <rect4>
-        <rect7>
-          <eventDetailView>
-            <Typography variant="h4" color="secondary">
-            Subtask Detailed View
-            </Typography>
-            <form
-              className={classes.root}
-              noValidate
-              autoComplete="off"
-              method="POST"
-              onSubmit={saveEvent}
-            >
-              <div>
-
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  required
-                  name="title"
-                  onChange={handleChange}
-                  id="filled-read-only-input"
-                  label="Title"
-                  defaultValue=""
-                  variant="filled"
-                />
-                
-                
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="progressSelect"
-                  onChange={handleChange}
-                  id="progressSelect"
-                  select
-                  label="Progress"
-                  className={classes.textField}
-                  margin="normal"
-                  variant="filled"
-                ></TextField>
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="dueDate"
-                  onChange={handleChange}
-                  id="date"
-                  label="Due Date"
-                  type="date"
-                  defaultValue="2017-05-24"
-                  className={classes.textField}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  variant="filled"
-                />
-                <Button variant="outlined" color="primary">
-                  Submit
-                </Button>
-                
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="analystMSelect"
-                  onChange={handleChange}
-                  id="select"
-                  select
-                  label="Analyst(s)"
-                  className={classes.textField}
-                  margin="normal"
-                  variant="filled"
-                ></TextField>
-
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="prioritySelect"
-                  onChange={handleChange}
-                  id="prioritySelect"
-                  select
-                  label="Collaborator(s)"
-                  className={classes.textField}
-                  margin="normal"
-                  variant="filled"
-                ></TextField>
-
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="taskSelect"
-                  onChange={handleChange}
-                  id="taskSelect"
-                  select
-                  label="Task(s)"
-                  className={classes.textField}
-                  margin="normal"
-                  variant="filled"
-                ></TextField>
-
-                <TextField
-                  size="small"
-                  inputProps={{ style: { fontSize: 14 } }} // font size of input text
-                  InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
-                  name="subtaskSelect"
-                  onChange={handleChange}
-                  id="subtaskSelect"
-                  select
-                  label="Subask(s)"
-                  className={classes.textField}
-                  margin="normal"
-                  variant="filled"
-                ></TextField>
-
-
-                <Typography variant="h6" color="secondary">
-                Select files:
-                </Typography>
-                
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-                  startIcon={<AttachFileIcon />}
-                >
-                  Attachments
-                </Button>
-                <br></br>
-                <br></br>
-                <Button variant="outlined" color="primary">
-                  Submit
-                </Button>
-              </div>
-            </form>
-          </eventDetailView>
-        </rect7>
-      </rect4>
-    </ThemeProvider>
-  );
+    this.setState({
+      [name]: value,
+    });
+  }
+  render() {
+    return (
+      <SubtaskDetailViewForm
+        createSubtask={this.createSubtask}
+        handleChange={this.handleChange}
+        state={this.state}
+      />
+    );
+  }
 }
-export default SubtaskDetailViewForm;
+
+
+export default SubtaskDetails

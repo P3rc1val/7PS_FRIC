@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 //import LoginView from "./Login/LoginView";
-import FricMenu from "./OptionMenus/FricMenu.js";
+import FricMenu from "./OptionMenus/FricMenuBackup.js";
 //import { render } from "@testing-library/react";
 
 function System(props) {

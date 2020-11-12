@@ -45,20 +45,26 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(subtaskName, task, analyst, progress, numberFindings, duedate) {
   return {
-    system,
-    noOfTasks,
-    noOfFindings,
-    progress,
+    subtaskName, 
+    task, 
+    analyst, 
+    progress, 
+    numberFindings, 
+    duedate
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableSubtask(props) {
+  const {subtaskData} = props;
+  var data = [];
+  subtaskData.map(m => data.push(createData(m.subtaskName, m.task, m.analyst, m.progress, m.numberFindings, m.duedate))
+  )
+  return data;
+}
+
+const rows = [];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,24 +93,36 @@ function stableSort(array, comparator) {
 }
 const headCells = [
   {
-    id: "system",
+    id: "subtaskName",
     numeric: false,
     disablePadding: false,
-    label: "System",
+    label: "Title",
   },
   {
-    id: "noOfTasks",
+    id: "task",
     numeric: true,
     disablePadding: false,
-    label: "# Tasks",
+    label: "Task",
   },
   {
-    id: "noOfFindings",
+    id: "analyst",
     numeric: true,
     disablePadding: false,
-    label: "# Finding",
+    label: "Analyst",
   },
   { id: "progress", numeric: true, disablePadding: false, label: "Progress" },
+  {
+    id: "numberFindings",
+    numeric: false,
+    disablePadding: false,
+    label: "# of Findings",
+  },
+  {
+    id: "duedate",
+    numeric: false,
+    disablePadding: false,
+    label: "Due Date",
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -285,15 +303,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("title");
+  const [orderBy, setOrderBy] = React.useState("subtaskName");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -302,19 +319,18 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.system);
+      const newSelecteds = rows.map((n) => n.subtaskName);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, subtaskName) => {
+    const selectedIndex = selected.indexOf(subtaskName);
     let newSelected = [];
-
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, subtaskName);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -342,7 +358,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (subtaskName) => selected.indexOf(subtaskName) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -369,20 +385,20 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableSubtask(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                    const isItemSelected = isSelected(row.subtaskName);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, row.subtaskName)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={row.subtaskName}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -397,11 +413,13 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {row.subtaskName}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
+                        <TableCell align="right">{row.task}</TableCell>
+                        <TableCell align="right">{row.analyst}</TableCell>
                         <TableCell align="right">{row.progress}</TableCell>
+                        <TableCell align="right">{row.numberFindings}</TableCell>
+                        <TableCell align="right">{row.duedate}</TableCell>
                       </TableRow>
                     );
                   })}

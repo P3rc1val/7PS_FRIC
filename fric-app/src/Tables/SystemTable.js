@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
 import { lighten, makeStyles } from "@material-ui/core/styles";
@@ -22,6 +22,7 @@ import DeleteIcon from "@material-ui/icons/Archive";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -45,20 +46,29 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(systemName, numberTasks, numberFindings, progress) {
   return {
-    system,
-    noOfTasks,
-    noOfFindings,
-    progress,
+    systemName,
+    numberTasks,
+    numberFindings,
+    progress
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+//add start
+
+function fillTableSystem(props) {
+  const {systemData} = props;
+  var data = [];
+  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  )
+  return data;
+}
+
+var rows = []
+
+//add end
+
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -85,6 +95,7 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
+
 const headCells = [
   {
     id: "system",
@@ -93,13 +104,13 @@ const headCells = [
     label: "System",
   },
   {
-    id: "noOfTasks",
+    id: "numberTasks",
     numeric: true,
     disablePadding: false,
     label: "# Tasks",
   },
   {
-    id: "noOfFindings",
+    id: "numberFindings",
     numeric: true,
     disablePadding: false,
     label: "# Finding",
@@ -197,7 +208,7 @@ const useToolbarStyles = makeStyles((theme) => ({
   //   flex: "1 1 100%",
   // },
 }));
-
+//---------------------------------------------------------------------------------------------------------
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
   const { numSelected } = props;
@@ -285,15 +296,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("title");
+  const [orderBy, setOrderBy] = React.useState("numberTasks");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -302,19 +312,18 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.system);
+      const newSelecteds = rows.map((n) => n.systemName)
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, systemName) => {
+    const selectedIndex = selected.indexOf(systemName);
     let newSelected = [];
-
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, systemName);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -342,7 +351,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (systemName) => selected.indexOf(systemName) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -369,20 +378,20 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))//MODIFY
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                  .map((rows, index) => {
+                    const isItemSelected = isSelected(rows.systemName);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, rows.systemName)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={rows.systemName}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -397,11 +406,11 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {rows.systemName}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
-                        <TableCell align="right">{row.progress}</TableCell>
+                        <TableCell align="right">{rows.numberTasks}</TableCell>
+                        <TableCell align="right">{rows.numberFindings}</TableCell>
+                        <TableCell align="right">{rows.progress}</TableCell>
                       </TableRow>
                     );
                   })}

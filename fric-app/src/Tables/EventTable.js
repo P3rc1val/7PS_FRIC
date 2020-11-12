@@ -22,6 +22,8 @@ import DeleteIcon from "@material-ui/icons/Archive";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import EventContentView from "../ContentViews/EventContentView";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -333,7 +335,6 @@ export default function EnhancedTable(props) {
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -352,7 +353,6 @@ export default function EnhancedTable(props) {
   const handleClick = (event, eventName) => {
     const selectedIndex = selected.indexOf(eventName);
     let newSelected = [];
-
     if (selectedIndex === -1) {
       newSelected = newSelected.concat(selected, eventName);
     } else if (selectedIndex === 0) {

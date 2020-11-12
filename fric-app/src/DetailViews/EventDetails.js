@@ -32,8 +32,8 @@ class EventDetails extends Component {
     });
     console.log(this.state);
   }
-  handleChange(event) {
-    const target = event.target;
+  handleChange(system) {
+    const target = system.target;
     const value = target.value;
     const name = target.name;
 
@@ -41,6 +41,15 @@ class EventDetails extends Component {
       [name]: value,
     });
   }
+  fetchEvent() {
+    fetch("http://localhost:8080/retrieveEvent")
+    .then(response => response.json())
+    .then(data => this.setState({
+      data: data
+    }))
+    .catch(error => console.error(error))      
+  }
+
   render() {
     return (
       <EventDetailViewForm
