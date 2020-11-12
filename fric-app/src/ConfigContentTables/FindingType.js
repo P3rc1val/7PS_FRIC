@@ -26,12 +26,12 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91",
+      main: "#7fcd91"
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91",
-    },
+      main: "#8fcd91"
+    }
   },
   overrides: {
     // Style sheet name ⚛️
@@ -39,23 +39,25 @@ const theme = createMuiTheme({
       // Name of the rule
       label: {
         // Some CSS
-        align: "left",
-      },
-    },
-  },
+        align: "left"
+      }
+    }
+  }
 });
 
 function createData(findingType) {
-  return {
-    findingType,
-  };
+  return { findingType };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableSystem(props) {
+  const {findingTypeData} = props;
+  var data = [];
+  findingTypeData.map(m => data.push(createData(m.findingType))
+  )
+  return data;
+}
+
+var rows = []
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -82,13 +84,14 @@ function stableSort(array, comparator) {
   });
   return stabilizedThis.map((el) => el[0]);
 }
+
 const headCells = [
   {
     id: "findingType",
     numeric: false,
-    disablePadding: false,
-    label: "Finding Type",
-  },
+    disablePadding: true,
+    label: "Finding Type"
+  }
 ];
 
 function EnhancedTableHead(props) {
@@ -99,7 +102,7 @@ function EnhancedTableHead(props) {
     orderBy,
     numSelected,
     rowCount,
-    onRequestSort,
+    onRequestSort
   } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -149,24 +152,24 @@ EnhancedTableHead.propTypes = {
   onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired,
+  rowCount: PropTypes.number.isRequired
 };
 
 const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
+    paddingRight: theme.spacing(1)
   },
   higlight: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91",
+      main: "#7fcd91"
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91",
-    },
-  },
+      main: "#8fcd91"
+    }
+  }
   // highlight:
   //   theme.palette.type === "light"
   //     ? {
@@ -189,7 +192,7 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0,
+        [classes.highlight]: numSelected > 0
       })}
     >
       {numSelected > 0 ? (
@@ -231,30 +234,30 @@ const EnhancedTableToolbar = (props) => {
 };
 
 EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
+  numSelected: PropTypes.number.isRequired
 };
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
+    width: "100%"
   },
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91",
+      main: "#7fcd91"
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91",
-    },
+      main: "#8fcd91"
+    }
   },
   paper: {
     backgroundColor: "#4d4646",
     width: "100%",
-    marginBottom: theme.spacing(2),
+    marginBottom: theme.spacing(2)
   },
   table: {
-    minWidth: 750,
+    minWidth: 750
   },
   visuallyHidden: {
     border: 0,
@@ -265,14 +268,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     position: "absolute",
     top: 20,
-    width: 1,
-  },
+    width: 1
+  }
 }));
 
 export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("title");
+  const [orderBy, setOrderBy] = React.useState("findingType");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
@@ -286,19 +289,19 @@ export default function EnhancedTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.system);
+      const newSelecteds = rows.map((n) => n.findingType);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, system) => {
-    const selectedIndex = selected.indexOf(system);
+  const handleClick = (event, findingType) => {
+    const selectedIndex = selected.indexOf(findingType);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, system);
+      newSelected = newSelected.concat(selected, findingType);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -326,7 +329,7 @@ export default function EnhancedTable() {
     setDense(event.target.checked);
   };
 
-  const isSelected = (system) => selected.indexOf(system) !== -1;
+  const isSelected = (findingType) => selected.indexOf(findingType) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -353,20 +356,20 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.system);
+                    const isItemSelected = isSelected(row.findingType);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.system)}
+                        onClick={(event) => handleClick(event, row.findingType)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.system}
+                        key={row.findingType}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -381,11 +384,8 @@ export default function EnhancedTable() {
                           scope="row"
                           padding="none"
                         >
-                          {row.system}
+                          {row.findingType}
                         </TableCell>
-                        <TableCell align="right">{row.noOfTasks}</TableCell>
-                        <TableCell align="right">{row.noOfFindings}</TableCell>
-                        <TableCell align="right">{row.progress}</TableCell>
                       </TableRow>
                     );
                   })}
