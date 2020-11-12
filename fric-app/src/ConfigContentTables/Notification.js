@@ -53,9 +53,9 @@ function createData(duration, freq) {
 }
 
 function fillTableSystem(props) {
-  const {systemData} = props;
+  const {otificationData} = props;
   var data = [];
-  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  otificationData.map(m => data.push(createData(m.duration,m.freq))
   )
   return data;
 }
@@ -280,7 +280,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("duration");

@@ -54,9 +54,9 @@ function createData(conf, integ, avail) {
 }
 
 function fillTableSystem(props) {
-  const {systemData} = props;
+  const {findingImpactLevelData} = props;
   var data = [];
-  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  findingImpactLevelData.map(m => data.push(createData(m.conf, m.integ, m.avail))
   )
   return data;
 }
@@ -287,7 +287,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("conf");

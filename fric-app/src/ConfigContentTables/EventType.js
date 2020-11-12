@@ -52,9 +52,9 @@ function createData(eventType) {
 }
 
 function fillTableSystem(props) {
-  const {systemData} = props;
+  const { eventTypeData} = props;
   var data = [];
-  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  eventTypeData.map(m => data.push(createData(m.eventType))
   )
   return data;
 }
@@ -273,7 +273,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("eventType");

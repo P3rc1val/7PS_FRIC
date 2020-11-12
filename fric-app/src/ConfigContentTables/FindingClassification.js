@@ -52,9 +52,9 @@ function createData(findingClass) {
 }
 
 function fillTableSystem(props) {
-  const {systemData} = props;
+  const {findingClassificationData} = props;
   var data = [];
-  systemData.map(m => data.push(createData(m.systemName, m.numberTasks, m.numberFindings, m.progress))
+  findingClassificationData.map(m => data.push(createData(m.findingClass))
   )
   return data;
 }
@@ -273,7 +273,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("findingClass");
