@@ -22,7 +22,7 @@ const TableTabs = () => {
       <h1>Tables</h1>
       <Tabs>
         <div label="Finding Type">
-          <FindingType />
+          <FindingType  />
         </div>
         <div label="Posture ">
           <Posture />

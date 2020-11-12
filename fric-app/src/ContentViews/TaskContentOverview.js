@@ -33,7 +33,8 @@ class TaskContentView extends Component {
       <container>
         <rectRow>
           <rect3Column>
-            <TaskTable taskData = {this.state.data}
+            <TaskTable 
+              taskData = {this.state.data}
               getSystem = {this.getSystem}
               state = {this.state} />
           </rect3Column>

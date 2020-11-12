@@ -33,7 +33,7 @@ class SubtaskContentView extends Component {
       <container>
         <rectRow>
           <rect3Column>
-            <SubtaskTable subTask = {this.state.data}
+            <SubtaskTable subtaskData = {this.state.data}
               getSystem = {this.getSystem}
               state = {this.state} />
           </rect3Column>
