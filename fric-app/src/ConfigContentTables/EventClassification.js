@@ -59,7 +59,13 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData("Top secret"),
+  createData("Secret"),
+  createData("Confidential"),
+  createData("Classified"),
+  createData("Unclassified"),
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -357,7 +363,7 @@ export default function EnhancedTable(props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
+                {stableSort(/*fillTableSystem(props)*/ rows, getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.eventClass);
