@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import SystemDetails from "./SystemDetails";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-import SystemOptions from "../OptionMenus/SystemOptions.js";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -41,7 +37,8 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiTextField-root": {
       margin: theme.spacing(1),
       width: "25ch",
-    },
+	},
+	
     palette: {
       primary: {
         // Purple and green play nicely together.
@@ -51,8 +48,11 @@ const useStyles = makeStyles((theme) => ({
         // This is green.A700 as hex.
         main: "#8fcd91",
       },
-    },
+	},
   },
+	input: {
+	display: 'none',
+	},
 }));
 export function SubtaskDetailViewForm(props) {
 	const classes = useStyles();
@@ -68,7 +68,7 @@ export function SubtaskDetailViewForm(props) {
 	  <ThemeProvider theme={theme}>
 		<rect4>
 		  <rect7>
-			<eventDetailView>
+			<subtaskDetailView>
 			  <Typography variant="h5" color="secondary">
 			  Subtask Detailed View
 			  </Typography>
@@ -79,7 +79,7 @@ export function SubtaskDetailViewForm(props) {
 				method="POST"
 				onSubmit={saveEvent}
 			  >
-				<div>
+				<div classname={classes.root}>
   
 				  <TextField
 					size="small"
@@ -94,6 +94,18 @@ export function SubtaskDetailViewForm(props) {
 					variant="filled"
 				  />
 				  
+				  <TextField
+					size="small"
+					inputProps={{ style: { fontSize: 14 } }} // font size of input text
+					InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+					required
+					name="title"
+					onChange={handleChange}
+					id="filled-read-only-input"
+					label="Description"
+					defaultValue=""
+					variant="filled"
+				  />
 				  
 				  <TextField
 					size="small"
@@ -117,16 +129,13 @@ export function SubtaskDetailViewForm(props) {
 					id="date"
 					label="Due Date"
 					type="date"
-					defaultValue="2017-05-24"
+					defaultValue="YYYY-MM-DD"
 					className={classes.textField}
 					InputLabelProps={{
 					  shrink: true,
 					}}
 					variant="filled"
 				  />
-				  <Button variant="outlined" color="primary">
-					Submit
-				  </Button>
 				  
 				  <TextField
 					size="small"
@@ -188,23 +197,30 @@ export function SubtaskDetailViewForm(props) {
 				  <Typography variant="h6" color="secondary">
 				  Select files:
 				  </Typography>
-				  
-				  <Button
-					variant="contained"
-					color="primary"
-					className={classes.button}
+				
+				<input
+					accept="file/*"
+					className={classes.input}
+					id="contained-button-file"
+					multiple
+					type="file"
+				/>
+				<label htmlFor="contained-button-file">
+					<Button variant="contained" 
+					color="primary" 
+					component="span" 
 					startIcon={<AttachFileIcon />}
-				  >
+					>
 					Attachments
-				  </Button>
-				  <br></br>
-				  <br></br>
-				  <Button variant="outlined" color="primary">
-					Submit
-				  </Button>
+					</Button>
+				</label>
+				
+				<br></br>
+				<br></br>
+
 				</div>
 			  </form>
-			</eventDetailView>
+			</subtaskDetailView>
 		  </rect7>
 		</rect4>
 	  </ThemeProvider>
