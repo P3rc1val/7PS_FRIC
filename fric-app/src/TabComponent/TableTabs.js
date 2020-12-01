@@ -260,96 +260,75 @@ render() {
     <div>
       <h1>Tables</h1>
       <Tabs>
-        <div label="Finding Type">
-
-          <FindingType
-            findingTypeData = {this.state.data}
-            getFindingType = {this.getFindingType}
-            state = {this.state}
-            />
-
-        </div>
-        <div label="Posture ">
-          <Posture 
-            postureData = {this.state.data}
-            getPosture = {this.getPosture}
+        <div label="Event Tables">
+          <EventType 
+            eventTypeData = {this.state.data}
+            getEventType = {this.getEventType}
             state = {this.state}
           />
-        </div>
-        <div label="Threat Level">
-          <ThreatLevel 
-            threatLevelData = {this.state.data}
-            getThreatLevel = {this.getThreatLevel}
+          <EventRules 
+            eventRulesData = {this.state.data}
+            getEventRules = {this.getEventRules}
             state = {this.state}
           />
-        </div>
-        <div label="Impact">
-          <Impact 
-            impactData = {this.state.data}
-            getImpact = {this.getImpact}
-            state = {this.state}
-          />
-        </div>
-        <div label="Finding Classification">
-          <FindingClassification 
-            findingClassificationData = {this.state.data}
-            getFindingClassification = {this.getFindingClassification}
-            state = {this.state}
-          />
-        </div>
-        <div label="CounterMeasure">
-          <CounterMeasure 
-            counterMeasureData = {this.state.data}
-            getCounterMeasure = {this.getCounterMeasure}
-            state = {this.state}
-          />
-        </div>
-        <div label="Event Classification">
           <EventClassification 
             eventClassificationData = {this.state.data}
             getEventClassification = {this.getEventClassification}
             state = {this.state}
           />
         </div>
-        <div label="Level">
+        <div label="Finding Tables">
+
+          <FindingType
+            findingTypeData = {this.state.data}
+            getFindingType = {this.getFindingType}
+            state = {this.state}
+            />
+          <FindingClassification 
+            findingClassificationData = {this.state.data}
+            getFindingClassification = {this.getFindingClassification}
+            state = {this.state}
+            />
+          <FindingImpactLevel 
+            findingImpactLevelData = {this.state.data}
+            getFindingImpactLevel = {this.getFindingImpactLevel}
+            state = {this.state}
+            />
+        </div>
+        <div label="Level Tables">
           <Level 
             levelData = {this.state.data}
             getLevel = {this.getLevel}
             state = {this.state}
           />
-        </div>
-        <div label="Event Type">
-          <EventType 
-            eventTypeData = {this.state.data}
-            getEventType = {this.getEventType}
+          <Posture 
+            postureData = {this.state.data}
+            getPosture = {this.getPosture}
             state = {this.state}
           />
-        </div>
-        <div label="Finding Impact Level">
-          <FindingImpactLevel 
-            findingImpactLevelData = {this.state.data}
-            getFindingImpactLevel = {this.getFindingImpactLevel}
+          <ThreatLevel 
+            threatLevelData = {this.state.data}
+            getThreatLevel = {this.getThreatLevel}
             state = {this.state}
           />
-        </div>
-        <div label="Severity Category Code">
+          <Impact 
+            impactData = {this.state.data}
+            getImpact = {this.getImpact}
+            state = {this.state}
+          />
+          <CounterMeasure 
+            counterMeasureData = {this.state.data}
+            getCounterMeasure = {this.getCounterMeasure}
+            state = {this.state}
+          />
           <SeverityCatagoryCode 
             severityCategoryCodeData = {this.state.data}
             getSeverityCategoryCode = {this.getSeverityCategoryCode}
             state = {this.state}
           />
-        </div>
-        <div label="Progress">
           <Progress 
             progressData = {this.state.data}
             getProgress = {this.getProgress}
-            state = {this.state}
-          />
-        </div>
-        <div label="Event Rules">
-          <EventRules 
-            eventRulesData = {this.state.data}
-            getEventRules = {this.getEventRules}
             state = {this.state}
           />
         </div>
