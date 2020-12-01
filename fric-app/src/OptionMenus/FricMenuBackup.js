@@ -52,8 +52,8 @@ class FricMenu extends Component {
     super();
     this.state = {
       name: "React",
-      showGeneralView: true,
-      showEventView: false,
+      showGeneralView: false,
+      showEventView: true,
       showSystemView: false,
       showTaskView: false,
       showSubtaskView: false,
@@ -230,81 +230,7 @@ class FricMenu extends Component {
             {showSetupView && <SetupContentView />}
           </overviewContainer>
          
-          {/* <ThemeProvider theme={theme}>
-            <Rect>
-              <h2>
-                <FricMenuTitle>FRIC</FricMenuTitle>
-              </h2>
-              <Button
-                startIcon={<AccountTreeIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showEventView, "Event")}
-              >
-                <Event>Event</Event>
-              </Button>
-              <Button
-                startIcon={<ComputerIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSystemView, "System")}
-              >
-                <Systems>Systems</Systems>
-              </Button>
-              <Button
-                align
-                startIcon={<FormatListNumberedIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showTaskView, "Task")}
-              >
-                <Tasks>Tasks</Tasks>
-              </Button>
-              <Button
-                startIcon={<FormatListNumberedRtlIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSubtaskView, "Subtask")}
-              >
-                <Subtask>Subtask</Subtask>
-              </Button>
-              <Button
-                startIcon={<FolderSpecialIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showFindingView, "Finding")}
-              >
-                <Findings>Findings</Findings>
-              </Button>
-              <Button
-                startIcon={<ArchiveIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showArchiveView, "Archive")}
-              >
-                <Archive>Archive</Archive>
-              </Button>
-              <Button
-                startIcon={<PermDataSettingIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showConfigView, "Config")}
-              >
-                <Configuration>Config</Configuration>
-              </Button>
-              <Button
-                startIcon={<TuneIcon />}
-                variant="text"
-                color="primary"
-                onClick={() => this.hideView(showSetupView, "Setup")}
-              >
-                <Setup>Setup</Setup>
-              </Button>
-              <Button startIcon={<HelpIcon />} variant="text" color="primary">
-                <Help>Help</Help>
-              </Button>
-            </Rect>
-          </ThemeProvider> */}
+          
         </div>
       </window>
       </div>
@@ -319,62 +245,7 @@ const window = styled.div`
 const overviewContainer = styled.div`
 
 `;
-// const Rect = styled.div`
-//   width: 120px;
-//   height: 100vh;
 
-//   background-color: #4d4646;
-//   display: flex;
-//   align-items: flex-start;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   padding-bottom: 20px;
-//   position: absolute;
-// `;
-
-// const FricMenuTitle = styled.span`
-//   padding: 16px;
-//   font-style: normal;
-//   font-weight: 400;
-//   color: #7fcd91;
-//   justify-text: center;
-// `;
-
-// const Event = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Systems = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Tasks = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Subtask = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Findings = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Archive = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Configuration = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Setup = styled.div`
-//   color: #f5eaea;
-// `;
-
-// const Help = styled.div`
-//   color: #f5eaea;
-// `;
 render(<FricMenu />, document.getElementById("root"));
 export default FricMenu;
 

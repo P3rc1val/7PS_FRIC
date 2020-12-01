@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css";
+//import "../App.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import SystemDetails from "./SystemDetails";
@@ -13,6 +13,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
+import Button from "@material-ui/core/Button";
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -57,18 +58,11 @@ const useStyles = makeStyles((theme) => ({
 
 export function SetupViewForm(props) {
   const classes = useStyles();
-  const [eclass, setClass] = React.useState("");
-
-  //   const handleChange = (event) => {
-  //     setClass(event.target.value);
-  //   };
-  const { handleChange } = props;
-  const { createSystem } = props;
-
+  const { createSystem  } = props;
+  
   return (
     <ThemeProvider theme={theme}>
-
-          <setupInformation>
+          <setupInformation >
             <form
               className={classes.root}
               noValidate
@@ -80,20 +74,28 @@ export function SetupViewForm(props) {
                 Save
               </button> */}
               <br></br>
-              <TextField id="initial" label="Please Enter Your Initials" variant="filled" />
+              <TextField name = 'initials' id="initial" label="Please Enter Your Initials" variant="filled"  value={props.state.initials} onChange={props.handleINC}/>
                 <Typography variant="h5" color="secondary">
                 Please Select an Option
                 </Typography>
+                
 
                 <FormControl component="fieldset">
                     
                     <RadioGroup defaultValue="create" aria-label="gender" name="customized-radios">
-                        <FormControlLabel value="create" control={<Radio color="primary" />} label="Create a new event. Any existing event will be archived." />
-                        <FormControlLabel id = "firstSync" value="first" control={<Radio color="primary" />} label="First time sync with Lead Analyst. Please enter the lead analysts IP:" 
-                            
-                        />
-                        <TextField id="firstSync" label="Lead Analyst IP" variant="filled" />
+                        <FormControlLabel value="" control={<Radio  color= "primary"  onChange = {props.handleEUS}  />} label="Create a new event. Any existing event will be archived." />
+                        <FormControlLabel id = "firstSync" value="1" control={<Radio  color="primary" onChange = {props.handleEUS} />} label="First time sync with Lead Analyst. Please enter the lead analysts IP:" />
+                        <TextField name = 'ip' id="firstSync" label="Lead Analyst IP" value = {props.state.ip} variant="filled" onChange = {props.handleIPC}/>
                     </RadioGroup>
+                    <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={props.handleSubmit}
+
+                  
+                >
+                  Submit
+                </Button>
                 </FormControl>
             </form>
           </setupInformation>
@@ -102,42 +104,5 @@ export function SetupViewForm(props) {
   );
 }
 
-const Rect4 = styled.div`
-  width: 100%px;
-  height: 711px;
-  background-color: #e6e6e6;
-  border-radius: 2px;
-  flex-direction: column;
-  display: flex;
-  margin-left: 28px;
-  margin-top: 28px;
-  padding: 16px;
-`;
-
-const SetupDetailView = styled.span`
-  display: flex;
-  flex-direction: column;
-
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
-  overflow-x: hidden;
-  margin: 12 px;
-  height: 610px;
-  overflow: hidden;
-`;
-const Rect7 = styled.div`
-  width: 100%px;
-  height: 500px;
-  background-color: rgba(155, 155, 155, 1);
-  flex-direction: column;
-  display: flex;
-  margin-top: 10px;
-
-  margin-right: 5px;
-`;
 
 export default SetupViewForm;

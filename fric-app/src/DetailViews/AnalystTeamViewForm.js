@@ -81,7 +81,7 @@ export function DetailViewForm(props) {
               </button> */}
 
               <Typography variant="h4" color="secondary" width="300px">
-                Event Details
+                Event Team Information
               </Typography>
               <Box component="span" m={1}>
                 <ButtonGroup
@@ -90,24 +90,26 @@ export function DetailViewForm(props) {
                 >
                   <Button>Archive</Button>
                   <Button type="submit" name="save">
-                    Save
+                    Add
                   </Button>
                   <Button>Cancel</Button>
                 </ButtonGroup>
               </Box>
-              <div style = {{'justify-content':'start', }}>
+              <div style = {{'justify-content':'start', }}><leadbox style = {{"flex-direction":"row"}}>
                 <TextField
                   size="small"
                   inputProps={{ style: { fontSize: 14 } }} // font size of input text
                   InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
                   required
-                  name="eventName"
+                  name="Lead Analyst"
                   onChange={handleChange}
                   id="filled-read-only-input"
                   label="Event Name"
                   defaultValue=""
                   variant="filled"
                 />
+                <Button>AddIconHere</Button>
+                </leadbox>
                 <TextField
                   size="small"
                   inputProps={{ style: { fontSize: 14 } }} // font size of input text

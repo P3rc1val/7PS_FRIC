@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-//import "../App.css";
-import EventDetailViewForm from "./EventDetailViewForm.js";
-class EventDetails extends Component {
+import "../App.css";
+import DetailViewForm from "./AnalystTeamViewForm.js";
+class AnalystTeam extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,11 +21,11 @@ class EventDetails extends Component {
       myList: "",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.saveEvent = this.saveEvent.bind(this);
+    this.saveAnalyst = this.saveAnalyst.bind(this);
   }
-  async saveEvent(event) {
+  async saveAnalyst(event) {
     event.preventDefault();
-    await fetch("http://localhost:8080/createEvent", {
+    await fetch("http://localhost:8080/createAnal;yst", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(this.state),
@@ -42,7 +42,7 @@ class EventDetails extends Component {
     });
   }
   fetchEvent() {
-    fetch("http://localhost:8080/retrieveEvent")
+    fetch("http://localhost:8080/retrieveAnalyst")
     .then(response => response.json())
     .then(data => this.setState({
       data: data
@@ -52,12 +52,12 @@ class EventDetails extends Component {
 
   render() {
     return (
-      <EventDetailViewForm
-        saveEvent={this.saveEvent}
+      <DetailViewForm
+        saveAnalyst={this.saveAnalyst}
         handleChange={this.handleChange}
         state={this.state}
       />
     );
   }
 }
-export default EventDetails;
+export default AnalystTeam;
