@@ -59,11 +59,7 @@ function fillTableSystem(props) {
   return data;
 }
 
-const rows = [
-  createData("I"),
-  createData("II"),
-  createData("III"),
-];
+var rows = []
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -361,7 +357,7 @@ export default function EnhancedTable(props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(/*fillTableSystem(props)*/ rows, getComparator(order, orderBy))
+                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.scc);
