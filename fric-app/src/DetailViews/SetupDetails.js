@@ -69,6 +69,7 @@ class SetupDetails extends Component  {
             //handleLSC = {this.props.handleLSC}
             handleIPC = {this.props.handleIPC}
             handleSubmit = {this.props.handleSubmit}
+            handleEUS = {this.props.handleEUS}
             state = {this.props.state}
             //loginStateProps={this.props.loginStateProps}
             />

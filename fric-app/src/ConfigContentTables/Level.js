@@ -88,7 +88,13 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData(12, "Title1", "System1", "Task1", "Finding1", "Analyst1", "Open", "Vulnerability","Credentials Complexity", "Info"),
+  createData(23, "Title2", "System2", "Task2", "Finding2","Analyst2", "Closed", "Information", "Manufacturer Default Creds", "VL"),
+  createData(45, "Title3", "System3", "Task3", "Finding3","Analyst3", "Open", "Vulnerability", "Lack of Authentication", "VH"),
+  createData(67, "Title4", "System4", "Task4", "Finding4","Analyst4", "Closed", "Information", "Plain Text Protocols", "Info"),
+  createData(89, "Title5", "System5", "Task5", "Finding5","Analyst5", "Open", "Vulnerability", "Plain Text Web Login", "M"),
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

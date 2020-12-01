@@ -59,7 +59,11 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData("CVPA"),
+  createData("CVI"),
+  createData("VOF"),
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

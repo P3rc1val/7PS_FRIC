@@ -59,7 +59,13 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData("Confirmed"),
+  createData("Expected"),
+  createData("Anticipated"),
+  createData("Predicted"),
+  createData("Possible")
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

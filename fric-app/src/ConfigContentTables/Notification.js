@@ -60,7 +60,13 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData("1h","1:00 pm"),
+  createData("2h","2:00 pm"),
+  createData("3h","3:00 pm"),
+  createData("4h","4:00 pm"),
+  createData("5h","5:00 pm"),
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

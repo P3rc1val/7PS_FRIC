@@ -58,8 +58,14 @@ function fillTableSystem(props) {
   )
   return data;
 }
+const rows = [
+  createData("Top secret"),
+  createData("Secret"),
+  createData("Confidential"),
+  createData("Classified"),
+  createData("Unclassified"),
+];
 
-var rows = []
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {

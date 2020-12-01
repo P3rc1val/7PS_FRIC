@@ -27,7 +27,7 @@ MongoClient.connect(url, { useUnifiedTopology: true })
   .catch((error) => {
     console.error(error.message);
   });
-  
+
 //Events methods to post and get
 app.post("/createEvent", function (req, res) {
   db.collection("Events").insertOne(req.body, (err) => {
@@ -42,7 +42,7 @@ app.get('/retrieveEvent', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //Analyst methods to post and get
 app.post("/createAnalyst", function (req, res) {
@@ -58,7 +58,7 @@ app.get('/retrieveAnalyst', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //System methods to get and post
 app.post("/createSystem", function (req, res) {
@@ -74,7 +74,7 @@ app.get('/retrieveSystem', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //Tasks methods to get and post
 app.post("/createTask", function (req, res) {
@@ -90,7 +90,7 @@ app.get('/retrieveTask', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //Subtaks methods for post and get
 app.post("/createSubtask", function (req, res) {
@@ -106,7 +106,7 @@ app.get('/retrieveSubtask', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //Finding methods for post and get
 app.post("/createFinding", function (req, res) {
@@ -122,7 +122,7 @@ app.get('/retrieveFinding', (req, res) => {
       if (err) console.error(err);
       res.send(result);
   });
-})
+});
 
 //Post method for creating a log
 app.post("/createLog", function (req, res) {

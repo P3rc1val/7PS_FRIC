@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../App.css";
+//import "../App.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import SystemDetails from "./SystemDetails";
@@ -83,8 +83,8 @@ export function SetupViewForm(props) {
                 <FormControl component="fieldset">
                     
                     <RadioGroup defaultValue="create" aria-label="gender" name="customized-radios">
-                        <FormControlLabel value="create" control={<Radio color="primary" />} label="Create a new event. Any existing event will be archived." />
-                        <FormControlLabel id = "firstSync" value="first" control={<Radio color="primary" />} label="First time sync with Lead Analyst. Please enter the lead analysts IP:" />
+                        <FormControlLabel value="" control={<Radio  color= "primary"  onChange = {props.handleEUS}  />} label="Create a new event. Any existing event will be archived." />
+                        <FormControlLabel id = "firstSync" value="1" control={<Radio  color="primary" onChange = {props.handleEUS} />} label="First time sync with Lead Analyst. Please enter the lead analysts IP:" />
                         <TextField name = 'ip' id="firstSync" label="Lead Analyst IP" value = {props.state.ip} variant="filled" onChange = {props.handleIPC}/>
                     </RadioGroup>
                     <Button

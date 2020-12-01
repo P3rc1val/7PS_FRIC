@@ -26,12 +26,12 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91"
+      main: "#7fcd91",
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91"
-    }
+      main: "#8fcd91",
+    },
   },
   overrides: {
     // Style sheet name ⚛️
@@ -39,34 +39,28 @@ const theme = createMuiTheme({
       // Name of the rule
       label: {
         // Some CSS
-        align: "left"
-      }
-    }
-  }
+        align: "left",
+      },
+    },
+  },
 });
 
-function createData(conf, integ, avail) {
+function createData(initials) {
   return {
-    conf,
-    integ,
-    avail
+    initials
   };
 }
 
-function fillTableSystem(props) {
-  const {findingImpactLevelData} = props;
+function fillTableFindings(props) {
+  const {findingData} = props;
   var data = [];
-  findingImpactLevelData.map(m => data.push(createData(m.conf, m.integ, m.avail))
+  findingData.map(m => data.push(createData(m.initials))
   )
   return data;
 }
 
-const rows = [
-  createData("Low","Medium","High"),
-  createData("Medium","High","Medium"),
-  createData("High","High","Information"),
-  createData("Information","Low","Hight"),
-];
+var rows = []
+
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -94,23 +88,12 @@ function stableSort(array, comparator) {
 }
 const headCells = [
   {
-    id: "conf",
-    numeric: false,
-    disablePadding: true,
-    label: "Confidentiality"
-  },
-  {
-    id: "integ",
+    id: "initials",
     numeric: false,
     disablePadding: false,
-    label: "Integrity"
+    label: "INITIALS",
   },
-  {
-    id: "avail",
-    numeric: false,
-    disablePadding: false,
-    label: "Availability"
-  }
+  
 ];
 
 function EnhancedTableHead(props) {
@@ -121,7 +104,7 @@ function EnhancedTableHead(props) {
     orderBy,
     numSelected,
     rowCount,
-    onRequestSort
+    onRequestSort,
   } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
@@ -171,24 +154,24 @@ EnhancedTableHead.propTypes = {
   onSelectAllClick: PropTypes.func.isRequired,
   order: PropTypes.oneOf(["asc", "desc"]).isRequired,
   orderBy: PropTypes.string.isRequired,
-  rowCount: PropTypes.number.isRequired
+  rowCount: PropTypes.number.isRequired,
 };
 
 const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1)
+    paddingRight: theme.spacing(1),
   },
   higlight: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91"
+      main: "#7fcd91",
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91"
-    }
-  }
+      main: "#8fcd91",
+    },
+  },
   // highlight:
   //   theme.palette.type === "light"
   //     ? {
@@ -211,7 +194,7 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
       className={clsx(classes.root, {
-        [classes.highlight]: numSelected > 0
+        [classes.highlight]: numSelected > 0,
       })}
     >
       {numSelected > 0 ? (
@@ -231,7 +214,7 @@ const EnhancedTableToolbar = (props) => {
           component="div"
           color="primary"
         >
-          Finding Overview Table
+          System Table
         </Typography>
       )}
 
@@ -253,30 +236,30 @@ const EnhancedTableToolbar = (props) => {
 };
 
 EnhancedTableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired
+  numSelected: PropTypes.number.isRequired,
 };
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%"
+    width: "100%",
   },
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#7fcd91"
+      main: "#7fcd91",
     },
     secondary: {
       // This is green.A700 as hex.
-      main: "#8fcd91"
-    }
+      main: "#8fcd91",
+    },
   },
   paper: {
     backgroundColor: "#4d4646",
     width: "100%",
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   table: {
-    minWidth: 750
+    minWidth: 750,
   },
   visuallyHidden: {
     border: 0,
@@ -287,14 +270,14 @@ const useStyles = makeStyles((theme) => ({
     padding: 0,
     position: "absolute",
     top: 20,
-    width: 1
-  }
+    width: 1,
+  },
 }));
 
 export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("conf");
+  const [orderBy, setOrderBy] = React.useState("title");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
@@ -308,19 +291,19 @@ export default function EnhancedTable(props) {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.conf);
+      const newSelecteds = rows.map((n) => n.initials);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, conf) => {
-    const selectedIndex = selected.indexOf(conf);
+  const handleClick = (event, system) => {
+    const selectedIndex = selected.indexOf(system);
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, conf);
+      newSelected = newSelected.concat(selected, system);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -348,7 +331,7 @@ export default function EnhancedTable(props) {
     setDense(event.target.checked);
   };
 
-  const isSelected = (conf) => selected.indexOf(conf) !== -1;
+  const isSelected = (initials) => selected.indexOf(initials) !== -1;
 
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -375,20 +358,20 @@ export default function EnhancedTable(props) {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(fillTableSystem(props), getComparator(order, orderBy))
+                {stableSort(fillTableFindings(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
-                    const isItemSelected = isSelected(row.conf);
+                    const isItemSelected = isSelected(row.initials);
                     const labelId = `enhanced-table-checkbox-${index}`;
 
                     return (
                       <TableRow
                         hover
-                        onClick={(event) => handleClick(event, row.conf)}
+                        onClick={(event) => handleClick(event, row.initials)}
                         role="checkbox"
                         aria-checked={isItemSelected}
                         tabIndex={-1}
-                        key={row.conf}
+                        key={row.initials}
                         selected={isItemSelected}
                       >
                         <TableCell padding="checkbox">
@@ -402,14 +385,10 @@ export default function EnhancedTable(props) {
                           id={labelId}
                           scope="row"
                           padding="none"
-                          style={{ width: "25%" }}
                         >
-                          {row.conf}
+                          {row.initials}
                         </TableCell>
-                        <TableCell style={{ width: "25%" }}>
-                          {row.integ}
-                        </TableCell>
-                        <TableCell>{row.avail}</TableCell>
+                     
                       </TableRow>
                     );
                   })}

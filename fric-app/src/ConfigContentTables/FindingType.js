@@ -57,7 +57,13 @@ function fillTableSystem(props) {
   return data;
 }
 
-var rows = []
+const rows = [
+  createData("Credentials Complexity"),
+  createData("Manufacturer Default Creds"),
+  createData("Lack of Authentication"),
+  createData("Plain Text Protocols"),
+  createData("Plain Text Web Login")
+];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
