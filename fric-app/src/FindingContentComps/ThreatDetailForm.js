@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import SystemDetails from "./SystemDetails";
+
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import Typography from "@material-ui/core/Typography";
@@ -14,7 +14,6 @@ import Button from "@material-ui/core/Button";
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Box from "@material-ui/core/Box";
 import AttachFileIcon from '@material-ui/icons/AttachFile';
-
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -60,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function FindingDetailForm(props) {
+export function ThreatDetailForm(props) {
   const classes = useStyles();
   const [eclass, setClass] = React.useState("");
 
@@ -72,39 +71,32 @@ export function FindingDetailForm(props) {
 
   return (
     <ThemeProvider theme={theme}>
-
-          <systemInformation>
-            <form
-              className={classes.root}
-              noValidate
-              autoComplete="off"
-              method="POST"
-              onSubmit={createSystem}
-            >
-              {/* <button type="submit" name="save">
-                Save
-              </button> */}
-              <Typography variant="h6" color="secondary">
-                Finding 
+      <rect4>
+        <rect7>
+          <findingContent>
+            <form>
+            <Typography variant="h5" color="secondary">
+              Threat Relevance
               </Typography>
-              
-              <Box component="span" m={1} color="primary">
-                <ButtonGroup
-                  aria-label="outlined default button group"
-                  color="primary"
-                >
-                  <Button>Archive</Button>
-                  <Button type="submit" name="save">
-                    Save
-                  </Button>
-                  <Button>Cancel</Button>
-                </ButtonGroup>
-              </Box>
-              
-            </form>
-          </systemInformation>
 
+              <TextField
+              size="small"
+              inputProps={{ style: { fontSize: 14 } }} // font size of input text
+              InputLabelProps={{ style: { fontSize: 14 } }} // font size of input label
+              name="relevance"
+              onChange={handleChange}
+              id="threatRelevance"
+              select
+              label="Relevance"
+              className={classes.textField}
+              margin="normal"
+              variant="filled"
+              ></TextField>
+            </form>
+          </findingContent>
+        </rect7>
+      </rect4>
     </ThemeProvider>
   );
 }
-export default FindingDetailForm;
+export default ThreatDetailForm;

@@ -6,6 +6,9 @@ import FindingOptions from "../OptionMenus/FindingOptions.js";
 import FindingDetails from "../DetailViews/FindingDetails.js";
 import ReportOptions from "../OptionMenus/ReportOptions.js";
 import "../App.css";
+import FindingTabs from "../TabComponent/FindingTabs.js";
+import FindingOverview from "../ConfigContentTables/FindingOverview.js";
+import FindingType from "../ConfigContentTables/FindingType";
 class FindingContentView extends Component {
 
   constructor(props){
@@ -35,13 +38,19 @@ class FindingContentView extends Component {
       <container>
         <rectRow>
           <rect3Column>
-            <FindingTable 
-            findingData = {this.state.data}
-            getFinding = {this.getFinding}
+            
+            
+            <FindingTabs />
+          </rect3Column>
+          
+          <div label="Finding Type">
+          <FindingDetails />
+          <FindingType
+            findingTypeData = {this.state.data}
+            getFindingType = {this.getFindingType}
             state = {this.state}
             />
-          </rect3Column>
-          <FindingDetails />
+            </div>
         </rectRow>
       </container>
     );

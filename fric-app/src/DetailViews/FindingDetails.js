@@ -87,9 +87,7 @@ class FindingDetails extends Component {
     return (
       <ThemeProvider theme={theme}>
         <div>
-        <Typography variant="h3" color="secondary">
-                Setup Details
-              </Typography>
+        
           <Rect4>
             
             <FindingDetailForm
