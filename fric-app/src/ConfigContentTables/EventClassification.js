@@ -44,7 +44,7 @@ const theme = createMuiTheme({
     },
   },
 });
-
+  
 function createData(eventClass) {
   return {
     eventClass,
