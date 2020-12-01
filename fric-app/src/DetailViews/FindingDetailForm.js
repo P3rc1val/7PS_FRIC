@@ -84,11 +84,9 @@ export function FindingDetailForm(props) {
               {/* <button type="submit" name="save">
                 Save
               </button> */}
-              <Typography variant="h6" color="secondary">
-                Finding 
-              </Typography>
+              </form>
               
-              <Box component="span" m={1} color="primary">
+                <div>
                 <ButtonGroup
                   aria-label="outlined default button group"
                   color="primary"
@@ -99,9 +97,9 @@ export function FindingDetailForm(props) {
                   </Button>
                   <Button>Cancel</Button>
                 </ButtonGroup>
-              </Box>
+                </div>
               
-            </form>
+            
           </systemInformation>
 
     </ThemeProvider>

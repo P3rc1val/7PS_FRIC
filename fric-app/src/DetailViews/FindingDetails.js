@@ -88,15 +88,17 @@ class FindingDetails extends Component {
       <ThemeProvider theme={theme}>
         <div>
         
-          <Rect4>
-            
+
+        <Typography variant="h4" color="secondary" width="300px">
+                Finding Overview
+              </Typography>
             <FindingDetailForm
             createSystem={this.createSystem}
             handleChange={this.handleChange}
             state={this.state}
             />
             
-          </Rect4>
+
         </div>
       </ThemeProvider>
     );
@@ -147,33 +149,33 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const FindingInformation = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
+// const FindingInformation = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   font-style: normal;
+//   font-weight: 400;
+//   color: rgba(255, 255, 255, 1);
 
-  height: 50vh;
-  width: 110%;
-`;
+//   height: 50vh;
+//   width: 110%;
+// `;
 
-const FindingDetailView = styled.span`
-  display: flex;
-  flex-direction: column;
+// const FindingDetailView = styled.span`
+//   display: flex;
+//   flex-direction: column;
 
-  font-style: normal;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  margin-top: 12px;
-  margin-left: 12px;
-  margin-right: 12px;
-  overflow-x: hidden;
-  margin: 12 px;
-  height: 50vh;
-  overflow: hidden;
-`;
+//   font-style: normal;
+//   font-weight: 400;
+//   color: rgba(255, 255, 255, 1);
+//   margin-top: 12px;
+//   margin-left: 12px;
+//   margin-right: 12px;
+//   overflow-x: hidden;
+//   margin: 12 px;
+//   height: 50vh;
+//   overflow: hidden;
+// `;
 
 const Rect4 = styled.div`
   width: 100%px;
