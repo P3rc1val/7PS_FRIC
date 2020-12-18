@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled, { css } from "styled-components";
-import "../App.css";
+//import "../App.css";
 import EventDetailViewForm from "./EventDetailViewForm.js";
 class EventDetails extends Component {
   constructor(props) {
@@ -32,7 +32,15 @@ class EventDetails extends Component {
     });
     console.log(this.state);
   }
+  handleChange(system) {
+    const target = system.target;
+    const value = target.value;
+    const name = target.name;
 
+    this.setState({
+      [name]: value,
+    });
+  }
   fetchEvent() {
     fetch("http://localhost:8080/retrieveEvent")
     .then(response => response.json())

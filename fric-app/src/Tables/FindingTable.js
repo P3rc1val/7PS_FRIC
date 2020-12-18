@@ -45,20 +45,31 @@ const theme = createMuiTheme({
   },
 });
 
-function createData(system, noOfTasks, noOfFindings, progress) {
+function createData(id, title, system, task, subtask, analyst, status, classi, type, risk) {
   return {
-    system,
-    noOfTasks,
-    noOfFindings,
-    progress,
+    id, 
+    title,
+    system, 
+    task, 
+    subtask, 
+    analyst, 
+    status, 
+    classi,
+    type, 
+    risk
   };
 }
 
-const rows = [
-  createData("BobsFinding", 305, 3.7, 67),
-  createData("MariosFinding", 305, 3.7, 67),
-  createData("EricsFinding", 305, 3.7, 67),
-];
+function fillTableFindings(props) {
+  const {findingData} = props;
+  var data = [];
+  findingData.map(m => data.push(createData(m.id, m.title, m.system, m.task, m.subtask, m.analyst, m.status, m.classi,
+    m.type, m.risk))
+  )
+  return data;
+}
+
+var rows = []
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,24 +98,65 @@ function stableSort(array, comparator) {
 }
 const headCells = [
   {
+    id: "id",
+    numeric: false,
+    disablePadding: false,
+    label: "ID",
+  },
+  {
+    id: "title",
+    numeric: false,
+    disablePadding: false,
+    label: "Title",
+  },
+  {
     id: "system",
     numeric: false,
     disablePadding: false,
     label: "System",
   },
   {
-    id: "noOfTasks",
+    id: "task",
     numeric: true,
     disablePadding: false,
-    label: "# Tasks",
+    label: "Task",
   },
   {
-    id: "noOfFindings",
+    id: "subtask",
     numeric: true,
     disablePadding: false,
-    label: "# Finding",
+    label: "Subtask",
   },
-  { id: "progress", numeric: true, disablePadding: false, label: "Progress" },
+  {
+    id: "analyst",
+    numeric: true,
+    disablePadding: false,
+    label: "Analyst",
+  },
+  {
+    id: "status",
+    numeric: true,
+    disablePadding: false,
+    label: "Status",
+  },
+  {
+    id: "classi",
+    numeric: true,
+    disablePadding: false,
+    label: "Classification",
+  },
+  {
+    id: "type",
+    numeric: true,
+    disablePadding: false,
+    label: "Type",
+  },
+  {
+    id: "risk",
+    numeric: true,
+    disablePadding: false,
+    label: "Risk",
+  },
 ];
 
 function EnhancedTableHead(props) {
@@ -285,7 +337,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("title");
@@ -369,7 +421,7 @@ export default function EnhancedTable() {
                 rowCount={rows.length}
               />
               <TableBody>
-                {stableSort(rows, getComparator(order, orderBy))
+                {stableSort(fillTableFindings(props), getComparator(order, orderBy))
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row, index) => {
                     const isItemSelected = isSelected(row.system);

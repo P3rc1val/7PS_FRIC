@@ -14,7 +14,7 @@ class SystemContentView extends Component {
     super(props);
     this.state ={
       data: []
-    }
+    };
     this.getSystem = this.getSystem.bind(this);
   }
 
@@ -24,11 +24,10 @@ class SystemContentView extends Component {
     .then(response => response.json())
     .then(data => this.setState({
         data: data
-        //temp = data
     }))
     .catch(error => console.error(error))
   }
-  
+
   componentDidMount(){
       this.getSystem();
   }
@@ -38,10 +37,10 @@ class SystemContentView extends Component {
       <container>
         <rectRow>
           <rect3Column>
-            <button onClick = {this.getSystem}>I Hate Javascript</button>
             <SystemTable /*fetchSystem={this.fetchEvent} */
               systemData = {this.state.data}
               getSystem = {this.getSystem}
+              state = {this.state}
               />
           </rect3Column>
           <SystemDetails />

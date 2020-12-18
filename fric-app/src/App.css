@@ -49,7 +49,7 @@ titles {
 /*Content View Css    */
 container {
   display: flex;
-
+  margin: 50px;
   flex-direction: column;
 
   float: right;

@@ -44,16 +44,12 @@ class EventContentView extends Component {
 */
   render() {
     return (
-      <container>
+      
         <rectRow>
-          <rect3Column>
-            <EventTable /*fetchEvent={this.fetchEvent}*/ 
-            //eventData = {this.state.data}
-            />
-          </rect3Column>
+         
           <EventDetails />
         </rectRow>
-      </container>
+      
     );
   }
 }
